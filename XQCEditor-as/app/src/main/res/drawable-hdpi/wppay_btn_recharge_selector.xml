@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true">
+		<shape xmlns:android="http://schemas.android.com/apk/res/android">
+		    <!--<gradient android:startColor="#9f3838"  android:endColor="#bd4747"
+		                android:angle="90" />背景颜色渐变 -->
+			<solid android:color="#544125" /><!--背景的填充颜色 -->
+			<stroke android:width="0dp" android:color="#ff000000" /><!-- 描边，width是边得宽度，color是颜色 -->
+			<corners android:radius="3dp" /><!-- 边角圆弧的半径 -->
+			<padding 
+				android:left="24dp"
+				android:top="6dp" 
+				android:right="24dp"
+				android:bottom="6dp" /><!-- 四周留出来的空白 -->
+		</shape>
+	</item>
+	<item android:state_pressed="false">
+		<shape xmlns:android="http://schemas.android.com/apk/res/android">
+		    <!--<gradient android:startColor="#bd4747"  android:endColor="#9f3838"
+		                android:angle="90" />背景颜色渐变 -->
+			<solid android:color="#e98e01" /><!-- 背景的填充颜色 -->
+			<stroke android:width="0dp" android:color="#ff000000" /><!-- 描边，width是边得宽度，color是颜色 -->
+			<corners android:radius="3dp" /><!-- 边角圆弧的半径 -->
+			<padding 
+				android:left="24dp"
+				android:top="6dp" 
+				android:right="24dp"
+				android:bottom="6dp" /><!-- 四周留出来的空白 -->
+		</shape>
+	</item>
+</selector>

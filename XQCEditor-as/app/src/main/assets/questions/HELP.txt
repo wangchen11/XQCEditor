@@ -1,0 +1,16 @@
+一、如何制作题目
+    （1）将template复制一份命名为2.2
+	（2）修改_questions.txt里面的题目
+	（3）修改_base.txt里面的标题
+	（4）修改_answer.c里面的标准答案
+	（5）运行compileall.sh 生成答案。
+二、文件及用法
+	clean.sh       用来删除所有的ouput.txt
+	compile.sh     编译并生成一个题目
+	complieall.sh  编译并生成全部题目
+	mycompile.sh   编译并生成指定的题目
+	template       模板目录
+	template/_anwser.c   标准答案填在这里
+	template/_base.txt   标题填在这里
+	template/_question.txt  问题填在这里
+	template/input*.txt     样例输入填在这里

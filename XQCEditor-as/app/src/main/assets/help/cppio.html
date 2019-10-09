@@ -1,0 +1,95 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+  <TITLE>C++ I/O</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; C++ I/O
+</TD></TR></TABLE>
+
+<H3>C++ I/O</H3>
+
+<P>
+&lt;iostream&gt;<span lang="zh-cn">库自动定义了一些标准对象:</span></P>
+
+<UL>
+  <LI><STRONG>cout</STRONG>, ostream类的一个对象，可以将数据显示在标准输出设备上.
+  <LI><STRONG>cerr</STRONG>, ostream类的另一个对象，它无缓冲地向标准错误输出设备输出数据.
+  <LI><STRONG>clog</STRONG>, 类似<STRONG>cerr</STRONG>,但是它使用缓冲输出.
+  <LI><STRONG>cin</STRONG>, istream类的一个对象,它用于从标准输入设备读取数据.
+</UL>
+
+<P>
+&lt;fstream&gt;库允许编程人员利用<STRONG>ifstream</STRONG>和<STRONG>ofstream</STRONG>类进行文件输入和输出.
+</P>
+
+<P>
+一些C++ I/O流(精度，判断等)的行为可以通过操作不同的<a href="cppio_flags.html">标志</a>来修改。</P>
+
+<TABLE>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#Constructors" >Constructors</A></TD>
+<TD>构造器</TD></TR>
+<TR><TD><A HREF="cppio_details.html#bad" >bad()</A></TD>
+<TD>如果出现错误则返回true</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#clear" >clear()</A></TD>
+<TD>清除状态标志</TD></TR>
+<TR><TD><A HREF="cppio_details.html#close" >close()</A></TD>
+<TD>关闭一个流</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#eof" >eof()</A></TD>
+<TD>如果处于文件结尾处则返回true</TD></TR>
+<TR><TD><A HREF="cppio_details.html#fail" >fail()</A></TD>
+<TD>如果出现错误则返回true</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#fill" >fill()</A></TD>
+<TD>控制默认填充字符</TD></TR>
+<TR><TD><A HREF="cppio_details.html#flags" >flags()</A></TD>
+<TD>操作flags</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#flush" >flush()</A></TD>
+<TD>清空缓冲区</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#gcount" >gcount()</A></TD>
+<TD>返回读取的最后一次输入的字符数</TD></TR>
+<TR><TD><A HREF="cppio_details.html#get" >get()</A></TD>
+<TD>读取字符</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#getline" >getline()</A></TD>
+<TD>读取一行字符</TD></TR>
+<TR><TD><A HREF="cppio_details.html#good" >good()</A></TD>
+<TD>如果没有出现过错误则返回true</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#ignore" >ignore()</A></TD>
+<TD>读取字符并忽略指定字符</TD></TR>
+<TR><TD><A HREF="cppio_details.html#open" >open()</A></TD>
+<TD>创建一个输入流</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#peek" >peek()</A></TD>
+<TD>检查下一个输入的字符</TD></TR>
+<TR><TD><A HREF="cppio_details.html#precision" >precision()</A></TD>
+<TD>设置精度</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#put" >put()</A></TD>
+<TD>写字符</TD></TR>
+<TR><TD><A HREF="cppio_details.html#putback" >putback()</A></TD>
+<TD>返回字符给一个流</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#rdstate" >rdstate()</A></TD>
+<TD>返回流的状态</TD></TR>
+<TR><TD><A HREF="cppio_details.html#read" >read()</A></TD>
+<TD>读取字条符</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#seekg" >seekg()</A></TD>
+<TD>在一个输入流中进行随机访问</TD></TR>
+<TR><TD><A HREF="cppio_details.html#seekp" >seekp()</A></TD>
+<TD>在一个输出流中进行随机访问</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#setf" >setf()</A></TD>
+<TD>设置格式标志</TD></TR>
+<TR><TD><A HREF="cppio_details.html#sync_with_stdio" >sync_with_stdio()</A></TD>
+<TD>同标准I/O同步</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#tellg" >tellg()</A></TD>
+<TD>使用输入流读取流指针</TD></TR>
+<TR><TD><A HREF="cppio_details.html#tellp" >tellp()</A></TD>
+<TD>使用输出流读取流指针</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#unsetf" >unsetf()</A></TD>
+<TD>清除格式标志</TD></TR>
+<TR><TD><A HREF="cppio_details.html#width" >width()</A></TD>
+<TD>操作域宽度</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD><A HREF="cppio_details.html#write" >write()</A></TD>
+<TD>写字符</TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,5 @@
+mTitle:十字图形
+mPoint:1
+mDifficulty:1
+mTime:120
+mImages:

@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Bitsets</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppbitset.html">C++ Bitsets</A> -&gt;
+    详细资料
+</TD>
+</TR></TABLE>
+
+<H1>C++ Bitsets</H1>
+  
+<HR>
+<H2>
+   <A NAME="Constructors">Constructors</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF">
+<TR><TD><PRE>
+
+  bitset();
+  bitset( unsigned long val );
+</PRE></TD></TR></TABLE>
+<p>C++ Bitsets能以无参的形式创建，或者提供一个长无符号整数，它将被转化为二进制，然后插入到bitset中。当创建bitset时，模板中提供的数字决定bitset有多长。</p>
+<p>例如，以下代码创建两个bitsets，然后显示它们：
+<pre>
+  // 创建一个8位长的bitset
+  bitset<8> bs;
+
+  // 显示这个bitset
+  for( int i = (int) bs.size(); i >= 0; i-- ) {
+    cout << bs[i] << " ";
+  }
+  cout << endl;
+
+  // 创建另一个bitset
+  bitset<8> bs2( (long) 131 );
+
+  // 显示
+  for( int i = (int) bs2.size(); i >= 0; i-- ) {
+    cout << bs2[i] << " ";
+  }
+  cout << endl;
+</pre>
+</p>
+
+
+
+<HR>
+<H2>
+   <A NAME="Operators">Operators</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  !=, ==, &=, ^=, |=, ~, &lt;&lt;=, &gt;&gt;=, []
+</PRE></TD></TR></TABLE>
+<P>
+  这些操作符都可以和bitsets一起工作。它们被这样定义:
+<UL>
+  <LI>!= 返回真如果两个bitset不相等。
+  <LI>== 返回真如果两个bitset相等。
+  <LI>&= 完成两个bitset间的与运算。
+  <LI>^= 完成两个bitset间的异或运算。
+  <LI>|= 完成两个
+  <LI>~ 反置bitset (和调用 <a href="#flip">flip()</a>类似)
+  <LI>&lt;&lt;= 把bitset向左移动
+  <LI>&gt;&gt;= 把bitset向右移动 
+  <LI>[x] 返回第x个位的引用
+</UL>
+</P>
+<p> 例如，以下代码创建一个bitset，然后向左移动4个位：</p>
+<pre>
+  // 创建一个bitset
+  bitset<8> bs2( (long) 131 );
+
+  cout << "bs2 is " << bs2 << endl;
+
+  // 向左移动4位
+  bs2 <<= 4;
+
+  cout << "now bs2 is " << bs2 << endl;
+</pre>
+<p>当上述代码运行时，显示：</p>
+<pre>
+  bs2 is 10000011
+  now bs2 is 00110000
+</pre>
+
+<HR>
+<H2>
+   <A NAME="any">any</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool any();
+</PRE></TD></TR></TABLE>
+<P>
+  any()函数返回真如果有位被设置为1，否则返回假。</P>
+<HR>
+<H2>
+   <A NAME="count">count</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type count();
+</PRE></TD></TR></TABLE>
+<P>
+count()函数bitset中被设置成1的位的个数。</P>
+<HR>
+<H2>
+   <A NAME="flip">flip</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bitset<N> &flip();
+  bitset<N> &flip( size_t pos );
+</PRE></TD></TR></TABLE>
+<P>
+flip()函数反置bitset中所有的位，即将1设为0，0设为1。如果指定pos，那么只有pos上的位被反置。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#Operators">~ operator</A>
+  
+</STRONG>
+
+<HR>
+<H2>
+   <A NAME="none">none</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool none();
+</PRE></TD></TR></TABLE>
+<P>
+none()返回真如果没有位被设为1，否则返回假。</P>
+<HR>
+<H2>
+   <A NAME="reset">reset</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bitset<N> &reset();
+  bitset<N> &reset( size_t pos );
+</PRE></TD></TR></TABLE>
+<P>
+reset()重置bitset（全部设为0），如果指定pos，那么只有pos上的位被重置。</P>
+<HR>
+<H2>
+   <A NAME="set">set</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bitset<N> &set();
+  bitset<N> &set( size_t pos, int val=1 );
+</PRE></TD></TR></TABLE>
+<P>
+set()函数设置bitset上所有的位，然后返回bitset。如果指定pos，那么只有pos上的位被设置。</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_t size();
+</PRE></TD></TR></TABLE>
+<P>
+  size()返回bitset能容纳的位。</P>
+<H2>
+   <A NAME="test">test</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool test( size_t pos );
+</PRE></TD></TR></TABLE>
+<P>
+test()函数返回在pos上的位的值。</P>
+<HR>
+<H2>
+   <A NAME="to_string">to_string</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  string to_string();
+</PRE></TD></TR></TABLE>
+<P>
+to_string()函数返回bitset的字符串形式。</P>
+<HR>
+<H2>
+   <A NAME="to_ulong">to_ulong</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  unsigned long to_ulong();
+</PRE></TD></TR></TABLE>
+<P>
+to_ulong()返回bitset的无符号长整数形式。</P>
+</BODY>
+</HTML>

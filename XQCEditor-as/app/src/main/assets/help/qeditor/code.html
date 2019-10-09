@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+ code
+</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+<link rel="stylesheet" href="vs.css"> <script src="highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<font color="#ff0000"><i>/*字符处理相关*/</i></font>
+<hr/>
+<pre><code class="c">
+/**
+ * 测量文本宽度
+ */
+float measureTextEx(jstring string,int start,int end);
+
+/**
+ * 测量文本宽度
+ */
+float measureText(jstring string);
+
+/**
+ * 用于编辑框回调的指针接口
+ * string : 文本内容，需要通过deleteJString释放。
+ * cur : 当前光标位置
+ */
+typedef void (*EditTextCallback) ( jstring string,int cur );
+
+/**
+ * 请求编辑文字
+ * string : 文本内容
+ * cur : 当前光标位置
+ * onSure : 按下确定键的回调
+ * onCancle : 按下取消键的回调
+ */
+int requestEditText(jstring title,jstring string,int cur,EditTextCallback onSure,EditTextCallback onCancel);
+
+/**
+ * 显示一个提示
+ * string : 要显示的文本
+ * time: 0:短暂 1:长
+ */
+void showToast(jstring string,int time);
+
+void showToastText(const char *text,int time);
+
+/**
+ * 创建java字符串
+ * 返回值需要通过deleteJString释放
+ */
+jstring createJString(const char* text);
+
+/**
+ * 删除java字符串
+ */
+void deleteJString(jstring string);
+
+/**
+ * 得到java字符串长度
+ */
+int lengthOfJString(jstring string);
+
+/**
+ * 得到JString的拷贝，返回的内存需要使用free函数释放。
+ */
+char * getJStringChars(jstring string);
+
+</code>
+</pre>
+
+</body>
+</html>

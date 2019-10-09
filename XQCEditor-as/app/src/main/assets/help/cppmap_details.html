@@ -1,0 +1,239 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Maps</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppmap.html">C++ Maps</A> -&gt;
+    详细资料</TD>
+</TR></TABLE>
+
+<H1>C++ Maps</H1>
+<P>
+  C++ Maps 被用作储存“关键字/值”对 </P>
+<HR>
+<H2>
+   <A NAME="begin">begin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE></TD></TR></TABLE>
+<P>
+  begin()函数返回一个<A HREF="iterators.html">迭代器</A>指向map的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="clear">clear</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void clear();
+</PRE></TD></TR></TABLE>
+<P>
+clear()函数删除map中的所有元素。</P>
+<HR>
+<H2>
+   <A NAME="count">count</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type count( const <A HREF="containers.html">KEY_TYPE</A> &key );
+</PRE></TD></TR></TABLE>
+<P>
+count()函数返回map中键值等于key的元素的个数。</P>
+<HR>
+<H2>
+   <A NAME="empty">empty</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+empty()函数返回真(true)如果map为空，否则返回假(false)。</P>
+<HR>
+<H2>
+   <A NAME="end">end</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE></TD></TR></TABLE>
+<P>
+  end()函数返回一个<A HREF="iterators.html">迭代器</A>指向map的尾部。</P>
+<HR>
+<H2>
+   <A NAME="equal_range">equal_range</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  pair<iterator, iterator> equal_range( const <A HREF="containers.html">KEY_TYPE</A> &key );
+</PRE></TD></TR></TABLE>
+<P>
+  equal_range()函数返回两个迭代器——一个指向第一个键值为key的元素，另一个指向最后一个键值为key的元素。</P>
+<HR>
+<H2>
+   <A NAME="erase">erase</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void erase( <A HREF="iterators.html">iterator</A> pos );
+  void erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+  size_type erase( const <A HREF="containers.html">KEY_TYPE</A> &key );
+</PRE></TD></TR></TABLE>
+<P>
+  erase()函数删除在pos位置的元素，或者删除在start和end之间的元素，或者删除那些值为key的所有元素。</P>
+<HR>
+<H2>
+   <A NAME="find">find</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> find( const <A HREF="containers.html">KEY_TYPE</A> &key );
+</PRE></TD></TR></TABLE>
+<P>
+  find()函数返回一个<A HREF="iterators.html">迭代器</A>指向键值为key的元素，如果没找到就返回指向map尾部的<A HREF="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="get_allocator">get_allocator</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  allocator_type get_allocator();
+</PRE></TD></TR></TABLE>
+<P>
+  get_allocator()函数返回map的配置器。</P>
+<HR>
+<H2>
+   <A NAME="insert">insert</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> pos, const pair&lt;<A HREF="containers.html">KEY_TYPE</A>,<A HREF="containers.html">VALUE_TYPE</A>&gt; &val );
+  void insert( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+  pair&lt;iterator, bool&gt; insert( const pair&lt;<A HREF="containers.html">KEY_TYPE</A>,<A
+  HREF="containers.html">VALUE_TYPE</A>&gt; &val );
+</PRE></TD></TR></TABLE>
+<P>
+  insert()函数：
+<UL>
+    <LI>插入val到pos的后面，然后返回一个指向这个元素的<A HREF="iterators.html">迭代器</A>。
+  <LI>插入start到end的元素到map中。    
+    <LI>只有在val不存在时插入val。返回值是一个指向被插入元素的<A HREF="iterators.html">迭代器</A>和一个描述是否插入的bool值。
+</UL>
+  
+</P>
+<HR>
+<H2>
+   <A NAME="key_comp">key_comp</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  key_compare key_comp();
+</PRE></TD></TR></TABLE>
+<P>
+  key_comp()函数返回一个比较key的函数。</P>
+<HR>
+<H2>
+   <A NAME="lower_bound">lower_bound</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> lower_bound( const <A HREF="containers.html">KEY_TYPE</A> &key );
+</PRE></TD></TR></TABLE>
+<P>
+  lower_bound()函数返回一个<A HREF="iterators.html">迭代器</A>，指向map中键值&gt;=key的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="max_size">max_size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type max_size();
+</PRE></TD></TR></TABLE>
+<P>
+max_size()函数返回map能够保存的最大元素个数。</P>
+<HR>
+<H2>
+   <A NAME="rbegin">rbegin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE></TD></TR></TABLE>
+<P>
+  rbegin()函数返回一个指向map尾部的逆向<A HREF="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="rend">rend</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE></TD></TR></TABLE>
+<P>
+  rend()函数返回一个指向map头部的逆向<A HREF="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>
+size()函数返回map中保存的元素个数。</P>
+<HR>
+<H2>
+   <A NAME="swap">swap</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void swap( map<Key,T,Comp,Allocator> &obj );
+</PRE></TD></TR></TABLE>
+<P>
+swap()交换obj和现map中的元素。</P>
+<HR>
+<H2>
+   <A NAME="upper_bound">upper_bound</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> upper_bound( const <A HREF="containers.html">KEY_TYPE</A> &key );
+</PRE></TD></TR></TABLE>
+<P>
+upper_bound()函数返回一个<A HREF="iterators.html">迭代器</A>，指向map中键值&gt;key的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="value_comp">value_comp</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  value_compare value_comp();
+</PRE></TD></TR></TABLE>
+<P>
+value_comp()函数返回一个比较元素value的函数。</P>
+</BODY>
+</HTML>

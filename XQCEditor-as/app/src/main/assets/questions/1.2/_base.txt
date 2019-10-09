@@ -1,0 +1,5 @@
+mTitle:序列求和
+mPoint:1
+mDifficulty:1
+mTime:120
+mImages:

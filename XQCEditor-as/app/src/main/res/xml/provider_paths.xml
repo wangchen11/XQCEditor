@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external_files" path="."/>
+    <external-path
+        name="files_root"
+        path="Android/data/person.wangchen11.xqceditor/" />
+    <external-path
+        name="external_storage_root"
+        path="." />
+</paths>

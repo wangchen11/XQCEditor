@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Containers</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; Containers（容器）
+</TD></TR></TABLE>
+
+<H1>C++ Containers（容器）</H1>
+
+C++ 容器 (如vectors(向量), lists(链表), 等.) 是一种能够容纳不同类型数据的通用容器.  例如, 下面的代码常见一个能够容纳int类型数据的 <A HREF="cppvector_details.html">vector</A> 
+:
+
+<PRE>
+vector&lt;int&gt; v;
+</PRE>
+
+只要容器中的对象能够满足如下条件，C++容器既能够容纳C++内建的类型对象 (像上面例子中的 <STRONG>int</STRONG>
+类型) 也能够自定义的对象:
+
+<UL>
+  <LI> 对象必须有默认构造函数,
+  <LI> 有一个可访问的析构函数, 并且
+  <LI> 有一个可访问的赋值操作符重载函数(operator=).
+</UL>
+
+当我们在本文档中描述各种容器的功能的时候, 
+我们用 <STRONG>TYPE</STRONG> 来表示容器所包含的数据的类型.  例如, 在上面例子中,
+<STRONG>TYPE</STRONG> 表示 <STRONG>int</STRONG>.
+
+</BODY>
+</HTML>

@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_ground"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="${relativePackage}.${activityClass}" >
+	<RelativeLayout 
+        android:background="#f4f4f4"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    >
+	<RelativeLayout 
+    	android:id="@+id/editor_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    >
+
+    <LinearLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#a0a0f0"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/windows_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/editor_button_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/more" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/window"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/titleBar" >
+
+    </FrameLayout>
+	</RelativeLayout>
+	</RelativeLayout>
+</RelativeLayout>

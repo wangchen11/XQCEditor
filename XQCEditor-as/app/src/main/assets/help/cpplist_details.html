@@ -1,0 +1,423 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Lists</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cpplist.html">C++ Lists(链表)</A> -&gt;
+    详细资料</TD>
+</TR></TABLE>
+
+<H1>C++ Lists(链表)</H1>
+  
+<HR>
+<H2>
+   <A NAME="assign">赋值(assign)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void assign( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+  void assign( size_type num, const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  assign()函数以迭代器start和end指示的范围为list赋值或者为list赋值num个以val为值的元素。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#insert">insert()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="back">back</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference back();
+</PRE></TD></TR></TABLE>
+<P>
+  back()函数返回一个引用，指向list的最后一个元素。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#front">front()</A>, 
+<A HREF="#pop_back">pop_back()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="begin">begin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE></TD></TR></TABLE>
+<P>
+  begin()函数返回一个<A HREF="iterators.html">迭代器</A>，指向list的第一个元素。例如，
+<PRE>
+    // 创建一个元素类型是字符的链表
+    list&lt;char&gt; charList;
+    for( int i=0; i < 10; i++ )
+      charList.push_front( i + 65 );
+
+    // 显示这个链表
+    list&lt;char&gt;::iterator theIterator;
+    for( theIterator = charList.begin(); theIterator != charList.end(); theIterator++ )
+      cout << *theIterator;
+</PRE>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#end">end()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="clear">clear</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void clear();
+</PRE></TD></TR></TABLE>
+<P>
+  clear()函数删除list的所有元素。</P>
+<HR>
+<H2>
+   <A NAME="empty">empty</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+  empty()函数返回真(true)如果链表为空，否则返回假。例如：</P>
+<PRE>
+    list&lt;int&gt; the_list;
+    for( int i = 0; i < 10; i++ )
+      the_list.push_back( i );  
+    while( !the_list.empty() ) {
+      cout << the_list.front() << endl;
+      the_list.pop_front();
+    }
+    
+    
+</PRE>
+<HR>
+<H2>
+   <A NAME="end">end</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE></TD></TR></TABLE>
+<P>
+  end()函数返回一个<A HREF="iterators.html">迭代器</A>，指向链表的末尾。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#begin">begin()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="erase">erase</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> pos );
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  erase()函数删除以pos指示位置的元素, 或者删除<I>start</I>和<I>end</I>之间的元素。  返回值是一个<A HREF="iterators.html">迭代器</A>，指向最后一个被删除元素的下一个元素。</P>
+<HR>
+<H2>
+   <A NAME="front">front</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference front();
+</PRE></TD></TR></TABLE>
+<P>
+front()函数返回一个引用，指向链表的第一个元素。</P>
+<PRE>
+    list&lt;int&gt; the_list;
+    for( int i = 0; i < 10; i++ )
+      the_list.push_back( i );  
+    while( !the_list.empty() ) {
+      cout << the_list.front() << endl;
+      the_list.pop_front();
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#back">back()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="get_allocator">get_allocator</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  allocator_type get_allocator();
+</PRE></TD></TR></TABLE>
+<P>
+get_allocator()函数返回链表的配置器。</P>
+<HR>
+<H2>
+   <A NAME="insert">insert</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> pos, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">iterator</A> pos, size_type num, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">iterator</A> pos, <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  insert()插入元素val到位置pos，或者插入num个元素val到pos之前，或者插入start到end之间的元素到pos的位置。返回值是一个<A HREF="iterators.html">迭代器</A>，指向被插入的元素。 </P>
+<HR>
+<H2>
+   <A NAME="max_size">max_size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type max_size();
+</PRE></TD></TR></TABLE>
+<P>
+  max_size()函数返回链表能够储存的元素数目。</P>
+<HR>
+<H2>
+   <A NAME="merge">merge</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void merge( list &lst );
+  void merge( list &lst, Comp compfunction );
+</PRE></TD></TR></TABLE>
+<P>
+  merge()函数把自己和lst链表连接在一起，<I></I>产生一个整齐排列的组合链表。如果指定compfunction，则将指定函数作为比较的依据。</P>
+<HR>
+<H2>
+   <A NAME="pop_back">pop_back</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void pop_back();
+</PRE></TD></TR></TABLE>
+<P>
+pop_back()函数删除链表的最后一个元素。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#pop_front">pop_front()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="pop_front">pop_front</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF">
+<TR><TD><PRE>
+
+  void pop_front();
+</PRE></TD></TR></TABLE>
+<P>pop_front()函数删除链表的第一个元素。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#pop_back">pop_back()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="push_back">push_back</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push_back( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+push_back()将val连接到链表的最后。例如：</P>
+<PRE>
+    list&lt;int&gt; the_list;
+    for( int i = 0; i < 10; i++ )
+      the_list.push_back( i );
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#push_front">push_front()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="push_front">push_front</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push_front( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  push_front()函数将val连接到链表的头部。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#push_back">push_back()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="rbegin">rbegin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE></TD></TR></TABLE>
+<P>
+  rbegin()函数返回一个逆向<A HREF="iterators.html">迭代器</A>，指向链表的末尾。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#rend">rend()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="remove">remove</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void remove( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  remove()函数删除链表中所有值为val的元素。例如
+<PRE>
+    // 创建一个链表，元素是字母表的前10个元素
+    list&lt;char&gt; charList;
+    for( int i=0; i < 10; i++ )
+      charList.push_front( i + 65 );
+
+    // 删除所有'E'的实例
+    charList.remove( 'E' );
+  </PRE>
+</P>
+<HR>
+<H2>
+   <A NAME="remove_if">remove_if</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void remove_if( UnPred pr );
+</PRE></TD></TR></TABLE>
+<P>
+  remove_if()以一元谓词pr为判断元素的依据，遍历整个链表。如果pr返回true则删除该元素。</P>
+<HR>
+<H2>
+   <A NAME="rend">rend</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE></TD></TR></TABLE>
+<P>rend()函数<A HREF="iterators.html">迭代器</A>指向链表的头部。</P>
+<HR>
+<H2>
+   <A NAME="resize">resize</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void resize( size_type num, <A HREF="containers.html">TYPE</A> val );
+</PRE></TD></TR></TABLE>
+<P>
+  resize()函数把list的大小改变到<I>num</I>。被加入的多余的元素都被赋值为val</P>
+<HR>
+<H2>
+   <A NAME="reverse">reverse</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void reverse();
+</PRE></TD></TR></TABLE>
+<P>
+  reverse()函数把list所有元素倒转。</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>
+  size()函数返回list中元素的数量。</P>
+<HR>
+<H2>
+   <A NAME="sort">排序(sort)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void sort();
+  void sort( Comp compfunction );
+</PRE></TD></TR></TABLE>
+<P>
+  sort()函数为链表排序，默认是升序。如果指定compfunction的话，就采用指定函数来判定两个元素的大小。</P>
+<HR>
+<H2>
+   <A NAME="splice">splice</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void splice( <A HREF="iterators.html">iterator</A> pos, list<T,Allocator> &lst );
+  void splice( <A HREF="iterators.html">iterator</A> pos, list<T,Allocator> &lst, <A HREF="iterators.html">iterator</A> del );
+  void splice( <A HREF="iterators.html">iterator</A> pos, list<T,Allocator> &lst, <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  splice()函数把lst连接到pos的位置。如果指定其他参数，则插入lst中del所指元素到现链表的pos上，或者用start和end指定范围。
+  
+</P>
+<HR>
+<H2>
+   <A NAME="swap">swap</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void swap( list &lst );
+</PRE></TD></TR></TABLE>
+<P>
+  swap()函数交换lst和现链表中的元素。</P>
+<HR>
+<H2>
+   <A NAME="unique">unique</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void unique();
+  void unique( BinPred pr );
+</PRE></TD></TR></TABLE>
+<P>
+unique()函数删除链表中所有重复的元素。如果指定pr，则使用pr来判定是否删除。</P>
+</BODY>
+</HTML>

@@ -1,0 +1,530 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Standard C String &amp; Character</title>
+</head>
+
+<body>
+
+<div class="Section1" style="LAYOUT-GRID:  15.6pt none">
+  <table style="mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">
+			<a href="stdstring_details.html#atof">atof()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符串转换成浮点数</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#atoi">atoi()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符串转换成整数</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#atol">atol()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符串转换成长整型数</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isalnum">isalnum()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当字母或数字字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isalpha">isalpha()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当字母字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#iscntrl">iscntrl()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当控制字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isdigit">isdigit()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当数字字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isgraph">isgraph()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当非空格可打印字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#islower">islower()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当小写字母字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isprint">isprint()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当可打印字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#ispunct">ispunct()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当标点字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isspace">isspace()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当空格字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isupper">isupper()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当大写字母字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#isxdigit">isxdigit()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">当十六进制字符时</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回真值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#memchr">memchr()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">在某一内存范围中查找一特定字符</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#memcmp">memcmp()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">比较内存内容</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#memcpy">memcpy()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">拷贝内存内容</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#memmove">memmove()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">拷贝内存内容</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#memset">memset()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将一段内存空间填入某值</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strcat">strcat()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">连接两个字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strchr">strchr()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">查找某字符在字符串中首次出现的位置</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strcmp">strcmp()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">比较两个字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strcoll">strcoll()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">采用目前区域的字符排列次序来比较字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strcpy">strcpy()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">拷贝字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strcspn">strcspn()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">在某字符串中匹配指定字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strerror">strerror()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回错误码对应的文本信息</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strlen">strlen()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回指定字符串的长度</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strncat">strncat()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">连接某一长度的两个字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strncmp">strncmp()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">比较某一长度的两个字符串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strncpy">strncpy()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">复制某一长度的一个字符串到另一字符串中</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strpbrk">strpbrk()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">查找某字符串在另一字符串中首次出现的位置</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strrchr">strrchr()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">查找某字符在字符串中末次出现的位置</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strspn">strspn()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回子串的长度，子串的字符都出现包含于另一字符串中</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strstr">strstr()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">在一字符串中查找指定的子串首次出现的位置</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strtod">strtod()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符串转换成浮点数</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strtok">strtok()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">查找指定字符之前的子串</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strtol">strtol()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符串转换成长整型数</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strtoul">strtoul()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符串转换成无符号长整型数</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#strxfrm">strxfrm()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">转换子串</span><span lang="EN-US">, 
+          </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">可以用于字符串比较</span><span style="mso-spacerun: yes" lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          </span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#tolower">tolower()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符转换成小写字符</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="stdstring_details.html#toupper">toupper()</a></span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; BACKGROUND: #eeeeff; PADDING-BOTTOM: 0.75pt; WIDTH: 318.35pt; PADDING-TOP: 0.75pt" width="424">
+          <p class="MsoNormal"><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">将字符转换成大写字符</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="MsoNormal"><span lang="EN-US">&nbsp;<o:p>
+  </o:p>
+  </span></p>
+</div>
+
+</body>
+
+</html>

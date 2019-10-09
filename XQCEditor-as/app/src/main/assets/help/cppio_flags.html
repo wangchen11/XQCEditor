@@ -1,0 +1,128 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+  <TITLE>C++ I/O Flags</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; C++ I/O Flags
+</TD></TR></TABLE>
+
+<H1>C++ I/O 标志</H1>
+
+<P>
+C++为标准输入和输出定义了一些格式标志, 它可以通过<A HREF="cppio_details.html#flags">flags()</A>, <A HREF="cppio_details.html#setf">setf()</A>, 
+和
+<A HREF="cppio_details.html#unsetf">unsetf()</A> 三个函数来控制.  例如,
+</P>
+
+<PRE>
+    cout.setf(ios::left);
+</PRE>
+
+<P>
+对所有指向<STRONG>cout</STRONG>的输出进行左对齐调整.
+</P>
+
+
+<TABLE ALIGN="CENTER">
+  <TR><TH>标志</TH><TH>功能</TH></TR>
+  <TR BGCOLOR="EEEEFF"><TD>boolalpha</TD><TD>可以使用单词&quot;true&quot;和&quot;false&quot;进行输入/输出的布尔值.</TD></TR>
+  <TR><TD>dec</TD><TD>用十进制格式显示后面的数值.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>fixed</TD><TD>用正常的记数方法显示浮点数(与科学计数法相对应).</TD></TR>
+  <TR><TD>hex</TD><TD>用十六进制格式显示后面的数值.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>internal</TD><TD><span lang="zh-cn">将填充字符回到符号和数值之间</span>.</TD></TR>
+  <TR><TD>left</TD><TD>输出调整为左对齐.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>oct</TD><TD>用八进制格式显示后面的数值.</TD></TR>
+  <TR><TD>right</TD><TD>输出调整为右对齐.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>scientific</TD><TD>用科学记数法显示浮点数.</TD></TR>
+  <TR><TD>showbase</TD><TD>输出时显示所有数值的基数.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>showpoint</TD><TD>显示小数点和额外的零，即使不需要.</TD></TR>
+  <TR><TD>showpos</TD><TD>在非负数值前面显示&quot;＋&quot;.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>skipws</TD><TD>当从一个流进行读取时，跳过空白字符(spaces, tabs, newlines).</TD></TR>
+  <TR><TD>unitbuf</TD><TD>在每次插入以后，清空缓冲区.</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>uppercase</TD><TD>以大写的形式显示科学记数法中的&quot;e&quot;和十六进制格式的&quot;x&quot;.</TD></TR>
+</TABLE>
+
+<P>
+也可以通过使用下面的操作符，不直接操作标志。大多数的编程人员都都熟悉<STRONG>endl</STRONG>操作符，它给我们一个使用操作符的启示。例如：当我们设置<I>dec</I>标志时, 
+我们可以使用下面的命令:</P>
+<PRE>
+  cout << dec;
+</PRE>
+
+<TABLE ALIGN="CENTER" width="428">   
+  <TR><TH COLSPAN="4">&lt;iostream&gt;中定义的操作符</TH></TR>
+  <TR><TH width="88">操作符</TH><TH width="241">描述</TH><TH width="34">输入</TH>
+	<TH width="47">输出</TH></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">boolalpha</TD><TD width="241">启用boolalpha标志</TD>
+	<TD width="34">X</TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">dec</TD><TD width="241">启用dec标志</TD><TD width="34">X</TD>
+	<TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">endl</TD><TD width="241">输出换行标示，并清空缓冲区</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">ends</TD><TD width="241">输出空字符</TD><TD width="34"></TD>
+	<TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">fixed</TD><TD width="241">启用fixed标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">flush</TD><TD width="241">清空流</TD><TD width="34"></TD>
+	<TD width="47">X</TR></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">hex</TD><TD width="241">启用 hex 标志</TD>
+	<TD width="34">X</TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">internal</TD><TD width="241">启用 internal 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">left</TD><TD width="241">启用 left 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">noboolalpha</TD><TD width="241">关闭boolalpha 标志</TD>
+	<TD width="34">X</TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">noshowbase</TD><TD width="241">关闭showbase 
+	标志</TD><TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">noshowpoint</TD><TD width="241">关闭showpoint 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">noshowpos</TD><TD width="241">关闭showpos 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">noskipws</TD><TD width="241">关闭skipws 标志</TD>
+	<TD width="34">X</TD><TD width="47"></TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">nounitbuf</TD><TD width="241">关闭unitbuf 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">nouppercase</TD><TD width="241">关闭uppercase 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">oct</TD><TD width="241">启用 oct 标志</TD>
+	<TD width="34">X</TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">right</TD><TD width="241">启用 right 标志</TD><TD width="34"></TD>
+	<TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">scientific</TD><TD width="241">启用 
+	scientific 标志</TD><TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">showbase</TD><TD width="241">启用 showbase 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">showpoint</TD><TD width="241">启用 showpoint 
+	标志</TD><TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">showpos</TD><TD width="241">启用 showpos 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">skipws</TD><TD width="241">启用 skipws 标志</TD>
+	<TD width="34">X</TD><TD width="47"></TD></TR>
+  <TR><TD width="88">unitbuf</TD><TD width="241">启用 unitbuf 标志</TD>
+	<TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD width="88">uppercase</TD><TD width="241">启用 uppercase 
+	标志</TD><TD width="34"></TD><TD width="47">X</TD></TR>
+  <TR><TD width="88">ws</TD><TD width="241">跳过所有前导空白字符</TD><TD width="34">X</TD>
+	<TD width="47"></TD></TR>
+</TABLE>
+
+
+<TABLE ALIGN="CENTER">   
+  <TR><TH COLSPAN="4">在&lt;iomanip&gt;中定义的操作符</TH></TR>
+  <TR><TH>操作符</TH><TH>描述</TH><TH>输入</TH><TH>输出</TH></TR>
+  <TR BGCOLOR="EEEEFF"><TD>resetiosflags( long f )</TD><TD>关闭被指定为<I>f</I>的标志</TD><TD>X</TD><TD>X</TD></TR>
+  <TR><TD>setbase( int base )</TD><TD>设置数值的基本数为<I>base</I></TD><TD></TD><TD>X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>setfill( int ch )</TD><TD>设置填充字符为<I>ch</I></TD><TD></TD><TD>X</TD></TR>
+  <TR><TD>setiosflags( long f )</TD><TD>启用指定为<I>f</I>的标志</TD><TD>X</TD><TD>X</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>setprecision( int p )</TD><TD>设置数值的精度</TD><TD></TD><TD>X</TD></TR>
+  <TR><TD>setw( int w )</TD><TD>设置域宽度为<I>w</I></TD><TD></TD><TD>X</TD></TR>
+</TABLE>
+
+
+
+</BODY>
+</HTML>

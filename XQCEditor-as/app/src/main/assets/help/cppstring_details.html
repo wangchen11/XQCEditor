@@ -1,0 +1,796 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Strings</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppstring.html">C++ Strings（字符串）</A> -&gt;
+    详细资料
+</TD>
+</TR></TABLE>
+
+<H1>C++ Strings(字符串)</H1>
+  
+<HR>
+<H2>
+   <A NAME="Constructors">构造函数(Constructors)</A></H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  string();
+  string( size_type length, char ch );
+  string( const char *str );
+  string( const char *str, size_type length );
+  string( string &str, size_type index, size_type length );
+  string( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  字符串的构造函数创建一个新字符串，包括:
+<UL>
+  <LI>以length为长度的ch的拷贝（即length个ch）
+  <LI>以str为初值 (长度任意),
+  <LI>以index为索引开始的子串，长度为length, 或者
+  <LI>以从start到end的元素为初值.
+</UL>
+  例如,
+</P>
+<PRE>
+    string str1( 5, 'c' );
+    string str2( "Now is the time..." );
+    string str3( str2, 11, 4 );
+    cout << str1 << endl;
+    cout << str2 << endl;
+    cout << str3 << endl;
+</PRE>
+<P>
+  显示
+</P>
+<PRE>
+    ccccc
+    Now is the time...
+    time
+    
+</PRE>
+<HR>
+<H2>
+   <A NAME="Operators">操作符</A>(Operators)
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  ==
+  >
+  <
+  >=
+  <=
+  !=
+  +
+  +=
+  []
+</PRE></TD></TR></TABLE>
+<P>
+  你可以用 ==, >, <, >=, <=, and !=比较字符串.  可以用  +  或者 += 操作符连接两个字符串, 并且可以用[]获取特定的字符.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#at">at()</A>,
+<A HREF="#compare">compare()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="append">添加文本</A>(append)
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  basic_string &append( const basic_string &str );
+  basic_string &append( const char *str );
+  basic_string &append( const basic_string &str, size_type index, size_type len );
+  basic_string &append( const char *str, size_type num );
+  basic_string &append( size_type num, char ch );
+  basic_string &append( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  append() 函数可以完成以下工作:
+<UL>
+  <LI>在字符串的末尾添加str,
+  <LI>在字符串的末尾添加str的子串,子串以index索引开始，长度为len
+  <LI>在字符串的末尾添加str中的num个字符,
+  <LI>在字符串的末尾添加num个字符ch,
+  <LI>在字符串的末尾添加以迭代器start和end表示的字符序列.
+</UL>
+  例如以下代码:
+</P>
+<PRE>
+    string str = "Hello World";
+    str.append( 10, '!' );
+    cout << str << endl;
+</PRE>
+<P>
+  显示 
+</P>
+<PRE>
+    Hello World!!!!!!!!!!
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#operators">+ 操作符</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="assign">赋值(assign)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  basic_string &assign( const basic_string &str );
+  basic_string &assign( const char *str );
+  basic_string &assign( const char *str, size_type num );
+  basic_string &assign( const basic_string &str, size_type index, size_type len );
+  basic_string &assign( size_type num, char ch );
+</PRE></TD></TR></TABLE>
+<P>
+  函数以下列方式赋值:
+<UL>
+  <LI>用str为字符串赋值,
+  <LI>用str的开始num个字符为字符串赋值,
+  <LI>用str的子串为字符串赋值,子串以index索引开始，长度为len
+  <LI>用num个字符ch为字符串赋值.
+</UL>
+  例如以下代码:
+</P>
+<PRE>
+    string str1, str2 = "War and Peace";
+    str1.assign( str2, 4, 3 );  
+    cout << str1 << endl;
+</PRE>
+<P>
+  显示
+</P>
+<PRE>
+    and
+    
+</PRE>
+<HR>
+
+<H2>
+   <A NAME="at">at</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference at( size_type index );
+</PRE></TD></TR></TABLE>
+<P>
+  at()函数返回一个引用，指向在index位置的字符<I></I>.  
+  如果index不在字符串范围内, at() 将报告&quot;out of range&quot;错误，并抛出<STRONG>out_of_range</STRONG>异常。
+  比如下列代码:</P>
+<PRE>
+    string text = "ABCDEF";
+    char ch = text.at( 2 );
+</PRE>
+<P>
+  显示字符 'C'.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#Operators">[]操作符</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="begin">begin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE></TD></TR></TABLE>
+<P>begin()函数返回一个<A HREF="iterators.html">迭代器</A>,指向字符串的第一个元素.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#end">end()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="c_str">c_str</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  const char *c_str();
+</PRE></TD></TR></TABLE>
+<P>
+  c_str()函数返回一个指向正规C字符串的指针, 内容与本字符串相同.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#Operators">[] 操作符</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="capacity">容量(capacity)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type capacity();
+</PRE></TD></TR></TABLE>
+<P>
+  capacity()函数返回在重新申请更多的空间前字符串可以容纳的字符数.  这个数字至少与
+  <A HREF="#size">size()</A>一样大.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#max_size">max_size()</A>,
+<A HREF="#reserve">reserve()</A>, 
+<A HREF="#resize">resize()</A>, 
+<A HREF="#size">size()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="compare">比较(compare)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  int compare( const basic_string &str );
+  int compare( const char *str );
+  int compare( size_type index, size_type length, const basic_string &str );
+  int compare( size_type index, size_type length, const basic_string &str, size_type index2,
+  size_type length2 );
+  int compare( size_type index, size_type length, const char *str, size_type length2 );
+</PRE></TD></TR></TABLE>
+<P>
+  compare()函数以多种方式比较本字符串和str,返回：</P>
+<TABLE>
+  <TR>
+    <TH>返回值</TH>
+    <TH>情况</TH>
+  </TR>
+  <TR BGCOLOR="EEEEFF">
+    <TD>小于零</TD>
+    <TD>this < str</TD></TR>
+  <TR>
+    <TD>零</TD>
+    <TD>this == str</TD></TR>
+  <TR BGCOLOR="EEEEFF">
+    <TD>大于零</TD>
+    <TD>this > str</TD></TR>
+</TABLE>
+<P>
+  不同的函数:
+<UL>
+  <LI>比较自己和str,
+  <LI>比较自己的子串和str,子串以index索引开始，长度为length
+  <LI>比较自己的子串和str的子串，其中index2和length2引用str，index和length引用自己
+  <LI>比较自己的子串和str的子串，其中str的子串以索引0开始，长度为length2，自己的子串以index开始，长度为length
+</UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#Operators">操作符</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="copy">拷贝(copy)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type copy( char *str, size_type num, size_type index );
+</PRE></TD></TR></TABLE>
+<P>
+copy()函数拷贝自己的num个字符到str中（从索引index开始）。返回值是拷贝的字符数</P>
+<HR>
+<H2>
+   <A NAME="data">data</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  const char *data();
+</PRE></TD></TR></TABLE>
+<P>
+  data()函数返回指向自己的第一个字符的指针.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#c_str">c_str()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="empty">empty</A></H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+  如果字符串为空则empty()返回真(true)，否则返回假(false).</P>
+<HR>
+<H2>
+   <A NAME="end">end</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE></TD></TR></TABLE>
+<P>
+  end()函数返回一个<A HREF="iterators.html">迭代器</A>，指向字符串的末尾(最后一个字符的下一个位置).</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#begin">begin()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="erase">删除(erase)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> pos );
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+  basic_string &erase( size_type index = 0, size_type num = npos );
+</PRE></TD></TR></TABLE>
+<P>
+  erase()函数可以:
+<UL>
+  <LI>删除pos指向的字符, 返回指向下一个字符的<A HREF="iterators.html">迭代器</A>,
+  <LI>删除从start到end的所有字符<I></I>, 返回一个<A HREF="iterators.html">迭代器</A>,指向被删除的最后一个字符的下一个位置
+  <LI>删除从index索引开始的num个字符<I></I>, 返回<STRONG>*this</STRONG>.
+</UL>
+  参数<I>index </I>和 <I>num</I> 有默认值, 这意味着erase()可以这样调用：只带有<I>index</I>以删除index后的所有字符，或者不带有任何参数以删除所有字符.  例如:  
+</P>
+<PRE>
+    string s("So, you like donuts, eh? Well, have all the donuts in the world!");
+    cout << "The original string is '" << s << "'" << endl;
+  
+    s.erase( 50, 14 );
+    cout << "Now the string is '" << s << "'" << endl;
+
+    s.erase( 24 );
+    cout << "Now the string is '" << s << "'" << endl;
+
+    s.erase();
+    cout << "Now the string is '" << s << "'" << endl;
+</PRE>
+<P>
+  将显示
+</P>
+<PRE>
+    The original string is 'So, you like donuts, eh? Well, have all the donuts in the world!'
+    Now the string is 'So, you like donuts, eh? Well, have all the donuts'
+    Now the string is 'So, you like donuts, eh?'
+    Now the string is ''
+</PRE>
+
+<HR>
+<H2>
+   <A NAME="find">查找(find)</A></H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type find( const basic_string &str, size_type index );
+  size_type find( const char *str, size_type index );
+  size_type find( const char *str, size_type index, size_type length );
+  size_type find( char ch, size_type index );
+</PRE></TD></TR></TABLE>
+<P>
+  find()函数:
+<UL>
+  <LI>返回str在字符串中第一次出现的位置（从index开始查找）<em>。</em>如果没找到则返回<STRONG>string::npos</STRONG>,
+  <LI>返回str在字符串中第一次出现的位置（从index开始查找，长度为length）。如果没找到就返回<STRONG>string::npos</STRONG>,
+  <LI>返回字符ch在字符串中第一次出现的位置（从index开始查找）。如果没找到就返回<STRONG>string::npos</STRONG>
+</UL>
+  例如,
+</P>
+<PRE>
+    string str1( "Alpha Beta Gamma Delta" );
+    unsigned int loc = str1.find( "Omega", 0 );
+    if( loc != string::npos )
+      cout << "Found Omega at " << loc << endl;
+    else
+      cout << "Didn't find Omega" << endl;
+    
+    
+</PRE>
+<HR>
+<H2>
+   <A NAME="find_first_of">find_first_of</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type find_first_of( const basic_string &str, size_type index = 0 );
+  size_type find_first_of( const char *str, size_type index = 0 );
+  size_type find_first_of( const char *str, size_type index, size_type num );
+  size_type find_first_of( char ch, size_type index = 0 );
+</PRE></TD></TR></TABLE>
+<P>
+  find_first_of()函数:
+<UL>
+  <LI>查找在字符串中第一个与str中的某个字符匹配的字符，返回它的位置。搜索从index开始，如果没找到就返回<STRONG>string::npos</STRONG>
+  <LI>查找在字符串中第一个与str中的某个字符匹配的字符，返回它的位置。搜索从index开始，最多搜索num个字符。如果没找到就返回<STRONG>string::npos，</STRONG>
+  <LI>查找在字符串中第一个与ch匹配的字符，返回它的位置。搜索从index开始。
+  
+</UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#find">find()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="find_first_not_of">find_first_not_of</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type find_first_not_of( const basic_string &str, size_type index = 0 );
+  size_type find_first_not_of( const char *str, size_type index = 0 );
+  size_type find_first_not_of( const char *str, size_type index, size_type num );
+  size_type find_first_not_of( char ch, size_type index = 0 );
+</PRE></TD></TR></TABLE>
+<P>
+  find_first_not_of()函数:
+<UL>
+  <LI>在字符串中查找第一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回<strong>string::nops</strong>
+  <LI>在字符串中查找第一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始，最多查找num个字符。如果没找到就返回<strong>string::nops</strong>
+  
+  <LI>在字符串中查找第一个与ch不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回<strong>string::nops</strong>    
+</UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#find">find()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="find_last_of">find_last_of</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type find_last_of( const basic_string &str, size_type index = npos );
+  size_type find_last_of( const char *str, size_type index = npos );
+  size_type find_last_of( const char *str, size_type index, size_type num );
+  size_type find_last_of( char ch, size_type index = npos );
+</PRE></TD></TR></TABLE>
+<P>
+  find_last_of()函数:
+<UL>
+  <LI>在字符串中查找最后一个与str中的某个字符匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回<strong>string::nops</strong>
+  <LI>在字符串中查找最后一个与str中的某个字符匹配的字符，返回它的位置。搜索从index开始，最多搜索num个字符。如果没找到就返回<strong>string::nops</strong>
+  
+  <LI>在字符串中查找最后一个与ch匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回<strong>string::nops</strong>
+</UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#find">find()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="find_last_not_of">find_last_not_of</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type find_last_not_of( const basic_string &str, size_type index = npos );
+  size_type find_last_not_of( const char *str, size_type index = npos);
+  size_type find_last_not_of( const char *str, size_type index, size_type num );
+  size_type find_last_not_of( char ch, size_type index = npos );
+</PRE></TD></TR></TABLE>
+<P>
+  find_last_not_of()函数:
+<UL>
+  <LI>在字符串中查找最后一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回<strong>string::nops</strong>
+  <LI>在字符串中查找最后一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始，最多查找num个字符如果没找到就返回<strong>string::nops</strong>
+  <LI>在字符串中查找最后一个与ch不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回<strong>string::nops</strong>
+  </UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#find">find()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="get_allocator">get_allocator</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  allocator_type get_allocator();
+</PRE></TD></TR></TABLE>
+<P>
+  get_allocator()函数返回本字符串的配置器.</P>
+<HR>
+<H2>
+   <A NAME="insert">插入(insert)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> i, const char &ch );
+  basic_string &insert( size_type index, const basic_string &str );
+  basic_string &insert( size_type index, const char *str );
+  basic_string &insert( size_type index1, const basic_string &str, size_type index2, size_type num );
+  basic_string &insert( size_type index, const char *str, size_type num );
+  basic_string &insert( size_type index, size_type num, char ch );
+  void insert( <A HREF="iterators.html">iterator</A> i, size_type num, const char &ch );
+  void insert( <A HREF="iterators.html">iterator</A> i, <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  insert()函数的功能非常多:
+<UL>
+  <LI>在迭代器i表示的位置前面插入一个字符ch,  
+  <LI>在字符串的位置index插入字符串str,
+  <LI>在字符串的位置index插入字符串str的子串(从<I>index2</I>开始，长num个字符),
+  <LI>在字符串的位置index插入字符串str的num个字符<I></I>,
+  <LI>在字符串的位置index插入num个字符ch的拷贝,
+  <LI>在迭代器i表示的位置前面插入num个字符ch的拷贝<I></I>,
+  <LI>在迭代器i表示的位置前面插入一段字符，从start开始，以end结束.
+</UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#replace">replace()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="length">长度(length)</A></H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type length();
+</PRE></TD></TR></TABLE>
+<P>
+  length()函数返回字符串的长度.  这个数字应该和<A HREF="#size">size()</A>返回的数字相同.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#size">size()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="max_size">max_size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type max_size();
+</PRE></TD></TR></TABLE>
+<P>
+  max_size()函数返回字符串能保存的最大字符数。</P>
+<HR>
+<H2>
+   <A NAME="rbegin">rbegin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  const <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE></TD></TR></TABLE>
+<P>
+   rbegin()返回一个逆向<A HREF="iterators.html">迭代器</A>，指向字符串的最后一个字符。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#rend">rend()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="rend">rend</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  const <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE></TD></TR></TABLE>
+<P>
+  rend()函数返回一个逆向<A HREF="iterators.html">迭代器</A>，指向字符串的开头（第一个字符的前一个位置）。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#rbegin">rbegin()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="replace">替换(replace)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  basic_string &replace( size_type index, size_type num, const basic_string &str );
+  basic_string &replace( size_type index1, size_type num1, const basic_string &str, size_type index2,
+  size_type num2 );
+  basic_string &replace( size_type index, size_type num, const char *str );
+  basic_string &replace( size_type index, size_type num1, const char *str, size_type num2 );
+  basic_string &replace( size_type index, size_type num1, size_type num2, char ch );
+  basic_string &replace( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end, const basic_string &str );
+  basic_string &replace( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end, const char *str );
+  basic_string &replace( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end, const char *str, size_type num );
+  basic_string &replace( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end, size_type num, char ch );
+</PRE></TD></TR></TABLE>
+<P>
+  replace()函数:
+<UL>
+  <LI>用str中的num个字符替换本字符串中的字符<I></I>,从index开始
+  <LI>用str中的num2个字符（从index2开始）替换本字符串中的字符，从index1开始，最多num1个字符
+  
+  <LI>用str中的num个字符（从index开始）替换本字符串中的字符
+  
+  <LI>用str中的num2个字符（从index2开始）替换本字符串中的字符，从index1开始，num1个字符
+  
+  <LI>用num2个ch字符替换本字符串中的字符，从index开始
+  
+  <LI>用str中的字符替换本字符串中的字符,迭代器start和end指示范围
+  <LI>用str中的num个字符替换本字符串中的内容,迭代器start和end指示范围，
+  <LI>用num个ch字符替换本字符串中的内容，迭代器start和end指示范围.
+</UL>
+  例如，以下代码显示字符串"They say he carved it himself...find 
+  your soul-mate, Homer."
+  <PRE>
+    string s = "They say he carved it himself...from a BIGGER spoon";
+    string s2 = "find your soul-mate, Homer.";
+
+    s.replace( 32, s2.length(), s2 );
+
+    cout << s << endl;
+  </PRE>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#insert">insert()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="reserve">保留空间(reserve)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void reserve( size_type num );
+</PRE></TD></TR></TABLE>
+<P>
+  reserve()函数设置本字符串的<A HREF="#capacity">capacity</A> 以保留num个字符空间。 </P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#capacity">capacity()</A>
+</STRONG>
+
+<HR>
+<H2>
+   <A NAME="resize">resize</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void resize( size_type num );
+  void resize( size_type num, char ch );
+</PRE></TD></TR></TABLE>
+<P>
+  resize()函数改变本字符串的大小到<I>num</I>, 新空间的内容不确定。也可以指定用ch填充。</P>
+<HR>
+<H2>
+   <A NAME="rfind">rfind</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type rfind( const basic_string &str, size_type index );
+  size_type rfind( const char *str, size_type index );
+  size_type rfind( const char *str, size_type index, size_type num );
+  size_type rfind( char ch, size_type index );
+</PRE></TD></TR></TABLE>
+<P>
+  rfind()函数:
+<UL>
+  <LI>返回最后一个与str中的某个字符匹配的字符，从index开始查找。如果没找到就返回<strong>string::npos</strong>
+  
+  <LI>返回最后一个与str中的某个字符匹配的字符，从index开始查找,最多查找num个字符。如果没找到就返回<strong>string::npos</strong>
+  
+  <LI>返回最后一个与ch匹配的字符，从index开始查找。如果没找到就返回<strong>string::npos</strong>
+</UL>
+  例如，在下列代码中第一次调用rfind()返回<STRONG>string::npos</STRONG>,因为目标词语不在开始的8个字符中。然而，第二次调用返回9，因为目标词语在开始的20个字符之中。
+  <PRE>
+    int loc;
+    string s = "My cat's breath smells like cat food.";
+
+    loc = s.rfind( "breath", 8 );
+    cout << "The word breath is at index " << loc << endl;
+
+    loc = s.rfind( "breath", 20 );
+    cout << "The word breath is at index " << loc << endl;
+  </PRE>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#find">find()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>
+size()函数返回字符串中现在拥有的字符数。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#length">length()</A>,
+<A HREF="#max_size">max_size()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="substr">substr</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  basic_string substr( size_type index, size_type num = npos );
+</PRE></TD></TR></TABLE>
+<P>
+  substr()返回本字符串的一个子串，从index开始，长num个字符。如果没有指定，将是默认值  <STRONG>string::npos</STRONG>。这样，substr()函数将简单的返回从index开始的剩余的字符串。</P>
+<P>例如:</P>
+<PRE>
+    string s("What we have here is a failure to communicate");
+
+    string sub = s.substr(21);
+
+    cout << "The original string is " << s << endl;
+    cout << "The substring is " << sub << endl;
+</PRE>
+<P>
+  显示：</P>
+<PRE>
+    The original string is What we have here is a failure to communicate
+    The substring is a failure to communicate
+</PRE>
+<HR>
+<H2>
+   <A NAME="swap">交换(swap)</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void swap( basic_string &str );
+</PRE></TD></TR></TABLE>
+<P>
+  swap()函数把str和本字符串交换。例如：</P>
+<PRE>
+    string first( "This comes first" );
+    string second( "And this is second" );
+    first.swap( second );
+    cout << first << endl;
+    cout << second << endl;
+</PRE>
+<P>显示：</P>
+<PRE>
+    And this is second
+    This comes first
+</PRE>
+</BODY>
+</HTML>

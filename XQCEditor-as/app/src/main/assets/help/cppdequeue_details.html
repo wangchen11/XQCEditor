@@ -1,0 +1,314 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Double-Ended Queues</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppdequeue.html">C++ Double-Ended Queues</A> -&gt;
+    Details
+</TD></TR></TABLE>
+
+<H1>C++ Double-Ended Queues</H1>
+  
+<HR>
+<H2>
+   <A NAME="Operators">Operators</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  []
+</PRE></TD></TR></TABLE>
+<P>
+  You can access individual members of the double-ended queue using the [] operator.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="assign">assign</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void assign( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end);
+  void assign( Size num, const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  The function assign() sets the double-ended queue the sequence denoted by <I>start</I> and
+  <I>end</I>, or sets <I>num</I> elements to <I>val</I>.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="at">at</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference at( size_type pos );
+</PRE></TD></TR></TABLE>
+<P>
+  The at() function returns a reference to the element at <I>pos</I> in the double-ended
+  queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="back">back</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference back();
+</PRE></TD></TR></TABLE>
+<P>
+  The function back() returns a reference to the back element of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="begin">begin</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE></TD></TR></TABLE>
+<P>
+  The begin() function returns an <A HREF="iterators.html">iterator</A> to the front element of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="clear">clear</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void clear();
+</PRE></TD></TR></TABLE>
+<P>
+  The clear() function deletes all of the elements from the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="empty">empty</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+  The function empty() returns <STRONG>true</STRONG> if the double-ended queue is empty, and <STRONG>false</STRONG> otherwise.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="end">end</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE></TD></TR></TABLE>
+<P>
+  The end() function returns an <A HREF="iterators.html">iterator</A> to the back of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="erase">erase</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> pos );
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  The function erase() erases the element at location <I>pos</I>, or the items between
+  <I>start</I> and <I>end</I>.  The return value is an <A HREF="iterators.html">iterator</A> to the element just after
+  the last one erased.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="front">front</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference front();
+</PRE></TD></TR></TABLE>
+<P>
+  The front() function returns a reference to the element at the beginning of the
+  double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="get_allocator">get_allocator</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  allocator_type get_allocator();
+</PRE></TD></TR></TABLE>
+<P>
+  The get_allocator() function returns the double-ended queue's allocator.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="insert">insert</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> pos, size_type num, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">iterator</A> pos, <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  The insert() function inserts <I>num</I> copies of <I>val</I> before the element at
+  <I>pos</I>, or inserts the sequence specified by <I>start</I> and <I>end</I> before the
+  element at <I>pos</I>.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="max_size">max_size</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type max_size();
+</PRE></TD></TR></TABLE>
+<P>
+  The function max_size() returns the maximum number of items that the double-ended queue
+  can hold.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="pop_back">pop_back</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void pop_back();
+</PRE></TD></TR></TABLE>
+<P>
+  The pop_back() function removes the last element from the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="pop_front">pop_front</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void pop_front();
+</PRE></TD></TR></TABLE>
+<P>
+  The function pop_front() removes the first element from the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="push_back">push_back</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push_back( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  The push_back() function adds <I>val</I> to the end of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="push_front">push_front</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push_front( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  The function push_front() adds <I>val</I> to the front of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="rbegin">rbegin</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE></TD></TR></TABLE>
+<P>
+  The rbegin() function returns a reverse <A HREF="iterators.html">iterator</A> to the back of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="rend">rend</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE></TD></TR></TABLE>
+<P>
+  The function rend() returns a reverse <A HREF="iterators.html">iterator</A> to the front of the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="resize">resize</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void resize( size_type num, <A HREF="containers.html">TYPE</A> val );
+</PRE></TD></TR></TABLE>
+<P>
+  The resize() function changes the size of the double-ended queue to <I>num</I>, padding
+  any added entries with elements equal to <I>val</I>.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>
+  The size() function returns the number of elements in the double-ended queue.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="swap">swap</A>
+</H2>
+<I>Syntax:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void swap( dequeue<T, Allocator> &target );
+</PRE></TD></TR></TABLE>
+<P>
+  The swap() function swaps the elements in the current double-ended queue with those in
+  <I>target</I>.
+</P>
+</BODY>
+</HTML>

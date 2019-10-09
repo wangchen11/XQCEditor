@@ -1,0 +1,1209 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+  <TITLE>cppreference</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <a href="keywords.html">C/C++ 关键字</a> -&gt; 细节
+</TD></TR></TABLE>
+
+<H1>C/C++ 关键字</H1>
+  
+<HR>
+<H2>
+   <A NAME="asm">asm</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  asm( "instruction" );
+</PRE></TD></TR></TABLE>
+<P>
+  asm允许你在你的代码中直接插入汇编语言指令， 各种不同的编译器为这一个指令允许不一致形式, 比如：<br>
+　</P>
+<PRE>
+    asm {
+      instruction-sequence
+    }
+</PRE>
+<P>
+  or
+</P>
+<PRE>
+    asm( instruction );
+    
+</PRE>
+
+
+<HR>
+<H2>
+   <A NAME="auto">auto</A>
+</H2>
+<P>
+  &nbsp;关键字auto是用来声明完全可选择的局部变量的
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="bool">bool</A>
+</H2>
+<P>
+  关键字bool是用来声明布尔逻辑变量的；也就是说,变量要么是真，要么是假。举个例子：
+</P>
+<PRE>
+    bool done = false;
+    while( !done ) {
+    ...
+    }
+    
+</PRE>
+<P>
+  你也可以查看 <A HREF="data_types.html">data types</A> 这一页.
+</P>
+
+<HR>
+<H2>
+   <A NAME="break">break </A>
+</H2>
+<P>
+  关键字break是用来跳出一个<A HREF="#do">do</A>, <A HREF="#for">for</A>,
+  or <A HREF="#while">while</A> 的循环. 它也可以结束一个 
+  <A HREF="#switch">switch</A> 语句的子句,让程序忽略下面的case代码.举个例子:</P>
+<PRE>
+    while( x < 100 ) {
+      if( x < 0 )
+        break;
+      cout << x << endl;
+      x++;
+    }
+</PRE>
+<P>
+  break语句只能跳出本层循环,假如你要跳出一个三重嵌套的循环,你就要使用包含其它的逻辑或者用一个goto语句跳出这个嵌套循环.
+</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="case">case</A>
+</H2>
+<P>
+  &nbsp;在<A HREF="#switch">switch</A>里面用来检测匹配 .
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#default">default</A>,
+<A HREF="#switch">switch</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="catch">catch</A>
+</H2>
+<P>
+  &nbsp;catch 语句通常通过 <A HREF="#throw">throw</A> 语句捕获一个异常.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#throw">throw</A>,
+<A HREF="#try">try</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="char">char</A>
+</H2>
+<P>
+  关键字char用来声明布尔型变量. 你也可以查看 
+  <A HREF="data_types.html">data types</A> 这一页...
+</P>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="class">class</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  class class-name : inheritance-list {
+
+    private-members-list;    
+
+    protected:
+      protected-members-list;
+
+    public:
+      public-members-list;
+
+  } object-list;
+</PRE></TD></TR></TABLE>
+<P>
+  关键字class允许你创建新的数据类型.  <I>class-name</I> 就是你要创建的类的名字,并且 <I>inheritance-list</I> 
+	是一个对你创建的新类可供选择的定义体的表单.类的默认为私有类型成员,除非这个表单标注在公有或保护类型之下.  <I>object-list</I> 
+	是一个或一组声明对象.举个例子:</P>
+<PRE>
+    class Date {
+      int Day;
+      int Month;
+      int Year;
+    public:
+      void display();
+    };
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#struct">struct</A>,
+<A HREF="#union">union</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="const">const</A>
+</H2>
+<P>
+  关键字const用来告诉编译器一个一旦被初始化过的变量就不能再修改.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#const_cast">const_cast</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="const_cast">const_cast</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  const_cast&lt;type&gt; (object);
+</PRE></TD></TR></TABLE>
+<P>
+  关键字const用于移除&quot;const-ness&quot;的数据,目标数据类型必须和原类型相同,目标数据没有被const定义过除外.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#dynamic_cast">dynamic_cast</A>,
+<A HREF="#reinterpret_cast">reinterpret_cast</A>,
+<A HREF="#static_cast">static_cast</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="continue">continue</A>
+</H2>
+<P>
+  continue语句用来结束这次循环在一个循环语句中,例如,下面这段代码会显示所有除了10之外0-20的所有数字:
+</P>
+<PRE>
+    for( int i = 0; i < 21; i++ ) {
+      if( i == 10 ) {
+        continue;
+      }
+      cout << i << " ";
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#break">break</A>,
+<A HREF="#do">do</A>,
+<A HREF="#for">for</A>,
+<A HREF="#while">while</A>
+</STRONG>　<HR>
+<H2>
+   <A NAME="default">default</A>
+</H2>
+<P>
+  &nbsp;<A HREF="#switch">switch</A> 语句中的缺省条件.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#case">case</A>,
+<A HREF="#switch">switch</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="delete">delete</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table1"><TR><TD><PRE>
+
+  delete p;
+  delete[] pArray;
+</PRE></TD></TR></TABLE>
+<P>
+  delete操作用来释放<I>p</I>指向的内存.这个指针先前应该被 <A HREF="#new">new</A>调用过.上面第二种形式用于删除一个数组.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#new">new</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="do">do</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table2"><TR><TD><PRE>
+
+  do {
+    statement-list;
+  } while( condition );
+</PRE></TD></TR></TABLE>
+<P>
+  do构建一个循环语句表,直到条件为假.注意循环中的语句至少被执行一次,因为判断条件在循环的最后.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#for">for</A>,
+<A HREF="#while">while</A>
+</STRONG>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="double">double</A>
+</H2>
+<P>
+  关键字double用来声明浮点型变量的精度.&nbsp; 你也可以查看 <A HREF="data_types.html">data types</A> 
+	这一页.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="dynamic_cast">dynamic_cast</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table3"><TR><TD><PRE>
+
+  dynamic_cast&lt;type&gt; (object);
+</PRE></TD></TR></TABLE>
+<P>
+  关键字dynamic_cast强制将一个类型转化为另外一种类型，并且在执行运行时时检查它保证它的合法性。如果你想在两个互相矛盾的类型之间转化时，cast的返回值将为NULL.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#const_cast">const_cast</A>,
+<A HREF="#reinterpret_cast">reinterpret_cast</A>,
+<A HREF="#static_cast">static_cast</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="else">else</A>
+</H2>
+<P>
+  关键字else用在 <A
+  HREF="#if">if</A> 语句中的二中选一.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="enum">enum</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table4"><TR><TD><PRE>
+
+  enum name {name-list} var-list;
+</PRE></TD></TR></TABLE>
+<P>
+  关键字enum用来创建一个包含多个名称元素的名称表.<I>var-list</I> 是可选的.  例如:
+</P>
+<PRE>
+    enum color {red, orange, yellow, green, blue, indigo, violet};
+
+    color c1 = indigo;
+    if( c1 == indigo ) {
+      cout << "c1 is indigo" << endl;
+    }
+</PRE>
+
+
+<HR>
+<H2>
+   <A NAME="explicit">explicit</A>
+</H2>
+<P>
+  当构造函数被指定为explicit的时候,将不会自动把构造函数作为转换构造函数,这仅仅用在当一个初始化语句参数与这个构造函数的形参匹配的情况.</P>
+
+
+<HR>
+<H2>
+   <A NAME="extern">extern</A>
+</H2>
+<P>
+  关键字extern用来告知编译器变量在当前范围之外声明过了.被extern语句描述过的变量将分派不到任何空间,因为他们在别的地方被定义过了.</P>
+<P>
+  Extern语句频繁的用于在多个文件之间的跨范围数据传递.
+</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="false">false</A>
+</H2>
+<P>
+  "false"是布尔型的值.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#bool">bool</A>,
+<A HREF="#true">true</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="float">float</A>
+</H2>
+<P>
+  关键字float用来声明浮点型变量. 你也可以查看 <A HREF="data_types.html">data types</A> 这一页.
+</P>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="for">for</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table5"><TR><TD><PRE>
+
+  for( initialization; test-condition; increment ) {
+    statement-list;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  for构造一个由4部分组成的循环: 
+  <OL>
+  <LI>初始化, 可以由0个或更多的由逗号分开的初始化语句构成;</LI>
+  <LI>判断条件,如果满足该语句循环继续执行; </LI>
+  <LI>增量, 可以由0个或更多的由逗号分开的增量语句构成;</LI>
+  <LI>语句体,由0个或更多的语句构成,当循环条件成立时他们被执行.
+  </OL>
+  例如:
+</P>
+<PRE>
+    for( int i = 0; i < 10; i++ ) {
+      cout << "i is " << i << endl;
+    }
+
+    int j, k;
+    for( j = 0, k = 10;
+         j < k;
+	 j++, k-- ) {
+      cout << "j is " << j << " and k is " << k << endl;
+    }
+
+    for( ; ; ) {
+      // loop forever!
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#do">do</A>,
+<A HREF="#while">while</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="friend">friend</A>
+</H2>
+<P>
+  关键字friend允许类或函数访问一个类中的私有数据.
+</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="goto">goto</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table6"><TR><TD><PRE>
+
+  goto labelA;
+
+  ...
+
+  labelA:
+</PRE></TD></TR></TABLE>
+<P>
+  goto语句可以完成从当前位置到指定标志位的跳转.使用goto语句要<a href="http://www.acm.org/classics/oct95/">考虑有害性</a>,所以它不经常使用. 
+	例如, goto可以用来跳出多重嵌套 <A
+  HREF="#for">for</A> 循环,它比额外的逻辑性跳出更具有时效性.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#break">break</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="if">if</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table7"><TR><TD><PRE>
+
+  if( conditionA ) {
+    statement-listA;
+  }
+
+  else if( conditionB ) {
+    statement-listB;
+  }
+
+  ...
+
+  else {
+    statement-listN;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  if 构造一个允许不同的代码在不同的条件下执行的分支机制.<I>conditions</I> 是判断语句,<I>statement-list</I> .  
+	假如条件为假, else语句块将被执行,所有的else是可选的.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#else">else</A>,
+<A HREF="#for">for</A>,
+<A HREF="#while">while</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="inline">inline</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table8"><TR><TD><PRE>
+
+  inline int functionA( int i ) {
+    ...
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  &nbsp;inline这个关键字请求编译器扩张一个给定的函数。它向这个函数发出一条插入代码的call。函数里面有静态变量，嵌套的，switches，或者是递归的时候不给予内联。当一个函数声明包含在一个类声明里面时，编译器会尝试的自动把函数内联。<br>
+	关键字inline请求编译器给一个函数扩展空间,它向这个函数发出一条插入代码的call.函数里面有 <A HREF="#static">static</A> 
+	数据, 循环, <A
+  HREF="#switch">switches</A>, 或者是递归的时候不给予内联.当一个函数声明包含在一个类声明里面时,编译器会尝试的自动把函数内联.
+</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="int">int</A>
+</H2>
+<P>
+  关键字int 用来声明整型变量. 你也可以查看 
+  <A HREF="data_types.html">data types</A> 这一页.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="long">long</A>
+</H2>
+<P>
+  关键字keyword 用来修正数据类型,它用来声明长整型变量. 查看 <A HREF="data_types.html">data
+  types</A> 这一页.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#short">short</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="mutable">mutable</A>
+</H2>
+<P>
+  关键字mutable 忽略所有<A HREF="#const">const</A> 
+  语句.一个属于const对象的mutable 成员可以被修改.</P>
+
+
+<HR>
+<H2>
+   <A NAME="namespace">namespace</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table9"><TR><TD><PRE>
+
+  namespace name {
+    declaration-list;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  关键字namespace允许你创建一个新的空间.名字由你选择,忽略创建没有命名的名字空间.一旦你创建了一个名字空间,你必须明确地说明它或者用关键字<A HREF="#using">using</A>.  例如:
+<PRE>
+    namespace CartoonNameSpace {
+      int HomersAge;
+      void incrementHomersAge() {
+        HomersAge++;
+      }
+    }
+
+    int main() {
+      ...
+      CartoonNameSpace::HomersAge = 39;
+      CartoonNameSpace::incrementHomersAge();
+      cout << CartoonNameSpace::HomersAge << endl;
+      ...
+    }
+</PRE>
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="new">new</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table10"><TR><TD><PRE>
+
+  pointer = new type;
+  pointer = new type( initializer );
+  pointer = new type[size];
+</PRE></TD></TR></TABLE>
+<P>
+  new可以给数据类型分配一个新结点并返回一个指向新分配内存区的首地址. 也可以对它进行初始化.中括号中的 <I>size</I>
+  可以分配尺寸大小.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#delete">delete</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="operator">operator</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table11"><TR><TD><PRE>
+
+  return-type class-name::operator#(parameter-list) {
+    ...
+  }
+  return-type operator#(parameter-list) {
+    ...
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  关键字operator 用于重载函数.在上面语法中用特殊符(#)描述特征的操作将被重载.假如在一个类中,类名应当被指定.对于一元的操作, <I>parameter-list</I>
+  应当为空, 对于二元的操作,在operator右边的 <I>parameter-list</I>
+  应当包含操作数 (在operand 左边的被当作 <A HREF="#this">this</A>通过).
+</P>
+<P>
+  对于不属于重载函数的operator成员,在左边的操作数被作为第一个参数,在右边的操作数被当作第二个参数被通过.</P>
+<P>
+  你不能用<STRONG>#</STRONG>, <STRONG>##</STRONG>,
+  <STRONG>.</STRONG>, <STRONG>:</STRONG>, <STRONG>.*</STRONG>, 或者
+  <STRONG>?</STRONG> 标志重载.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="private">private</A>
+</H2>
+<P>
+  属于私有类的数据只能被它的内部成员访问,除了<A HREF="#friend">friend</A> 使用.关键字private 也能用来继承一个私有的基类,所有的公共和保护成员的基类可以变成私有的派生类.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#protected">protected</A>,
+<A HREF="#public">public</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="protected">protected</A>
+</H2>
+<P>
+  保护数据对于它们自己的类是私有的并且能被派生类继承.关键字keyword 也能用于指定派生,所有的公共和保护成员的基类可以变成保护的派生类.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#private">private</A>,
+<A HREF="#public">public</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="public">public</A>
+</H2>
+<P>
+  在类中的公共数据可以被任何人访问.关键字public也能用来指定派生,所有的公共和保护成员的基类可以变成保护的派生类.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#private">private</A>,
+<A HREF="#protected">protected</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="register">register</A>
+</H2>
+<P>
+  关键字register 请求编译器优化它定义的变量,并且通常这种优化比人工优化的好.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#auto">auto</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="reinterpret_cast">reinterpret_cast</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table12"><TR><TD><PRE>
+
+  reinterpret_cast&lt;type&gt; (object);
+</PRE></TD></TR></TABLE>
+<P>
+  reinterpret_cast 操作能把一种数据类型改变成另一种.它应当被用在两种不可调和的指针类型之间.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#const_cast">const_cast</A>,
+<A HREF="#dynamic_cast">dynamic_cast</A>,
+<A HREF="#static_cast">static_cast</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="return">return</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table13"><TR><TD><PRE>
+
+  return;
+  return( value );
+</PRE></TD></TR></TABLE>
+<P>
+  return 语句可以从当前函数跳转到调用该函数的任何地方.返回值是任意的.一个函数可以有不止一个返回语句.</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="short">short</A>
+</H2>
+<P>
+  关键字short用来修正数据类型,用来声明短整型变量.查看 <A HREF="data_types.html">data
+  types</A> 这一页.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#long">long</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="signed">signed</A>
+</H2>
+<P>
+  关键字signed 用来修正数据类型,用来声明符号字符型型变量. 查看 <A HREF="data_types.html">data
+  types</A> 这一页.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#unsigned">unsigned</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="sizeof">sizeof</A>
+</H2>
+<P>
+  sizeof 操作用来用字节计算右边表达式并返回字节数.</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="static">static</A>
+</H2>
+<P>
+  static 
+	数据类型用来给变量创建永久存储空间.静态变量在函数间调用时保持他们的值不变.当用在一个类中时,所有要用到静态变量的时候这个类将把这个变量镜像过去.</P>
+
+
+
+<HR>
+<H2>
+   <A NAME="static_cast">static_cast</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table14"><TR><TD><PRE>
+
+  static_cast&lt;type&gt; (object);
+</PRE></TD></TR></TABLE>
+<P>
+  关键字static_cast 用来在两个不同类型之间进行强制转换,并且没有运行时间检查.</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#const_cast">const_cast</A>,
+<A HREF="#dynamic_cast">dynamic_cast</A>,
+<A HREF="#reinterpret_cast">reinterpret_cast</A>
+</STRONG>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="struct">struct</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table15"><TR><TD><PRE>
+
+  struct struct-name : inheritance-list {
+
+    public-members-list;    
+
+    protected:
+      protected-members-list;
+
+    private:
+      private-members-list;
+
+  } object-list;
+</PRE></TD></TR></TABLE>
+<P>
+  Structs 类似于 <A HREF="#class">classes</A>, struct中的成员更像是类中的公共成员.在C中,structs 
+	仅能包含数据并不允许有继承表. 例如:
+</P>
+<PRE>
+    struct Date {
+      int Day;
+      int Month;
+      int Year;
+    };
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#class">class</A>,
+<A HREF="#union">union</A>
+</STRONG>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="switch">switch</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table16"><TR><TD><PRE>
+
+  switch( expression ) {
+    case A:
+      statement list;
+      break;
+    case B:
+      statement list;
+      break;
+    ...
+    case N:
+      statement list;
+      break;
+    default:
+      statement list;
+      break;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  switch语句允许你通过一个表达式判断许多数值,它一般用来在多重循环中代替<A HREF="#if">if()</A>...else if()...else if()... 
+  语句.  <A HREF="#break">break</A> 语句必须在每个<A HREF="#case">case</A> 语句之后, 
+	负责循环将执行所有的case语句.<A HREF="#default">default</A> case 是可选的.假如所有的case都不能匹配的话,他将和defult 
+	case匹配. 例如:
+</P>
+<PRE>
+    char keystroke = getch();
+    switch( keystroke ) {
+      case 'a':
+      case 'b':
+      case 'c':
+      case 'd':
+        KeyABCDPressed();
+        break;
+      case 'e':
+        KeyEPressed();
+        break;
+      default:
+        UnknownKeyPressed();
+        break;
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#break">break</A>,
+<A HREF="#case">case</A>, 
+<A HREF="#default">default</A>, 
+<A HREF="#if">if</A>
+</STRONG>
+
+
+
+
+
+<HR>
+<H2>
+   <A NAME="template">template</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table17"><TR><TD><PRE>
+
+  template &lt;class data-type&gt; return-type name( parameter-list ) {
+    statement-list;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  Templates能用来创建一个对未知数据类型的操作的函数模板.这个通过用其它数据类型代替一个占位符<I>data-type</I> 来实现. 例如:
+</P>
+<PRE>
+    template&lt;class X&gt; void genericSwap( X &a, X &b ) {
+      X tmp;
+  
+      tmp = a;
+      a = b;
+      b = tmp;
+    }     
+
+    int main(void) {
+
+      ...
+
+      int num1 = 5;
+      int num2 = 21;
+
+      cout << "Before, num1 is " << num1 << " and num2 is " << num2 << endl;
+      genericSwap( num1, num2 );
+      cout << "After, num1 is " << num1 << " and num2 is " << num2 << endl;
+
+      char c1 = 'a';
+      char c2 = 'z';
+
+      cout << "Before, c1 is " << c1 << " and c2 is " << c2 << endl;
+      genericSwap( c1, c2 );
+      cout << "After, c1 is " << c1 << " and c2 is " << c2 << endl;
+
+      ...
+
+      return( 0 );
+    }
+</PRE>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="this">this</A>
+</H2>
+<P>
+  关键字 this 指向当前对象.所有属于一个 <A HREF="#class">class</A> 的函数成员都有一个this 指向.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#class">class</A>
+</STRONG>
+
+
+
+
+<HR>
+<H2>
+   <A NAME="throw">throw</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table18"><TR><TD><PRE>
+
+  try {
+    statement list;
+  }
+
+  catch( typeA arg ) {
+    statement list;
+  }
+
+  catch( typeB arg ) {
+    statement list;
+  }
+
+  ...
+
+  catch( typeN arg ) {
+    statement list;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  throw 在C++体系下用来处理异常.同<A HREF="#try">try</A> 和 <A HREF="#catch">catch</A> 
+	语句一起使用, C++ 处理异常的系统给程序一个比较可行的机制用于错误校正.当你通常在用 <A HREF="#try">try</A> 
+	去执行一段有潜在错误的代码时.在代码的某一处,一个<STRONG>throw</STRONG> 语句会被执行, 这将会从try的这一块跳转到<A HREF="#catch">catch</A>的那一块中去.
+  例如:
+</P>
+<PRE>
+    try {
+      cout << "Before throwing exception" << endl;
+      throw 42;
+      cout << "Shouldn't ever see this" << endl;
+    }  
+
+    catch( int error ) {
+      cout << "Error: caught exception " << error << endl;
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#catch">catch</A>,
+<A HREF="#try">try</A>  
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="true">true</A>
+</H2>
+<P>
+  "true"是布尔型的值.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#bool">bool</A>,
+<A HREF="#false">false</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="try">try</A>
+</H2>
+<P>
+  try 语句试图去执行由异常产生的代码. 查看 <A HREF="#throw">throw</A> 语句获得更多细节.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#catch">catch</A>,
+<A HREF="#throw">throw</A>  
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="typedef">typedef</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table19"><TR><TD><PRE>
+
+  typedef existing-type new-type;
+</PRE></TD></TR></TABLE>
+<P>
+  关键字typedef 允许你从一个现有的类型中创建一个新类型.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="typeid">typeid</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table20"><TR><TD><PRE>
+
+  typeid( object );
+</PRE></TD></TR></TABLE>
+<P>
+  typeid 操作返回给一个<STRONG>type_info</STRONG> 定义过的对象的那个对象的类型.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="typename">typename</A>
+</H2>
+<P>
+  关键字typename能用来在中 <A HREF="#template">template</A>
+  描述一个未定义类型或者代替关键字class.</P>
+
+
+<HR>
+<H2>
+   <A NAME="union">union</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table21"><TR><TD><PRE>
+
+  union union-name {
+
+    public-members-list;    
+
+    private:
+      private-members-list;
+
+  } object-list;
+</PRE></TD></TR></TABLE>
+<P>
+  Unions 类似于 <A HREF="#class">classes</A>,除了所有的成员分享同一内存外它的缺省值更像公共类型. 例如:
+</P>
+<PRE>
+    union Data {
+      int i;
+      char c;
+    };
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#class">class</A>,
+<A HREF="#struct">struct</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="unsigned">unsigned</A>
+</H2>
+<P>
+  关键字keyword 用来修正数据类型,它用来声明无符整型变量. 查看 <A HREF="data_types.html">data 
+  types</A> 这一页.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#signed">signed</A>
+</STRONG>
+
+
+
+<HR>
+<H2>
+   <A NAME="using">using</A>
+</H2>
+<P>
+  关键字keyword 用来在当前范围输入一个<A HREF="#namespace">namespace</A>.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#namespace">namespace</A>
+</STRONG>
+
+
+<HR>
+<H2>
+   <A NAME="virtual">virtual</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table22"><TR><TD><PRE>
+
+  virtual return-type name( parameter-list );
+  virtual return-type name( parameter-list ) = 0;
+</PRE></TD></TR></TABLE>
+<P>
+  关键字virtual 能用来创建虚函数,它通常不被派生类有限考虑.但是假如函数被作为一个纯的虚函数 (被=0表示)时, 这种情况它一定被派生类有限考虑.
+</P>
+
+<HR>
+<H2>
+   <A NAME="volatile">volatile</A>
+</H2>
+<P>
+  关键字volatile在描述变量时使用,阻止编译器优化那些以valatile修饰的变量,volatile被用在一些变量能被意外方式改变的地方,例如:抛出中断,这些变量若无volatile可能会和编译器执行的优化
+	相冲突.<br>
+　</P>
+
+
+<HR>
+<H2>
+   <A NAME="void">void</A>
+</H2>
+<P>
+  关键字keyword 用来表示一个函数不返回任何值,或者普通变量能指向任何类型的数据. Void 也能用来声明一个空参数表. 你也可以查看 
+  <A HREF="data_types.html">data types</A> 这一页.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="wchar_t">wchar_t</A>
+</H2>
+<P>
+  关键字 wchar_t 用来声明字符变量的宽度. 你也可以查看 <A HREF="data_types.html">data types</A> 这一页.
+</P>
+
+
+<HR>
+<H2>
+   <A NAME="while">while</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF" id="table23"><TR><TD><PRE>
+
+  while( condition ) {
+    statement-list;
+  }
+</PRE></TD></TR></TABLE>
+<P>
+  关键字 while 用于一个只要条件未真就执行<I>statement-list</I>的循环体.注意假如起始条件为<A HREF="#false">false</A>,<I>statement-list</I> 
+	将不被执行. (你可以用一个<A HREF="#do">do</A>循环来保证statement-list至少被执行一次.) 例如:
+</P>
+<PRE>
+    bool done = false;
+    while( !done ) {
+
+      ProcessData();
+
+      if( StopLooping() ) {
+        done = true;
+      }
+
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#do">do</A>,
+<A HREF="#for">for</A>
+</STRONG>
+
+
+
+

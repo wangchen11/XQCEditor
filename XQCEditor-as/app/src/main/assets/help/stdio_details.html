@@ -1,0 +1,950 @@
+<HTML>
+<HEAD>
+  <TITLE>标准 C I/O</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; <A HREF="stdio.html">标准 C I/O</A> -&gt;详细说明
+</TD></TR></TABLE>
+
+<H1>标准 C I/O</H1>
+  
+<HR>
+<H2>
+   <A NAME="clearerr">clearerr</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  void clearerr( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  clearerr函数重置错误标记和给出的流的EOF指针.  当发生错误时,你可以使用<A HREF="#perror">perror()</A>判断实际上发生了何种错误.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#feof">feof()</A>, <A HREF="#ferror">ferror()</A>, 和<A HREF="#perror">perror()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fclose">fclose</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fclose( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fclose()关闭给出的文件流, 释放已关联到流的所有缓冲区.
+  fclose()执行成功时返回0,否则返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fopen">fopen()</A>, <A HREF="#freopen">freopen()</A>, 和<A HREF="#fflush">fflush()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="feof">feof</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int feof( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  函数feof()在到达给出的文件流的文件尾时返回一个非零值.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#clearerr">clearerr()</A>, <A HREF="#ferror">ferror()</A>,
+  <A HREF="#perror">perror()</A>, <A HREF="#putc">putc()</A>和
+  <A HREF="#getc">getc()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="ferror">ferror</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int ferror( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  ferror()函数检查<I>stream</I>(流)中的错误, 如果没发生错误返回0,否则返回非零.  如果发生错误, 使用<A HREF="#perror">perror()</A>检测发生什么错误.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#clearerr">clearerr()</A>, 
+<A HREF="#feof">feof()</A>, 
+<A HREF="#perror">perror()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fflush">fflush</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fflush( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  如果给出的文件流是一个输出流,那么fflush()把输出到缓冲区的内容写入文件.
+  如果给出的文件流是输入类型的,那么fflush()会清除输入缓冲区.  
+  fflush()在调试时很实用,特别是对于在程序中输出到屏幕前发生错误片段时. 直接调用 fflush( STDOUT )输出可以保证你的调试输出可以在正确的时间输出.
+</P>
+<PRE>
+    printf( "Before first call\n" );
+    fflush( STDOUT );
+    shady_function();
+    printf( "Before second call\n" );
+    fflush( STDOUT );
+    dangerous_dereference();
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fclose">fclose()</A>, <A HREF="#fopen">fopen()</A>,
+  <A HREF="#fread">fread()</A>, <A HREF="#fwrite">fwrite()</A>,
+  <A HREF="#getc">getc()</A>, 和<A HREF="#putc">putc()</A>.
+  
+</STRONG>
+
+<HR>
+<H2>
+   <A NAME="fgetc">fgetc</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fgetc( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  fgetc()函数返回来自<I>stream</I>(流)中的下一个字符,如果到达文件尾或者发生错误时返回EOF.  
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fputc">fputc()</A>, <A HREF="#getc">getc()</A>,
+  <A HREF="#putc">putc()</A>, 和<A HREF="#fopen">fopen()</A>.
+</STRONG>
+
+<HR>
+<H2>
+   <A NAME="fgetpos">fgetpos</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fgetpos( FILE *stream, fpos_t *position );
+</PRE></TD></TR></TABLE>
+<P>
+  fgetpos()函数保存给出的文件流(stream)的位置指针到给出的位置变量(position)中. 
+  position变量是fpos_t类型的(它在stdio.h中定义)并且是可以控制在FILE中每个可能的位置对象.  fgetpos()执行成功时返回0,失败时返回一个非零值.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fsetpos">fsetpos()</A>, <A HREF="#fseek">fseek()</A>和
+  <A HREF="#ftell">ftell()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fgets">fgets</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  char *fgets( char *str, int num, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fgets()从给出的文件流中读取[<I>num - 1</I>]个字符并且把它们转储到<I>str</I>(字符串)中.
+  fgets()在到达行末时停止,在这种情况下,<I>str</I>(字符串)将会被一个新行符结束.
+  如果fgets()达到[<I>num - 1</I>]个字符或者遇到EOF, <I>str</I>(字符串)将会以null结束.fgets()成功时返回<I>str</I>(字符串),失败时返回NULL.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="fopen">fopen</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  FILE *fopen( const char *fname, const char *mode );
+</PRE></TD></TR></TABLE>
+<P>
+  fopen()函数打开由<I>fname</I>(文件名)指定的文件, 并返回一个关联该文件的流.如果发生错误, fopen()返回NULL.  <I>mode</I>(方式)是用于决定文件的用途(例如 用于输入,输出,等等)
+</P>
+  <TABLE BGCOLOR="EEEEFF">
+    <TR><TD><STRONG>Mode(方式)</STRONG></TD><TD><STRONG>意义</STRONG></TD></TR>
+    <TR><TD>"r"</TD><TD>打开一个用于读取的文本文件</TD></TR>
+    <TR><TD>"w"</TD><TD>创建一个用于写入的文本文件</TD></TR>
+    <TR><TD>"a"</TD><TD>附加到一个文本文件</TD></TR>
+    <TR><TD>"rb"</TD><TD>打开一个用于读取的二进制文件</TD></TR>
+    <TR><TD>"wb"</TD><TD>创建一个用于写入的二进制文件</TD></TR>
+    <TR><TD>"ab"</TD><TD>附加到一个二进制文件</TD></TR>
+    <TR><TD>"r+"</TD><TD>打开一个用于读/写的文本文件</TD></TR>
+    <TR><TD>"w+"</TD><TD>创建一个用于读/写的文本文件</TD></TR>
+    <TR><TD>"a+"</TD><TD>打开一个用于读/写的文本文件</TD></TR>
+    <TR><TD>"rb+"</TD><TD>打开一个用于读/写的二进制文件</TD></TR>
+    <TR><TD>"wb+"</TD><TD>创建一个用于读/写的二进制文件</TD></TR>
+    <TR><TD>"ab+"</TD><TD>打开一个用于读/写的二进制文件</TD></TR>
+  </TABLE>
+<P>
+  示例:
+</P>
+<PRE>
+    char ch;
+    FILE *input = fopen( "stuff", "r" );
+    ch = getc( input );
+    
+</PRE>
+<HR>
+<H2>
+   <A NAME="fprintf">fprintf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fprintf( FILE *stream, const char *format, ... );
+</PRE></TD></TR></TABLE>
+<P>
+  fprintf()函数根据指定的<I>format</I>(格式)(格式)发送信息(参数)到由<I>stream</I>(流)指定的文件.  fprintf()只能和<A HREF="#printf">printf()</A>一样工作.
+  fprintf()的返回值是输出的字符数,发生错误时返回一个负值. </P>
+<P>
+  示例:
+</P>
+<PRE>
+    char name[20] = "Mary";
+    FILE *out;
+    out = fopen( "output.txt", "w" );
+    if( out != NULL )
+      fprintf( out, "Hello %s\n", name );
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#printf">printf()</A> 和<A HREF="#fscanf">fscanf()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fputc">fputc</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fputc( int ch, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fputc()把给出的字符<I>ch</I>写到给出的输出流.
+  返回值是字符, 发生错误时返回值是EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fgetc">fgetc()</A>, <A HREF="#fopen">fopen()</A>,
+  <A HREF="#fprintf">fprintf()</A>, <A HREF="#fread">fread()</A>,
+  和<A HREF="#fwrite">fwrite()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fputs">fputs</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fputs( const char *str, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  fputs()函数把<I>str</I>(字符串)指向的字符写到给出的输出流.
+  成功时返回非负值, 失败时返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fgets">fgets()</A>, <A HREF="#gets">gets()</A>,
+  <A HREF="#puts">puts()</A>, <A HREF="#fprintf">fprintf()</A>,
+  和<A HREF="#fscanf">fscanf()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fread">fread</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fread( void *buffer, size_t size, size_t num, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fread()读取[<I>num</I>]个对象(每个对象大小为<I>size</I>(大小)指定的字节数),并把它们替换到由<I>buffer</I>(缓冲区)指定的数组.  数据来自给出的输入流.
+  函数的返回值是读取的内容数量...
+</P>
+<P>
+  使用<A HREF="#feof">feof()</A>或<A HREF="#ferror">ferror()</A>判断到底发生哪个错误.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fwrite">fwrite()</A>, <A HREF="#fopen">fopen()</A>,<A HREF="#fscanf">fscanf()</A>, <A HREF="#fgetc">fgetc()</A>和<A HREF="#getc">getc()</A>.
+
+</STRONG>
+<HR>
+<H2>
+   <A NAME="freopen">freopen</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  FILE *freopen( const char *fname, const char *mode, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  freopen()函数常用于再分配一个以存在的流给一个不同的文件和方式(mode).在调用本函数后,给出的文件流将会用<I>mode</I>(方式)指定的访问模式引用<I>fname</I>(文件名).
+  freopen()的返回值是新的文件流,发生错误时返回NULL.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fopen">fopen()</A> 和<A HREF="#fclose">fclose()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fscanf">fscanf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fscanf( FILE *stream, const char *format, ... );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fscanf()以<A HREF="#scanf">scanf()</A>的执行方式从给出的文件流中读取数据.
+  fscanf()的返回值是事实上已赋值的变量的数,如果未进行任何分配时返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#scanf">scanf()</A> 和<A HREF="#fprintf">fprintf()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fseek">fseek</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fseek( FILE *stream, long offset, int origin );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fseek()为给出的流设置位置数据.  <I>origin</I>的值应该是下列值其中之一(在stdio.h中定义):
+</P>
+  <TABLE BGCOLOR="EEEEFF">
+    <TR><TD><STRONG>名称</STRONG></TD><TD><STRONG>说明</STRONG></TD></TR>
+    <TR><TD>SEEK_SET</TD><TD>从文件的开始处开始搜索</TD></TR>
+    <TR><TD>SEEK_CUR</TD><TD>从当前位置开始搜索</TD></TR>
+    <TR><TD>SEEK_END</TD><TD>从文件的结束处开始搜索</TD><TR>
+  </TABLE>
+<P>
+  fseek()成功时返回0,失败时返回非零.  你可以使用fseek()移动超过一个文件,但是不能在开始处之前.
+  使用fseek()清除关联到流的EOF标记.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#ftell">ftell()</A>, <A HREF="#rewind">rewind()</A>,
+  <A HREF="#fopen">fopen()</A>, <A HREF="#fgetpos">fgetpos()</A>和
+  <A HREF="#fsetpos">fsetpos()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fsetpos">fsetpos</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fsetpos( FILE *stream, const fpos_t *position );
+</PRE></TD></TR></TABLE>
+<P>
+  fsetpos()函数把给出的流的位置指针移到由<I>position</I>对象指定的位置.  fpos_t是在stdio.h中定义的.  fsetpos()执行成功返回0,失败时返回非零.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fgetpos">fgetpos()</A>, <A HREF="#fseek">fseek()</A>和
+  <A HREF="#ftell">ftell()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="ftell">ftell</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  long ftell( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  ftell()函数返回<I>stream</I>(流)当前的文件位置,如果发生错误返回-1.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fseek">fseek()</A>和 <A HREF="#fgetpos">fgetpos()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fwrite">fwrite</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int fwrite( const void *buffer, size_t size, size_t count, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  fwrite()函数从数组<I>buffer</I>(缓冲区)中, 写<I>count</I>个大小为<I>size</I>(大小)的对象到<I>stream</I>(流)指定的流.  返回值是已写的对象的数量.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fread">fread()</A>, <A HREF="#fscanf">fscanf()</A>, 
+  <A HREF="#getc">getc()</A>和 <A HREF="#fgetc">fgetc()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="getc">getc</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int getc( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  getc()函数从<I>stream</I>(流)获取并返回下一个字符,如果到达文件尾返回EOF.  getc()和fgetc()是一样的.  例如:
+</P>
+<PRE>
+    char ch;
+    FILE *input = fopen( "stuff", "r" );
+    
+    ch = getc( input );
+    while( ch != EOF ) {
+      printf( "%c", ch );
+      ch = getc( input );
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fputc">fputc()</A>, <A HREF="#fgetc">fgetc()</A>,
+  <A HREF="#putc">putc()</A>和 <A HREF="#fopen">fopen()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="getchar">getchar</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int getchar( void );
+</PRE></TD></TR></TABLE>
+<P>
+  getchar()函数从STDIN(标准输入)获取并返回下一个字符,如果到达文件尾返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fputc">fputc()</A>, <A HREF="#fgetc">fgetc()</A>,
+  <A HREF="#putc">putc()</A>和 <A HREF="#fopen">fopen()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="gets">gets</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  char *gets( char *str );
+</PRE></TD></TR></TABLE>
+<P>
+  gets()函数从STDIN(标准输入)读取字符并把它们加载到<I>str</I>(字符串)里,直到遇到新行(\n)或到达EOF.
+  新行字符翻译为一个null中断符.
+  gets()的返回值是读入的字符串,如果错误返回NULL.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fputs">fputs()</A>, <A HREF="#fgetc">fgetc()</A>,<A HREF="#fgets">fgets()</A>和 <A HREF="#puts">puts()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="perror">perror</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD>
+<PRE>
+  #include &lt;stdio.h&gt;
+  void perror( const char *str );
+</PRE></TD></TR></TABLE>
+<P>
+  perror()函数打印<I>str</I>(字符串)和一个相应的执行定义的错误消息到全局变量<STRONG>errno</STRONG>中.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="printf">printf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int printf( const char *format, ... );
+</PRE></TD></TR></TABLE>
+<P>
+  printf()函数根据<I>format</I>(格式)给出的格式打印输出到STDOUT(标准输出)和其它参数中.
+</P>
+<P>字符串<I>format</I>(格式)由两类项目组成 - 显示到屏幕上的字符和定义printf()显示的其它参数. 
+  基本上, 你可以指定一个包含文本在内的<I>format</I>(格式)字符串,也可以是映射到printf()其它参数的"特殊"字符.  例如本代码
+</P>
+<PRE>
+    char name[20] = "Bob";
+    int age = 21;
+    printf( "Hello %s, you are %d years old\n", name, age );
+</PRE>
+<P>
+  显示下列输出:
+</P>
+<PRE>
+    Hello Bob, you are 21 years old
+</PRE>
+<P>
+  %s 表示, "在这里插入首个参数,一个字符串."  %d 表示第二个参数(一个整数)应该放置在那里.  不同的"<I>%-codes</I>"表示不同的变量类型, 也可以限制变量的长度.
+</P>
+  <TABLE BGCOLOR="EEEEFF">
+    <TR><TD><STRONG>Code</STRONG></TD><TD><STRONG>格式</STRONG></TD></TR>
+    <TR><TD>%c</TD><TD>字符</TD></TR>
+    <TR><TD>%d</TD><TD>带符号整数</TD></TR>
+    <TR><TD>%i</TD><TD>带符号整数</TD></TR>
+    <TR><TD>%e</TD><TD>科学计数法, 使用小写"e"</TD></TR>
+    <TR><TD>%E</TD><TD>科学计数法, 使用大写"E"</TD></TR>
+    <TR><TD>%f</TD><TD>浮点数</TD></TR>
+    <TR><TD>%g</TD><TD>使用%e或%f中较短的一个</TD></TR>
+    <TR><TD>%G</TD><TD>使用%E或%f中较短的一个</TD></TR>
+    <TR><TD>%o</TD><TD>八进制</TD></TR>
+    <TR><TD>%s</TD><TD>一串字符</TD></TR>
+    <TR><TD>%u</TD><TD>无符号整数</TD></TR>
+    <TR><TD>%x</TD><TD>无符号十六进制数, 用小写字母</TD></TR>
+    <TR><TD>%X</TD><TD>无符号十六进制数, 用大写字母</TD></TR>
+    <TR><TD>%p</TD><TD>一个指针</TD></TR>
+    <TR><TD>%n</TD><TD>参数应该是一个指向一个整数的指针<BR>
+  		   指向的是字符数放置的位置<BR>
+  		   </TD></TR>
+    <TR><TD>%%</TD><TD>一个'%'符号</TD></TR>
+  </TABLE>
+<P>
+  一个位于一个%和格式化命令间的整数担当着一个最小字段宽度说明符,并且加上足够多的空格或0使输出足够长.  如果你想填充0,在最小字段宽度说明符前放置0.
+  你可以使用一个精度修饰符,它可以根据使用的格式代码而有不同的含义.  
+  <UL>
+  <LI>用%e, %E和 %f,精度修饰符让你指定想要的小数位数.  例如,
+</P>
+<PRE>
+    %12.6f
+</PRE>
+<P>
+  将会至少显示12位数字,并带有6位小数的浮点数.
+  <LI>用%g和 %G, 精度修饰符决定显示的有效数的位数最大值.
+  <LI>用%s,精度修饰符简单的表示一个<STRONG>最大</STRONG>的最大长度,
+  以补充句点前的最小字段长度.
+  </UL>
+  所有的printf()的输出都是右对齐的,除非你在%符号后放置了负号.
+  例如,
+</P>
+<PRE>
+    %-12.4f
+</PRE>
+<P>
+  将会显示12位字符,4位小数位的浮点数并且左对齐.
+  你可以修改带字母<STRONG>l</STRONG>和<STRONG>h</STRONG>%d, %i, %o, %u和 %x 等类型说明符指定长型和短型数据类型
+  (例如 %hd 表示一个短整数).
+  %e, %f和 %g 类型说明符,可以在它们前面放置<STRONG>l</STRONG>指出跟随的是一个double.
+  %g, %f和 %e 类型说明符可以置于字符'#'前保证出现小数点, 即使没有小数位.  
+  带%x类型说明符的'#'字符的使用, 表示显示十六进制数时应该带'0x'前缀.
+  带%o类型说明符的'#'字符的使用, 表示显示八进制数时应该带一个'0'前缀.
+</P>
+<P>
+  你可以在输出字符串中包含 <A HREF="escape_sequences.html">连续的Escape序列</A>.
+</P>
+<P>
+  printf()的返回值是打印的字符数,如果发生错误则返回一个负值.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#scanf">scanf()</A>和 <A HREF="#fprintf">fprintf()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="putc">putc</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int putc( int ch, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+  putc()函数把字符<I>ch</I>写到<I>stream</I>(流)中.  返回值是写入的字符, 发生错误时返回EOF.  例如:
+</P>
+<PRE>
+    char ch;
+    FILE *input;
+    input = fopen( "temp.cpp", "r" );
+    ch = getc( input );
+    while( ch != EOF ) {
+      printf( "%c", ch );
+      ch = getc( input );
+    }
+</PRE>
+<P>
+  显示"temp.cpp"的内容到屏幕.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fgetc">fgetc()</A>, <A HREF="#fputc">fputc()</A>,
+  <A HREF="#getchar">getchar()</A>和 <A HREF="#putchar">putchar()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="putchar">putchar</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int putchar( int ch );
+</PRE></TD></TR></TABLE>
+<P>
+  putchar()函数把<I>ch</I>写到<STRONG>STDOUT(标准输出)</STRONG>.  代码
+</P>
+<PRE>
+    putchar( ch );
+</PRE>
+<P>
+  和
+</P>
+<PRE>
+    putc( ch, STDOUT );
+</PRE>一样.
+<P>
+  putchar()的返回值是被写的字符, 发生错误时返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#putc">putc()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="puts">puts</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int puts( char *str );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数puts()把<I>str</I>(字符串)写到<STRONG>STDOUT(标准输出)</STRONG>上.  puts() 成功时返回非负值, 失败时返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#putc">putc()</A>, <A HREF="#gets">gets()</A>和
+  <A HREF="#printf">printf()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="remove">remove</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int remove( const char *fname );
+</PRE></TD></TR></TABLE>
+<P>
+  remove()函数删除由<I>fname</I>(文件名)指定的文件.
+  remove()成功时返回0,如果发生错误返回非零.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#rename">rename()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="rename">rename</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int rename( const char *oldfname, const char *newfname );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数rename()更改文件<I>oldfname</I>的名称为<I>newfname</I>.  rename()成功时返回0,错误时返回非零.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#remove">remove()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="rewind">rewind</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  void rewind( FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数rewind()把文件指针移到由<I>stream</I>(流)指定的开始处, 同时清除和流相关的错误和EOF标记.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#fseek">fseek()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="scanf">scanf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int scanf( const char *format, ... );
+</PRE></TD></TR></TABLE>
+<P>
+  scanf()函数根据由<I>format</I>(格式)指定的格式从<STRONG>stdin</STRONG>(标准输入)读取,并保存数据到其它参数.  它和<A HREF="#printf">printf()</A>有点类似.  <I>format</I>(格式)字符串由控制字符,空白字符和非空白字符组成.  控制字符以一个%符号开始,如下:
+</P>
+  <TABLE BGCOLOR="EEEEFF">
+  <TR><TD><STRONG>控制字符</STRONG></TD><TD><STRONG>说明</STRONG></TD></TR>
+  <TR><TD>%c</TD><TD>一个单一的字符</TD></TR>
+  <TR><TD>%d</TD><TD>一个十进制整数</TD></TR>
+  <TR><TD>%i</TD><TD>一个整数</TD></TR>
+  <TR><TD>%e, %f, %g</TD><TD>一个浮点数</TD></TR>
+  <TR><TD>%o</TD><TD>一个八进制数</TD></TR>
+  <TR><TD>%s</TD><TD>一个字符串</TD></TR>
+  <TR><TD>%x</TD><TD>一个十六进制数</TD></TR>
+  <TR><TD>%p</TD><TD>一个指针</TD></TR>
+  <TR><TD>%n</TD><TD>一个等于读取字符数量的整数</TD></TR>
+  <TR><TD>%u</TD><TD>一个无符号整数</TD></TR>
+  <TR><TD>%[]</TD><TD>一个字符集</TD></TR>
+  <TR><TD>%%</TD><TD>一个精度符号</TD></TR>
+  </TABLE>
+<P>
+  scanf()读取匹配<I>format</I>(格式)字符串的输入. 当读取到一个控制字符, 它把值放置到下一个变量.  空白(tabs, 空格等等)会跳过.  非空白字符和输入匹配, 然后丢弃.
+  如果是一个在%符号和控制符间的数量, 那么只有指定数量的字符转换到变量中.  如果scanf()遇到一个字符集(用%[]控制字符表示), 那么在括号中的任意字符都会读取到变量中.
+  scanf()的返回值是成功赋值的变量数量, 发生错误时返回EOF.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#printf">printf()</A>和 <A HREF="#fscanf">fscanf()</A>.
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="setbuf">setbuf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  void setbuf( FILE *stream, char *buffer );
+</PRE></TD></TR></TABLE>
+<P>
+  setbuf()函数设置<I>stream</I>(流)使用<I>buffer</I>(缓冲区),如果<I>buffer</I>(缓冲区)是null,关闭缓冲.  如果使用非标准缓冲尺寸, 它应该由<STRONG>BUFSIZ</STRONG>字符决定长度.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#fopen">fopen()</A>, 
+<A HREF="#fclose">fclose()</A>, 
+<A HREF="#setvbuf">setvbuf()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="setvbuf">setvbuf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int setvbuf( FILE *stream, char *buffer, int mode, size_t size );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数setvbuf()设置用于<I>stream</I>(流)的缓冲区到<I>buffer</I>(缓冲区),其大小为<I>size</I>(大小).  <I>mode</I>(方式)可以是:
+  <UL>
+  <LI>_IOFBF, 表示完全缓冲
+  <LI>_IOLBF, 表示线缓冲
+  <LI>_IONBF, 表示无缓存
+  </UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#setbuf">setbuf()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="sprintf">sprintf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int sprintf( char *buffer, const char *format, ... );
+</PRE></TD></TR></TABLE>
+<P>
+  sprintf()函数和<A HREF="#printf">printf()</A>类似, 只是把输出发送到<I>buffer</I>(缓冲区)中.返回值是写入的字符数量.  例如:
+</P>
+<PRE>
+    char string[50];
+    int file_number = 0;
+    
+    sprintf( string, "file.%d", file_number );
+    file_number++;
+    output_file = fopen( string, "w" );
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#printf">printf()</A>, 
+<A HREF="#fsprintf">fsprintf()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="sscanf">sscanf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int sscanf( const char *buffer, const char *format, ... );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数sscanf()和<A HREF="#scanf">scanf()</A>类似, 只是输入从<I>buffer</I>(缓冲区)中读取.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#scanf">scanf()</A>, 
+<A HREF="#fscanf">fscanf()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="tmpfile">tmpfile</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  FILE *tmpfile( void );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数tempfile()用一个独特的文件名打开一个临时文件,并返回一个到该文件的指针.如果发生错误则返回null.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#tmpnam">tmpnam()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="tmpnam">tmpnam</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  char *tmpnam( char *name );
+</PRE></TD></TR></TABLE>
+<P>
+  tmpnam()函数创建一个独特的文件名并保存在<I>name</I>中.  tmpnam()最多可以调用<STRONG>TMP_MAX</STRONG>指定的次数.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#tmpfile">tmpfile()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="ungetc">ungetc</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdio.h&gt;
+  int ungetc( int ch, FILE *stream );
+</PRE></TD></TR></TABLE>
+<P>
+ 函数ungetc()把字符<I>ch</I>放回到<I>stream</I>(流)中.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#getc">getc()</A>, 
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="vprintf">vprintf, vfprintf和 vsprintf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;stdarg.h&gt;
+  #include &lt;stdio.h&gt;
+  int vprintf( char *format, va_list arg_ptr );
+  int vfprintf( FILE *stream, const char *format, va_list arg_ptr );
+  int vsprintf( char *buffer, char *format, va_list arg_ptr );
+</PRE></TD></TR></TABLE>
+<P>
+  这些函数和<A HREF="#printf">printf()</A>非常相似, 
+  <A HREF="#fprintf">fprintf()</A>和 <A HREF="#sprintf">sprintf()</A>的不同在于参数列表是一个指向一系列参数的指针.  <STRONG>va_list</STRONG>在STDARG.H中定义,并且也可以被<A HREF="stdother_details.html#va_arg">va_arg()</A>使用.  例如:
+</P>
+<PRE>
+    void error( char *fmt, ... ) {
+      va_list args;
+      
+      va_start( args, fmt );
+      fprintf( stderr, "Error: " );
+      vfprintf( stderr, fmt, args );
+      fprintf( stderr, "\n" );
+      va_end( args );
+      exit( 1 );
+    }
+</PRE>
+</BODY>
+</HTML>

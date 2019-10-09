@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F2F2F2"
+    android:fitsSystemWindows="true"
+    >
+
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="#F2F2F2"
+	    >
+		
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:paddingTop="8dip"
+			android:paddingBottom="8dip"
+			android:background="#4D586E"
+			>
+			
+			<TextView
+				android:id="@+id/text_view"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="提交订单"
+				android:textSize="22dip"
+				android:textColor="#FFFFFF"
+			/>
+			
+		</LinearLayout>
+		
+		
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dip"
+			android:paddingRight="10dip"
+			android:orientation="vertical">
+			
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="20dip"
+				android:text="订单详情"
+				android:textColor="#000000"
+				android:paddingTop="8dip"
+				android:paddingBottom="2dip"
+			/>
+			
+			<LinearLayout 
+				android:layout_width="fill_parent"
+				android:layout_height="2dip"
+				android:background="#ABABAB"
+			/>
+			
+			<LinearLayout 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:paddingTop="8dip"
+				android:paddingBottom="3dip"
+			>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="商品名称："
+					android:textSize="17dip"
+					android:textColor="#000000"
+				/>
+				
+				<TextView
+					android:id="@+id/goodsName"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text=""
+					android:textSize="17dip"
+					android:textColor="#000000"
+				/>
+				
+				
+			</LinearLayout>
+			
+			
+			<LinearLayout 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:paddingTop="8dip"
+			>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="支付金额："
+					android:textSize="17dip"
+					android:textColor="#000000"
+				/>
+				
+				<EditText
+					android:id="@+id/amount"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:numeric="decimal"
+					android:text="1.0"
+					android:textSize="19dip"
+					android:textColor="#000000"
+				/>
+				
+				
+			</LinearLayout>
+			
+			<LinearLayout 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:paddingTop="8dip"
+				android:paddingBottom="3dip"
+			>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="商品描述："
+					android:textSize="17dip"
+					android:textColor="#000000"
+				/>
+				
+				<TextView
+					android:id="@+id/details"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="17dip"
+					android:textColor="#000000"
+				/>
+				
+			</LinearLayout>
+			
+			<LinearLayout 
+				android:layout_width="fill_parent"
+				android:layout_height="2dip"
+				android:background="#ABABAB"
+			/>
+			
+			<LinearLayout 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:paddingTop="20dip"
+				android:paddingBottom="3dip"
+				android:paddingLeft="50dip"
+				android:paddingRight="50dip"
+			>
+				<Button
+					android:id="@+id/submitBtn"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="提交订单"
+					android:textSize="20dip"
+					android:textColor="#000000"
+				/>
+				
+				<TextView
+					android:id="@+id/sdkVersion"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:textSize="14dip"
+					android:textColor="#999999"
+					android:gravity="center_horizontal"
+					android:paddingTop="10dip"
+				/>
+				
+			</LinearLayout>
+			
+		</LinearLayout>
+			
+	</LinearLayout>
+	
+</ScrollView>

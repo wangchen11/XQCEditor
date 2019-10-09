@@ -1,0 +1,722 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+  <TITLE>C++ I/O</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppio.html">C++ I/O</A> -&gt;
+    Details
+</TD></TR></TABLE>
+<H1>C++ I/O</H1>
+  
+<HR>
+<H2>
+   构造器</H2><i>语法:</i>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  fstream( const char *filename, openmode mode );
+  ifstream( const char *filename, openmode mode );
+  ofstream( const char *filename, openmode mode );
+</PRE></TD></TR></TABLE>
+<P>
+  Tstream, ifstream, 和ofstream对象用于文件输入/输出.  
+  可选择<i>模式</i>通过使用<A HREF="#mode_flags">ios stream mode flags</A>定义了一个文件如何打开。<I>filename</I> 
+	指定被打开的文件并与流相关联。例如，下面的代码读取输入的数据并追加结果到一个输出文件中.
+</P>
+<PRE>
+    ifstream fin( "/tmp/data.txt" );
+    ofstream fout( "/tmp/results.txt", ios::app );
+    while( fin >> temp ) 
+      fout << temp + 2 << endl;
+    fin.close();
+    fout.close();
+</PRE>
+<P>
+  输入和输出文件流可以相似的方式被使用在C++预定义I/O流，<STRONG>cin</STRONG> 和
+  <STRONG>cout</STRONG>.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#close">close()</A>, 
+<A HREF="#open">open()</A>
+  
+</STRONG>
+
+<HR>
+<H2>
+   <A NAME="bad">bad</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool bad();
+</PRE></TD></TR></TABLE>
+<P>
+  如果当前的流发生致命的错误，bad()函数返回<STRONG>true</STRONG>，否则返回<STRONG>false</STRONG>。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#good">good()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="clear">clear</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void clear( iostate flags = goodbit );
+</PRE></TD></TR></TABLE>
+<P>
+  函数clear()清除与当前流相关联的<A HREF="cppio_flags.html">标志</A>。默认标志是goodbit它清除所有标志.否则只有指定的标志被清除。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#rdstate">rdstate()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="close">close</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void close();
+</PRE></TD></TR></TABLE>
+<P>
+  Tclose()函数关闭相关的文件流。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+  <A HREF="#open">open()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="eof">eof</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool eof();
+</PRE></TD></TR></TABLE>
+<P>
+  如果到达相关联的输入文件的末尾，eof()函数返回<STRONG>true</STRONG>，否则返回<STRONG>false</STRONG>。例如：
+</P>
+<PRE>
+    char ch;
+    ifstream fin( "temp.txt" );
+    while( !fin.eof() ) {
+      fin >> ch;
+      cout << ch;
+    }
+    fin.close();
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#bad">bad()</A>, 
+<A HREF="#fail">fail()</A>, 
+<A HREF="#good">good()</A>, 
+<A HREF="#rdstate">rdstate()</A>, 
+<A HREF="#clear">clear()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fail">fail</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool fail();
+</PRE></TD></TR></TABLE>
+<P>
+  如果当前流发生错误fail()函数返回<STRONG>true</STRONG> ，否则返回<STRONG>false</STRONG> 。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#good">good()</A>, 
+<A HREF="#eof">eof()</A>, 
+<A HREF="#bad">bad()</A>, 
+<A HREF="#clear">clear()</A>, 
+<A HREF="#rdstate">rdstate()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="fill">fill</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  char fill();
+  char fill( char ch );
+</PRE></TD></TR></TABLE>
+<P>
+  函数fill()可以返回当前填充字符，或者设置当前填充字符为<I>ch</I> 。填充字符被定义为用来填充字符，当一个数字比较指定<A HREF="#width">宽度</A>T小时。默认的填充字符是空格。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#precision">precision()</A>, 
+<A HREF="#width">width()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="flags">flags</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  fmtflags flags();
+  fmtflags flags( fmtflags f );
+</PRE></TD></TR></TABLE>
+<P>
+  flags()函数或者返回当前流的<A HREF="cppio_flags.html">格式标志</A>，或者为当前流设置标志为<I>f</I>。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#unsetf">unsetf()</A>, 
+<A HREF="#setf">setf()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="flush">flush</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  ostream &flush();
+</PRE></TD></TR></TABLE>
+<P>
+  flush()函数可以引起当把前流的缓冲区写出到附属设备中去。这个函数对于打印调试信息很用处，因为当程序有机会把缓冲区内容写出到屏幕之前，程序会被中断。灵活地使用flush()可以保证你所有的调试状态都实在的打印出来。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#put">put()</A>, 
+<A HREF="#write">write()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="gcount">gcount</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  streamsize gcount();
+</PRE></TD></TR></TABLE>
+<P>
+  函数gcount()被用于输入流，并返回上一次输入操作被读入的字符的数目。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#get">get()</A>, 
+<A HREF="#getline">getline()</A>, 
+<A HREF="#read">read()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="get">get</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  int get();
+  istream &get( char &ch );
+  istream &get( char *buffer, streamsize num );
+  istream &get( char *buffer, streamsize num, char delim );
+  istream &get( streambuf &buffer );
+  istream &get( streambuf &buffer, char delim );
+</PRE></TD></TR></TABLE>
+<P>
+  get()函数被用于输入流，和以下这些:
+  <UL>
+  <LI>读入一个字符并返回它的值，
+  <LI>读入一个字符并把它存储在<I>ch</I>，
+  <LI>读取字符到<I>buffer</I>直到<I>num</I> - 1个字符被读入, 或者碰到EOF或换行标志，
+  <LI>读取字符到<I>buffer</I>直到已读入<I>num</I> - 1 个字符，或者碰到EOF或<I>delim</I>(<I>delim</I>直到下一次不会被读取)，<LI>
+	读取字符到<i>buffer</i>中，直到碰到换行或EOF，
+  <LI>或是读取字符到<I>buffer</I>中，直到碰到换行，EOF或<I>delim</I>。(相反,
+  <I>delim</I>直到下一个get()不会被读取 ).
+  </UL>
+  例如，下面的代码一个字符一个字符的显示文件temp.txt中的内容：
+</P>
+<PRE>
+    char ch;
+    ifstream fin( "temp.txt" );
+    while( fin.get(ch) )
+      cout << ch; 
+    fin.close();
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#put">put()</A>, 
+<A HREF="#read">read()</A>, 
+<A HREF="#getline">getline()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="getline">getline</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  istream &getline( char *buffer, streamsize num );
+  istream &getline( char *buffer, streamsize num, char delim );
+</PRE></TD></TR></TABLE>
+<P>
+  getline()函数用于输入流，读取字符到<i>buffer</i>中，直到下列情况发生：
+  <UL>
+  <LI><I>num</I> - 1个字符已经读入,
+  <LI>碰到一个换行标志，<LI>碰到一个EOF，
+  <LI>或者，任意地读入，直到读到字符<I>delim</I>。<I>delim</I>字符不会被放入<I>buffer</I>中。
+  </UL>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#get">get()</A>, 
+<A HREF="#read">read()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="good">good</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool good();
+</PRE></TD></TR></TABLE>
+<P>
+  如果当前流没有发生错误，函数good()返回<STRONG>true</STRONG> ，否则返回<STRONG>false</STRONG>。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#bad">bad()</A>, 
+<A HREF="#fail">fail()</A>, 
+<A HREF="#eof">eof()</A>, 
+<A HREF="#clear">clear()</A>, 
+<A HREF="#rdstate">rdstate()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="ignore">ignore</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  istream &ignore( streamsize num=1, int delim=EOF );
+</PRE></TD></TR></TABLE>
+<P>
+  ignore()函数用于输入流。它读入字符，直到已经读了<I>num</I> 个字符(默认为1)或是直到字符<I>delim</I> 被读入(默认为EOF).
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#get">get()</A>, 
+<A HREF="#getline">getline()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="open">open</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void open( const char *filename );
+  void open( const char *filename, openmode mode );
+</PRE></TD></TR></TABLE>
+<P>
+  函数open()用于文件流。它打开<I>filename</I> 并将其与当前的流相关联。可以选择的模式有：
+</P>
+<A NAME="mode_flags"></A>
+<TABLE>
+  <TR><TH>模式</TH><TH>含义</TH></TR>
+  <TR BGCOLOR="EEEEFF"><TD>ios::app</TD><TD>添加输出</TD></TR>
+  <TR><TD>ios::ate</TD><TD>当已打开时寻找到EOF</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>ios::binary</TD><TD>以二进制模式打开文件</TD></TR>
+  <TR><TD>ios::in</TD><TD>为读取打开文件</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>ios::out</TD><TD>为写入打开文件<TR><TD>ios::trunc</TD><TD>
+	覆盖存在的文件</TD></TR>
+</TABLE>
+<P>
+  如果open()失败，当用于一个布尔表达式中时，作为结果的流会给出对错误的评估。例如：
+</P>
+<PRE>
+  ifstream inputStream("file.txt");
+  if( !inputStream ) {
+    cerr &lt;&lt; "Error opening input stream" &lt;&lt; endl;
+    return;
+  }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#close">close()</A>, 
+<A HREF="#Constructors">fstream(), ifstream(), ofstream()</A>, 
+
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="peek">peek</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  int peek();
+</PRE></TD></TR></TABLE>
+<P>
+  函数peek()用于输入流中，并返回在流中的下一个字符或如果是处于被入的文件的结尾处返回EOF。peek()不会把字符从流中移除。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#get">get()</A>, 
+<A HREF="#putback">putback()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="precision">precision</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  streamsize precision();
+  streamsize precision( streamsize p );
+</PRE></TD></TR></TABLE>
+<P>
+  precision()函数设置或返回当前要被显示的浮点变量的位数。例如，下面的代码：
+</P>
+<PRE>
+    float num = 314.15926535;
+    cout.precision( 5 );
+    cout << num;
+</PRE>
+<P>
+  displays
+</P>
+<PRE>
+    314.16
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#width">width()</A>, 
+<A HREF="#fill">fill()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="put">put</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  ostream &put( char ch );
+</PRE></TD></TR></TABLE>
+<P>
+  函数put()用于输出流，并把字符<I>ch</I>写入流中。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#write">write()</A>, 
+<A HREF="#get">get()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="putback">putback</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  istream &putback( char ch );
+</PRE></TD></TR></TABLE>
+<P>
+  putback()函数用于输入流，并且返回以前读的字符<I>ch</I>到输入流中。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#peek">peek()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="rdstate">rdstate</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  iostate rdstate();
+</PRE></TD></TR></TABLE>
+<P>
+  rdstate()函数返回当前流的状态。<STRONG>iostate</STRONG> 对象有下面这些标志：
+</P>
+<TABLE>
+  <TR><TH>标志</TH><TH>含义</TH></TR>
+  <TR BGCOLOR="EEEEFF"><TD>badbit</TD><TD>发生致命的错误</TD></TR>
+  <TR><TD>eofbit</TD><TD>已经发现EOF</TD></TR>
+  <TR BGCOLOR="EEEEFF"><TD>failbit</TD><TD>一个非致命性错误已经发生</TD></TR>
+  <TR><TD>goodbit</TD><TD>没有发生错误</TD></TR>
+</TABLE>
+<P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#eof">eof()</A>, 
+<A HREF="#good">good()</A>, 
+<A HREF="#bad">bad()</A>, 
+<A HREF="#clear">clear()</A>, 
+<A HREF="#fail">fail()</A>
+</STRONG>
+</P>
+
+<HR>
+<H2>
+   <A NAME="read">read</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  istream &read( char *buffer, streamsize num );
+</PRE></TD></TR></TABLE>
+<P>
+  函数read()用于输入流，在将字符放入<I>buffer</I> 之前从流中读取<I>num</I> 个字节。如果碰到EOF，read()中止，丢弃不论多少个字节已经放入。例如：
+</P>
+<PRE>
+    struct {
+      int height;
+      int width;
+    } rectangle;
+    
+    input_file.read( (char *)(&rectangle), sizeof(rectangle) );
+    if( input_file.bad() ) {
+      cerr << "Error reading data" << endl;
+      exit( 0 );
+    }
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#gcount">gcount()</A>, 
+<A HREF="#get">get()</A>, 
+<A HREF="#getline">getline()</A>, 
+<A HREF="#write">write()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="seekg">seekg</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  istream &seekg( off_type offset, ios::seekdir origin );
+  istream &seekg( pos_type position );
+</PRE></TD></TR></TABLE>
+<P>
+  函数seekg()用于输入流，并且它将重新设置&quot;get&quot;指针到当前流的从<I>origin</I>偏移<I>offset</I>个字节的位置上，或是置"get"指针在<I>position</I>位置。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#seekp">seekp()</A>, 
+<A HREF="#tellg">tellg()</A>, 
+<A HREF="#tellp">tellp()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="seekp">seekp</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  ostream &seekp( off_type offset, ios::seekdir origin );
+  ostream &seekp( pos_type position );
+</PRE></TD></TR></TABLE>
+<P>
+  seekp()函数用于输出流，但在其它方面和<A HREF="#seekg">seekg()</A>很类似。</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#seekg">seekg()</A>, 
+<A HREF="#tellg">tellg()</A>, 
+<A HREF="#tellp">tellp()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="setf">setf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  fmtflags setf( fmtflags flags );
+  fmtflags setf( fmtflags flags, fmtflags needed );
+</PRE></TD></TR></TABLE>
+<P>
+  函数setf()设置当前流的<A HREF="cppio_flags.html">格式化标志</A>为<I>flags</I>。可选标志<I>needed</I> 
+	只允许<I>flags</I>标志和<I>needed</I>标志都被设置。返回值是前面设置的标志。<br>
+	例如：
+</P>
+<PRE>
+    int number = 0x3FF;
+    cout.setf( ios::dec );
+    cout << "Decimal: " << number << endl;
+    cout.unsetf( ios::dec );
+    cout.setf( ios::hex );
+    cout << "Hexadecimal: " << number << endl;
+</PRE>
+<P>
+  提示，上面的代码和下面的代码的功能是一致的:
+</P>
+<PRE>
+    int number = 0x3FF;
+    cout << "Decimal: " << number << endl << hex << "Hexadecimal: " << number << dec << endl;
+</PRE>
+<P>
+  参考 <A HREF="cppio_flags.html">manipulators</A>.
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#flags">flags()</A>, 
+<A HREF="#unsetf">unsetf()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="sync_with_stdio">sync_with_stdio</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  static bool sync_with_stdio( bool sync=true );
+</PRE></TD></TR></TABLE>
+<P>
+  sync_with_stdio()函数有打开或关闭使用C++风格I/O系统混合C风格的I/O系统的功能。
+  
+</P>
+<HR>
+<H2>
+   <A NAME="tellg">tellg</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  pos_type tellg();
+</PRE></TD></TR></TABLE>
+<P>
+  tellg()函数用于输入流，并返回流中&quot;get&quot;指针的当前位置。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#seekg">seekg()</A>, 
+<A HREF="#seekp">seekp()</A>, 
+<A HREF="#tellp">tellp()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="tellp">tellp</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  pos_type tellp();
+</PRE></TD></TR></TABLE>
+<P>
+  tellp()函数用于输出流中，并返回在流中当前"put"指针的位置。 例如，下面的代码显示了当一个文件指针写入一个流的时候的情形：
+</P>
+<PRE>
+  string s("In Xanadu did Kubla Khan...");
+
+  ofstream fout("output.txt");
+
+  for( int i=0; i < s.length(); i++ ) {
+    cout << "File pointer: " << fout.tellp();
+    fout.put( s[i] );
+    cout << " " << s[i] << endl;
+  }
+
+  fout.close();
+</PRE>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#seekg">seekg()</A>, 
+<A HREF="#seekp">seekp()</A>, 
+<A HREF="#tellg">tellg()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="unsetf">unsetf</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void unsetf( fmtflags flags );
+</PRE></TD></TR></TABLE>
+<P>
+  函数unsetf()用于清除与当前流相关的给定的标志<I>flags</I>。<A HREF="cppio_flags.html">什么标志呢?</A>
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#setf">setf()</A>, 
+<A HREF="#flags">flags()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="width">width</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  int width();
+  int width( int w );
+</PRE></TD></TR></TABLE>
+<P>
+  函数 width()返回当前的宽度。可选择参数<I>w</I>用于设定宽度大小。宽度是指每一次输出中显示的字符的最小数目。例如：
+</P>
+<PRE>
+    cout.width( 5 );
+    cout << "2";
+</PRE>
+<P>
+  displays
+</P>
+<PRE>
+        2
+</PRE>
+<P>
+  (在一个'2'的后面紧跟着四个空格)
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#precision">precision()</A>, 
+<A HREF="#fill">fill()</A>
+  
+</STRONG>
+<HR>
+<H2>
+   <A NAME="write">write</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  ostream &write( const char *buffer, streamsize num );
+</PRE></TD></TR></TABLE>
+<P>
+  write()函数用于输出流，从<i>buffer</i>中写<i>num</i>个字节到当前输出流中。
+</P>
+<I>相关主题:</I><BR>
+<STRONG>
+<A HREF="#read">read()</A>, 
+<A HREF="#put">put()</A>
+  
+</BODY>
+</HTML>

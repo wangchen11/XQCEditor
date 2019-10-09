@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+  <TITLE>C/C++ Data Types</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; C/C++ 数据类型
+</TD></TR></TABLE>
+
+<H1>C/C++ 数据类型</H1>
+
+<P>
+C语言包含5个基本数据类型: <STRONG>void</STRONG>, <STRONG>integer</STRONG>, 
+<STRONG>float</STRONG>, <STRONG>double</STRONG>, 和 <STRONG>char</STRONG>.
+</P>
+
+<P>
+<TABLE>
+<TR><TH>类型</TH><TH>描述</TH></TR>
+<TR BGCOLOR="EEEEFF"><TD>void</TD><TD>空类型</TD></TR>
+<TR><TD>int</TD><TD>整型</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>float</TD><TD>浮点类型</TD></TR>
+<TR><TD>double</TD><TD>双精度浮点类型</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>char</TD><TD>字符类型</TD></TR>
+</TABLE>
+</P>
+
+<P>
+C++ 定义了另外两个基本数据类型: <STRONG>bool</STRONG> 和 <STRONG>wchar_t</STRONG>.
+</P>
+
+<P>
+<TABLE>
+<TR><TH>类型</TH><TH>描述</TH></TR>
+<TR BGCOLOR="EEEEFF"><TD>bool</TD><TD>布尔类型, 值为true 或 false</TD></TR>
+<TR><TD>wchar_t</TD><TD>宽字符类型</TD></TR>
+</TABLE>
+</P>
+
+<H2>类型修饰符</H2>
+
+<P>
+一些基本数据类型能够被 <STRONG>signed</STRONG>, <STRONG>unsigned</STRONG>,
+<STRONG>short</STRONG>, 和 <STRONG>long</STRONG> 修饰. 当类型修饰符单独使用的时候, 默认的类型是 <STRONG>int</STRONG>. 
+下表是所有可能出现的数据类型:
+</P>
+
+<TABLE>
+<TR BGCOLOR="EEEEFF"><TD>bool</TD></TR>
+<TR><TD>char</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>unsigned char</TD></TR>
+<TR><TD>signed char</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>int</TD></TR>
+<TR><TD>unsigned int</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>signed int</TD></TR>
+<TR><TD>short int</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>unsigned short int</TD></TR>
+<TR><TD>signed short int</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>long int</TD></TR>
+<TR><TD>signed long int</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>unsigned long int</TD></TR>
+<TR><TD>float</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>double</TD></TR>
+<TR><TD>long double</TD></TR>
+<TR BGCOLOR="EEEEFF"><TD>wchar_t</TD></TR>
+</TABLE>
+
+
+<H2>类型大小和表示范围</H2>
+
+<P>
+基本数据类型的大小以及能够表示的数据范围是与编译器和硬件平台有关的.  "cfloat&quot; (或者 "float.h") 
+头文件往往定义了基本数据类型能够表示的数据的最大值和最小值.  你也可以使用 <A HREF="keywords_details.html#sizeof">sizeof</A> 
+来获得类型的大小(字节数) .
+
+然而, 很多平台使用了一些数据类型的标准大小，如.  <STRONG>int</STRONG> 和 <STRONG>float</STRONG> 通常占用 
+32位, <STRONG>char</STRONG> 占用 8位, 
+<STRONG>double</STRONG> 通常占用64位.  <STRONG>bools</STRONG> 通常以 8位 来实现.
+</P>
+
+
+</BODY>
+</HTML>

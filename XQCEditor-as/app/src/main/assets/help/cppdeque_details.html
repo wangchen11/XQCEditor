@@ -1,0 +1,298 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Double-Ended Queues</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppdeque.html">C++ Double-Ended Queues(双向队列)</A> -&gt; 详细资料</TD>
+</TR></TABLE>
+
+<H1>C++ Double-Ended Queues(双向队列)</H1>
+  
+<hr>
+<h2>
+   <a name="Constructors">Constructors</a>
+</h2>
+<i>语法:</i>
+<table bgcolor="#ccccff"><tbody><tr><td><pre>
+  deque();
+  deque( size_type size );
+  deque( size_type num, const <a href="containers.html">TYPE</a> &amp;val );
+  deque( const deque &amp;from );
+  deque( <a href="iterators.html">input_iterator</a> start, <a href="iterators.html">input_iterator</a> end );
+
+</pre></td></tr></tbody></table>
+<p>
+  C++ Deques能用以下方式创建:
+</p>
+<ul>
+  <li>无参，创建一个空双向队列</li>
+  <li><i>size</i> - 创建一个大小为size的双向队列</li>
+  <li><i>num</i> and <i>val</i> - 放置num个val的拷贝到队列中，</li>
+  <li><i>from</i> - 从from创建一个内容一样的双向队列 </li>
+  <li><i>start</i> 和 <i>end</i> - 创建一个队列，保存从start到end的元素。</li>
+</ul>
+</p>
+
+<p>
+例如，下列代码创建并显示一个双向队列：
+<pre>
+  // 创建一个双向队列，里面有10个1
+  deque<int> dq( 10, 1 );
+  // 创建一个迭代器
+  deque<int>::iterator iter;
+
+  // 显示这个双向队列
+  for( iter = dq.begin(); iter != dq.end(); iter++ ){ 
+    cout << *iter << endl;
+  }
+</pre>
+</p>
+
+<HR>
+<H2>
+   <A NAME="Operators">Operators</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  []
+</PRE></TD></TR></TABLE>
+<P>你可以使用[]操作符访问双向队列中单个的元素。</P>
+<HR>
+<H2>
+   <A NAME="assign">assign</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void assign( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end);
+  void assign( Size num, const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+assign()函数用start和end指示的范围为双向队列赋值，或者设置成num个val。</P>
+<HR>
+<H2>
+   <A NAME="at">at</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference at( size_type pos );
+</PRE></TD></TR></TABLE>
+<P>
+at()函数返回一个引用，指向双向队列中位置pos上的元素。</P>
+<HR>
+<H2>
+   <A NAME="back">back</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference back();
+</PRE></TD></TR></TABLE>
+<P>
+back()返回一个引用，指向双向队列中最后一个元素。</P>
+<HR>
+<H2>
+   <A NAME="begin">begin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE></TD></TR></TABLE>
+<P>
+  begin()函数返回一个<A HREF="iterators.html">迭代器</A>，指向双向队列的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="clear">clear</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void clear();
+</PRE></TD></TR></TABLE>
+<P>
+clear()函数删除双向队列中所有元素。</P>
+<HR>
+<H2>
+   <A NAME="empty">empty</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+empty()返回真如果双向队列为空，否则返回假。</P>
+<HR>
+<H2>
+   <A NAME="end">end</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE></TD></TR></TABLE>
+<P>
+  end()函数返回一个<A HREF="iterators.html">迭代器</A>，指向双向队列的尾部。</P>
+<HR>
+<H2>
+   <A NAME="erase">erase</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> pos );
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P> erase()函数删除pos位置上的元素，或者删除start和end之间的所有元素。返回值是一个<A HREF="iterators.html">iterator</A>，指向被删除元素的后一个元素。</P>
+<HR>
+<H2>
+   <A NAME="front">front</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  reference front();
+</PRE></TD></TR></TABLE>
+<P>
+front()函数返回一个引用，指向双向队列的头部。</P>
+<HR>
+<H2>
+   <A NAME="get_allocator">get_allocator</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  allocator_type get_allocator();
+</PRE></TD></TR></TABLE>
+<P>
+get_allocator()函数返回双向队列的配置器。</P>
+<HR>
+<H2>
+   <A NAME="insert">insert</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> pos, size_type num, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">iterator</A> pos, <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  insert()在pos前插入num个val值，或者插入从start到end范围内的元素到pos前面。</P>
+<HR>
+<H2>
+   <A NAME="max_size">max_size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type max_size();
+</PRE></TD></TR></TABLE>
+<P>
+  max_size()返回双向队列能容纳的最大元素个数。</P>
+<HR>
+<H2>
+   <A NAME="pop_back">pop_back</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void pop_back();
+</PRE></TD></TR></TABLE>
+<P>
+pop_back()删除双向队列尾部的元素。</P>
+<HR>
+<H2>
+   <A NAME="pop_front">pop_front</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void pop_front();
+</PRE></TD></TR></TABLE>
+<P>
+pop_front()删除双向队列头部的元素。</P>
+<HR>
+<H2>
+   <A NAME="push_back">push_back</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push_back( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+  push_back()函数在双向队列的尾部加入一个值为val的元素。</P>
+<HR>
+<H2>
+   <A NAME="push_front">push_front</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push_front( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+push_front()函数在双向队列的头部加入一个值为val的元素。</P>
+<HR>
+<H2>
+   <A NAME="rbegin">rbegin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE></TD></TR></TABLE>
+<P>
+  rbegin()返回一个指向双向队列尾部的逆向<A HREF="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="rend">rend</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE></TD></TR></TABLE>
+<P>rend()返回一个指向双向队列头部的逆向<A HREF="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="resize">resize</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void resize( size_type num, <A HREF="containers.html">TYPE</A> val );
+</PRE></TD></TR></TABLE>
+<P>
+resize()改变双向队列的大小为num，另加入的元素都被填充为val。</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>
+size()函数返回双向队列中的元素个数。</P>
+<HR>
+<H2>
+   <A NAME="swap">swap</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void swap( deque &target );
+</PRE></TD></TR></TABLE>
+<P>
+swap()函数交换target和现双向队列中元素。</P>
+</BODY>
+</HTML>

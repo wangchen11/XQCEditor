@@ -1,0 +1,1293 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Standard C String &amp; Character</title>
+</head>
+
+<body>
+
+<div class="Section1" style="LAYOUT-GRID:  15.6pt none">
+  <table style="BACKGROUND: #eeeeff; WIDTH: 100%; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" width="100%" bgColor="#eeeeff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US"><a href="file:///C:/Documents%20and%20Settings/ZS/桌面/index.html">cppreference.com</a> 
+          -&gt; <a href="file:///C:/Documents%20and%20Settings/ZS/桌面/stdstring.html">Standard 
+          C String &amp; Character</a> -&gt; </span><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">详解</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h1>标准<span lang="EN-US">c字符和字符串</span></h1>
+  <div class="MsoNormal" style="TEXT-ALIGN: center" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2><span lang="EN-US"><a name="atof">atof</a></span></h2>
+  <p class="MsoNormal"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;stdlib.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>double atof( const char *str );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>功能<span lang="EN-US">:将字符串<i>str</i>转换成一个双精度数值并返回结果。  
+  参数<i>str</i> 必须以有效数字开头,但是允许以“E”或“e”除外的任意非数字字符结尾。例如：</span></p> 
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>x = atof( &quot;42.0is_the_answer&quot; );</span></pre>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">x的值为42.0.</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#atoi">atoi()</a> and <a href="#atol">atol()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="atoi">atoi</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;stdlib.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int atoi( const char *str );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：将字符串<i><span lang="EN-US">str</span></i>转换成一个整数并返回结果。参数<i><span lang="EN-US">str</span></i><span lang="EN-US"> 
+  以数字开头，当函数从<i>str</i>  
+  中读到非数字字符则结束转换并将结果返回。例如，</span></p> 
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>i = atoi( &quot;512.035&quot; );</span></pre>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">i  
+  的值为 512.</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#atof">atof()</a> and <a href="#atol">atol()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="atol">atol</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"> <span style="mso-spacerun: yes">&nbsp;</span>#include &lt;stdlib.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>long atol( const char *str );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：将字符串转换成长整型数并返回结果。函数会扫描参数<i><span lang="EN-US">str</span></i>字符串，跳过前面的空格字符，直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时才结束转换，并将结果返回。例如，</p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>x = atol( &quot;1024.0001&quot; );</span></pre>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">x的值为1024L.</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#atof">atof()</a> and <a href="#atoi">atoi()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isalnum">isalnum</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isalnum( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是数字或字母字符，函数返回非零值，否则返回零值。</p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char c;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>scanf( &quot;%c&quot;, &amp;c );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>if( isalnum(c) )</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;You entered the alphanumeric character %c\n&quot;, c );</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, <a href="#isdigit">isdigit()</a>, 
+  <a href="#isgraph">isgraph()</a>, <a href="#isprint">isprint()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isalpha">isalpha</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isalpha( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是字母字符，函数返回非零值，否则返回零值。</p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char c;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>scanf( &quot;%c&quot;, &amp;c );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>if( isalpha(c) )</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;You entered a letter of the alphabet\n&quot; );</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#iscntrl">iscntrl()</a>, <a href="#isdigit">isdigit()</a>, 
+  <a href="#isgraph">isgraph()</a>, <a href="#isprint">isprint()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="iscntrl">iscntrl</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int iscntrl( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是控制字符（<span lang="EN-US">0和0x1F之间的字符，或者等于0x7F）函数返回非零值，否则返回零值。<span style="mso-spacerun: yes">&nbsp;</span></span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#isdigit">isdigit()</a>, 
+  <a href="#isgraph">isgraph()</a>, <a href="#isprint">isprint()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isdigit">isdigit</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isdigit( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是<span lang="EN-US">0到9之间的数字字符，函数返回非零值，否则返回零值.</span></p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char c;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>scanf( &quot;%c&quot;, &amp;c );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>if( isdigit(c) )</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;You entered the digit %c\n&quot;, c );</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, 
+  <a href="#isgraph">isgraph()</a>, <a href="#isprint">isprint()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isgraph">isgraph</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isgraph( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是除空格外的可打印字符（可见的字符），函数返回非零值，否则返回零值。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, 
+  <a href="#isdigit">isdigit()</a>, <a href="#isprint">isprint()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="islower">islower</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int islower( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是小写字母字符，函数返回非零值，否则返回零值。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isupper">isupper()</a></strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isprint">isprint</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isprint( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是可打印字符（包括空格），函数返回非零值，否则返回零值。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, 
+  <a href="#isdigit">isdigit()</a>, <a href="#isgraph">isgraph()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="ispunct">ispunct</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int ispunct( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是除字母，数字和空格外可打印字符，函数返回非零值，否则返回零值。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, 
+  <a href="#isdigit">isdigit()</a>, <a href="#isgraph">isgraph()</a>, <a href="#isprint">isprint()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isspace">isspace</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isspace( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是空格类字符（即：单空格，制表符，垂直制表符，满页符，回车符，新行符），函数返回非零值，否则返回零值。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, 
+  <a href="#isdigit">isdigit()</a>, <a href="#isgraph">isgraph()</a>, and <a href="#ispunct">ispunct()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isupper">isupper</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isupper( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是大写字母字符，函数返回非零值，否则返回零值。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#tolower">tolower()</a></strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="isxdigit">isxdigit</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int isxdigit( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：如果参数是十六进制数字字符（即：<span lang="EN-US">A-F,  
+  a-f, 0-9），函数返回非零值，否则返回零值。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#isalnum">isalnum()</a>, <a href="#isalpha">isalpha()</a>, <a href="#iscntrl">iscntrl()</a>, 
+  <a href="#isdigit">isdigit()</a>, <a href="#isgraph">isgraph()</a>, <a href="#ispunct">ispunct()</a>, 
+  and <a href="#isspace">isspace()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="memchr">memchr</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>void *memchr( const void *buffer, int ch, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数在<i><span lang="EN-US">buffer</span></i>指向的数组的<i><span lang="EN-US">count</span></i>个字符的字符串里查找<i><span lang="EN-US">ch</span></i><span lang="EN-US"> 
+  首次出现的位置。返回一个指针，指向<i>ch</i>  
+  在字符串中首次出现的位置, 如果<i>ch</i>  
+  没有在字符串中找到，返回NULL。例如:</span></p> 
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char names[] = &quot;Alan Bob Chris X Dave&quot;;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>if( memchr(names,'X',strlen(names)) == NULL )</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;Didn't find an X\n&quot; );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>else</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;Found an X\n&quot; );</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcpy">memcpy()</a> and <a href="#strstr">strstr()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="memcmp">memcmp</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int memcmp( const void *buffer1, const void *buffer2, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数比较<i><span lang="EN-US">buffer1</span></i><span lang="EN-US"> 
+  和 <i>buffer2</i>的前<i>count</i> 个字符。返回值如下:</span></p> 
+  <table style="BACKGROUND: #eeeeff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#eeeeff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><strong><span lang="EN-US">Value</span></strong><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><strong><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">解释</span></strong><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">less than 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p> 
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">buffer1 is less than buffer2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">equal to 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">buffer1 is equal to buffer2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">greater than 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">buffer1 is greater than 
+          buffer2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i>相关主题<span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memchr">memchr()</a>, <a href="#memcpy">memcpy()</a>, and <a href="#strcmp">strcmp()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="memcpy">memcpy</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>void *memcpy( void *to, const void *from, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数从<i><span lang="EN-US">from</span></i>中复制<i><span lang="EN-US">count</span></i><span lang="EN-US"> 
+  个字符到<i>to</i>中，并返回<i>to</i>指针。 如果<i>to</i> 和 <i>from</i>  
+  重叠，则函数行为不确定。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memmove">memmove()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="memmove">memmove</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>void *memmove( void *to, const void *from, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能<span lang="EN-US">:  
+  与mencpy相同，不同的是当<i>to</i> 和 <i>from</i>  
+  重叠，函数正常仍能工作。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcpy">memcpy()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="memset">memset</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>void *memset( void *buffer, int ch, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能<span lang="EN-US">:  
+  函数拷贝<i>ch</i> 到<i>buffer</i> 从头开始的<i>count</i>  
+  个字符里, 并返回<i>buffer</i>指针。 memset()  
+  可以应用在将一段内存初始化为某个值。例如：</span></p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>memset( the_array, '\0', sizeof(the_array) );</span></pre>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">这是将一个数组的所以分量设置成零的很便捷的方法。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcmp">memcmp()</a>, <a href="#memcpy">memcpy()</a>, and <a href="#memmove">memmove()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strcat">strcat</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strcat( char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数将字符串<i><span lang="EN-US">str2</span></i><span lang="EN-US"> 
+  连接到<i>str1</i>的末端，并返回指针<i>str1</i>. 例如：</span></p> 
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>printf( &quot;Enter your name: &quot; );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>scanf( &quot;%s&quot;, name );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>title = strcat( name, &quot; the Great&quot; );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>printf( &quot;Hello, %s\n&quot;, title );</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strchr">strchr()</a>, <a href="#strcmp">strcmp()</a>, and <a href="#strcpy">strcpy()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strchr">strchr</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strchr( const char *str, int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回一个指向<i><span lang="EN-US">str</span></i><span lang="EN-US"> 
+  中<i>ch</i> 首次出现的位置，当没有在<i>str</i> 中找<i>ch</i>到返回NULL。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strpbrk">strpbrk()</a>, <a href="#strspn">strspn()</a>, <a href="#strstr">strstr()</a>, 
+  and <a href="#strtok">strtok()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strcmp">strcmp</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int strcmp( const char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：比较字符串<i><span lang="EN-US">str1</span></i><span lang="EN-US"> 
+  and <i>str2</i>, 返回值如下:</span></p> 
+  <table style="BACKGROUND: #eeeeff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#eeeeff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><strong><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回值</span></strong><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><strong><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">解释</span></strong><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">less than 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p> 
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">str1 is less than str2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">equal to 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">str1 is equal to str2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">greater than 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">str1 is greater than str2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">例如<span lang="EN-US">:</span></p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>printf( &quot;Enter your name: &quot; );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>scanf( &quot;%s&quot;, name );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>if( strcmp( name, &quot;Mary&quot; ) == 0 )</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;Hello, Dr. Mary!\n&quot; );</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcmp">memcmp()</a>, <a href="#strchr">strchr()</a>, <a href="#strcpy">strcpy()</a>, 
+  and <a href="#strncmp">strncmp()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strcoll">strcoll</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int strcoll( const char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：比较字符串<i><span lang="EN-US">str1</span></i><span lang="EN-US"> 
+  和 <i>str2</i>, 很象<a href="#strcmp">strcmp</a>. 但是, strcoll()  
+  使用在目前环境中由<a href="file:///C:/Documents%20and%20Settings/ZS/桌面/stddate_details.html#setlocale">setlocale()</a>设定的次序进行比较。</span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strcpy">strcpy</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strcpy( char *to, const char *from );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：复制字符串<i><span lang="EN-US">from</span></i><span lang="EN-US"> 
+  中的字符到字符串<i>to</i>，包括空值结束符。返回值为指针<i>to</i>。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcpy">memcpy()</a>, <a href="#strchr">strchr()</a>, <a href="#strcmp">strcmp()</a>, 
+  <a href="#strncmp">strncmp()</a>, and <a href="#strncpy">strncpy()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strcspn">strcspn</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>size_t strcspn( const char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回<i><span lang="EN-US">str1</span></i><span lang="EN-US"> 
+  开头连续n个字符都不含字符串<i>str2</i>内字符的字符数。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strrchr">strrchr()</a>, <a href="#strpbrk">strpbrk()</a>, <a href="#strstr">strstr()</a>, 
+  and <a href="#strtok">strtok()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strerror">strerror</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strerror( int num );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回一个被定义的与某错误代码相关的错误信息。</p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strlen">strlen</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>size_t strlen( char *str );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回字符串<i><span lang="EN-US">str</span></i><span lang="EN-US"> 
+  的长度( 即空值结束符之前字符数目)。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcpy">memcpy()</a>, <a href="#strchr">strchr()</a>, <a href="#strcmp">strcmp()</a>, 
+  and <a href="#strncmp">strncmp()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strncat">strncat</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strncat( char *str1, const char *str2, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：将字符串<i><span lang="EN-US">from</span></i><span lang="EN-US"> 
+  中至多<i>count</i>个字符连接到字符串<i>to</i>中，追加空值结束符。返回处理完成的字符串。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strcat">strcat()</a>, <a href="#strnchr">strnchr()</a>, <a href="#strncmp">strncmp()</a>, 
+  and <a href="#strncpy">strncpy()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strncmp">strncmp</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int strncmp( const char *str1, const char *str2, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：比较字符串<i><span lang="EN-US">str1</span></i><span lang="EN-US"> 
+  和 <i>str2</i>中至多<i>count</i>个字符。返回值如下：</span></p> 
+  <table style="BACKGROUND: #eeeeff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#eeeeff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><strong><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">返回值</span></strong><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><strong><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">解释</span></strong><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">less than 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p> 
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">str1 is less than str2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">equal to 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">str1 is equal to str2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">greater than 0</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <p class="MsoNormal"><span lang="EN-US">str1 is greater than str2</span><span lang="EN-US" style="FONT-SIZE: 12pt; FONT-FAMILY: 宋体"><o:p>
+          </o:p>
+          </span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">如果参数中任一字符串长度小于<i><span lang="EN-US">count</span></i><span lang="EN-US">,  
+  那么当比较到第一个空值结束符时，就结束处理。</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strcmp">strcmp()</a>, <a href="#strnchr">strnchr()</a>, and <a href="#strncpy">strncpy()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strncpy">strncpy</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strncpy( char *to, const char *from, size_t count );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：将字符串<i><span lang="EN-US">from</span></i><span lang="EN-US"> 
+  中至多<i>count</i>个字符复制到字符串<i>to</i>中。如果字符串<i>from  
+  </i>的长度小于<i>count</i>，其余部分用'\0'填补。返回处理完成的字符串。</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#memcpy">memcpy()</a>, <a href="#strchr">strchr()</a>, <a href="#strncat">strncat()</a>, 
+  and <a href="#strncmp">strncmp()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strpbrk">strpbrk</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strpbrk( const char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回一个指针，它指向字符串<i><span lang="EN-US">str2</span></i>中任意字符在字符串<i><span lang="EN-US">str1</span></i><span lang="EN-US"> 
+  首次出现的位置，如果不存在返回NULL。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strspn">strspn()</a>, <a href="#strrchr">strrchr()</a>, <a href="#strstr">strstr()</a>, 
+  and <a href="#strtok">strtok()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strrchr">strrchr</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strrchr( const char *str, int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回一个指针，它指向字符<i><span lang="EN-US">ch</span></i><span lang="EN-US"> 
+  在字符串<i>str</i>末次出现的位置，如果匹配失败，返回NULL。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strpbrk">strpbrk()</a>, <a href="#strspn">strspn()</a>, <a href="#strstr">strstr()</a>, 
+  <a href="#strtok">strtok()</a>,</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strspn">strspn</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>size_t strspn( const char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回字符串<i><span lang="EN-US">str1</span></i>中第一个不包含于字符串<i><span lang="EN-US">str2</span></i>的字符的索引。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strpbrk">strpbrk()</a>, <a href="#strrchr">strrchr()</a>, <a href="#strstr">strstr()</a>, 
+  <a href="#strtok">strtok()</a>,</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strstr">strstr</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strstr( const char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回一个指针，它指向字符串<i><span lang="EN-US">str2</span></i><span lang="EN-US"> 
+  首次出现于字符串<i>str1</i>中的位置，如果没有找到，返回<strong>NULL。</strong></span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strchr">strchr()</a>, <a href="#strcspn">strcspn()</a>, <a href="#strpbrk">strpbrk()</a>, 
+  <a href="#strspn">strspn()</a>, <a href="#strtok">strtok()</a>, <a href="#strrchr">strrchr()</a>,</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strtod">strtod</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;stdlib.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>double strtod( const char *start, char **end );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回带符号的字符串<i><span lang="EN-US">start</span></i>所表示的浮点型数。字符串<i><span lang="EN-US">end</span></i><span lang="EN-US"> 
+  指向所表示的浮点型数之后的部分。如果溢出发生，返回<strong>HUGE_VAL</strong>或  
+  <strong>-HUGE_VAL</strong>。</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#atof">atof()</a></strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strtok">strtok</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>char *strtok( char *str1, const char *str2 );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回字符串<i><span lang="EN-US">str1</span></i>中紧接“标记”的部分的指针<span lang="EN-US">,  
+  字符串<i>str2</i>是作为标记的分隔符。如果分隔标记没有找到，函数返回NULL。为了将字符串转换成标记，第一次调用<i>str1</i> 
+  指向作为标记的分隔符。之后所以的调用<i>str1</i> 都应为NULL。</span></p> 
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">例如<span lang="EN-US">:</span></p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char str[] = &quot;now # is the time for all # good men to come to the # aid of their country&quot;;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char delims[] = &quot;#&quot;;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>char *result = NULL;</span></pre>
+  <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>result = strtok( str, delims );</span></pre>
+  <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>while( result != NULL ) {</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>printf( &quot;result is \&quot;%s\&quot;\n&quot;, result );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>result = strtok( NULL, delims );</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>}</span></pre>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">以上代码的运行结果是：</p>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>result is &quot;now &quot;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>result is &quot; is the time for all &quot;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>result is &quot; good men to come to the &quot;</span></pre>
+  <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>result is &quot; aid of their country&quot;</span></pre>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strchr">strchr()</a>, <a href="#strcspn">strcspn()</a>, <a href="#strpbrk">strpbrk()</a>, 
+  <a href="#strrchr">strrchr()</a>, and <a href="#strspn">strspn()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strtol">strtol</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;stdlib.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>long strtol( const char *start, char **end, int base );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数返回带符号的字符串<i><span lang="EN-US">start</span></i>所表示的长整型数。参数<span lang="EN-US">base代表采用的进制方式。指针<i>end</i> 
+  指向<i>start</i>所表示的整型数之后的部分。如果返回值无法用长整型表示，函数则返回<strong>LONG_MAX</strong>或<strong>LONG_MIN</strong>.  
+  错误发生时，返回零。</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#atol">atol()</a>.</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strtoul">strtoul</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;stdlib.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>unsigned long strtoul( const char *start, char **end, int base );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数基本等同  
+  <span lang="EN-US"><a href="#strtol">strtol()</a>,  
+  不同的是，它不仅可以返回长整型数，而且可以返回无符号的长整型数。</span></p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strtol">strtol()</a></strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="strxfrm">strxfrm</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;string.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>size_t strxfrm( char *str1, const char *str2, size_t num );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数将字符串<i><span lang="EN-US">str2</span></i><span lang="EN-US"> 
+  的前<i>num</i> 个字符存储到字符串<i>str1</i>中。如果<a href="#strcoll">strcoll()</a>  
+  处理字符串<i>str1</i> 和旧的字符串<i>str2</i>, 返回值和<a href="#strcmp">strcmp()</a>的处理结果一样。</span></p> 
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#strcmp">strcmp()</a>, <a href="#strcoll">strcoll()</a>,</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="tolower">tolower</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int tolower( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数字符<i><span lang="EN-US">ch</span></i>的小写形式。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#toupper">toupper()</a>,</strong></span></p>
+  <div class="MsoNormal" style="TEXT-ALIGN: center; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt" align="center">
+    <span lang="EN-US">
+    <hr align="center" width="100%" SIZE="2">
+    </span>
+  </div>
+  <h2 style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><span lang="EN-US">
+	<a name="toupper">toupper</a></span></h2>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">语法</span><span lang="EN-US">:</span></i></p>
+  <table style="BACKGROUND: #ccccff; mso-cellspacing: 1.5pt; mso-padding-alt: 0cm 0cm 0cm 0cm" cellPadding="0" bgColor="#ccccff" border="0">
+    <tbody>
+      <tr>
+        <td style="PADDING-RIGHT: 0.75pt; PADDING-LEFT: 0.75pt; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt">
+          <pre><span lang="EN-US">&nbsp;<o:p>
+</o:p>
+</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>#include &lt;ctype.h&gt;</span></pre>
+          <pre><span lang="EN-US"><span style="mso-spacerun: yes">&nbsp; </span>int toupper( int ch );</span></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt">功能：函数字符<i><span lang="EN-US">ch</span></i>的大写形式。</p>
+  <p class="MsoNormal" style="tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt"><i><span style="FONT-FAMILY: 宋体; mso-ascii-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'">相关主题</span><span lang="EN-US">:</span></i><span lang="EN-US"><br>
+  <strong><a href="#tolower">tolower()</a>,</strong></span></p>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="TextAppearance">
+	  <item name="android:textColor">@color/payeco_textColorWhite</item> 
+	  <item name="android:textColorHighlight">#FFFF9200</item> 
+	  <item name="android:textColorHint">#808080</item> 
+	  <item name="android:textColorLink">#5C5CFF</item> 
+	  <item name="android:textSize">18sp</item> 
+	  <item name="android:textStyle">normal</item> 
+  	</style>
+	<style name="TextAppearance.Small">
+	  <item name="android:textSize">20sp</item> 
+	  <item name="android:textStyle">normal</item> 
+	  <item name="android:textColor">@color/payeco_textColorWhite</item> 
+  	</style>
+
+	<style name="BalanceDialog" parent="android:style/Theme.Dialog">
+		<item name="android:windowFrame">@null</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:background">@android:color/transparent</item>
+		<item name="android:windowBackground">@drawable/yue_balancelayoutshape</item>
+		<item name="android:backgroundDimEnabled">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
+</resources>

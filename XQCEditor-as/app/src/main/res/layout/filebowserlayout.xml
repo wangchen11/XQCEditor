@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:textIsSelectable="true"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:id="@+id/prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <LinearLayout 
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"  
+        >
+     	<RelativeLayout 
+     	    android:layout_width="match_parent"
+     	    android:layout_height="match_parent"
+     	    >
+        <person.wangchen11.filebrowser.MyListView 
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:id="@+id/filelist"
+            >
+        </person.wangchen11.filebrowser.MyListView >
+
+        <LinearLayout
+            android:id="@+id/pastelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/paste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/paste"
+            	android:layout_weight="1"
+            	android:background="#00000000"
+                 />
+
+            <ImageButton
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cancel"
+            	android:layout_weight="1"
+            	android:background="#00000000"
+            	/>
+
+        </LinearLayout>
+
+     	</RelativeLayout>
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        >
+     <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#EEEEFF"
+            />
+
+    <LinearLayout 
+        android:id="@+id/rename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        >
+
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:id="@+id/nameedit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </EditText>
+
+        <ImageButton
+            android:background="#00000000"
+            android:id="@+id/donerename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/done"
+              />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/decompile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/decode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/decode" />
+
+        <Button
+            android:id="@+id/build"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/build" />
+        
+        <Button
+            android:id="@+id/signer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/signer" />
+
+    </LinearLayout>
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        >
+        <ImageButton
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:id="@+id/copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/copy"
+             />
+        <ImageButton
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:id="@+id/cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cut"
+              />
+
+        <ImageButton
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/share"
+            />
+
+        <ImageButton
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete"
+              />
+
+        <ImageButton
+            android:background="#00000000"
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/info"
+			/>
+
+        <ImageButton
+            android:background="#00000000"
+            android:id="@+id/selectall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/selectall"
+              />
+
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

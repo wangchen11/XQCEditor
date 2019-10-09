@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Multimaps</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppmultimap.html">C++ Multimaps</A> -&gt;
+    详细资料
+</TD>
+</TR></TABLE>
+
+<H1>C++ Multimaps</H1>
+  
+<HR>
+<H2>
+   <A NAME="begin">begin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE></TD></TR></TABLE>
+<P>
+  begin()函数返回一个<A HREF="iterators.html">迭代器</A>，指向multimap的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="clear">clear</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void clear();
+</PRE></TD></TR></TABLE>
+<P>
+clear()函数删除multimap中的所有元素。</P>
+<HR>
+<H2>
+   <A NAME="count">count</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type count( const key_type &key );
+</PRE></TD></TR></TABLE>
+<P>
+count()函数返回multimap中键值等于key的元素的个数。</P>
+<HR>
+<H2>
+   <A NAME="empty">empty</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+empty()函数返回真(true)如果multimap为空，否则返回假(false)。</P>
+<HR>
+<H2>
+   <A NAME="end">end</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE></TD></TR></TABLE>
+<P>
+  end()函数返回一个<A HREF="iterators.html">迭代器</A>，指向multimap的尾部。</P>
+<HR>
+<H2>
+   <A NAME="equal_range">equal_range</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  pair<iterator, iterator> equal_range( const key_type &key );
+</PRE></TD></TR></TABLE>
+<P>
+equal_range()函数查找multimap中键值等于key的所有元素，返回指示范围的两个迭代器。</P>
+<HR>
+<H2>
+   <A NAME="erase">erase</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void erase( <A HREF="iterators.html">iterator</A> pos );
+  void erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+  size_type erase( const key_type &key );
+</PRE></TD></TR></TABLE>
+<P>
+  erase()函数删除在pos位置的元素，或者删除在start和end之间的元素，或者删除那些值为key的所有元素。</P>
+<HR>
+<H2>
+   <A NAME="find">find</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> find( const key_type &key );
+</PRE></TD></TR></TABLE>
+<P>find()函数返回一个<A href="iterators.html">迭代器</A>指向键值为key的元素，如果没找到就返回指向multimap尾部的<A href="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="get_allocator">get_allocator</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  allocator_type get_allocator();
+</PRE></TD></TR></TABLE>
+<P>get_allocator()函数返回multimap的配置器。</P>
+<HR>
+<H2>
+   <A NAME="insert">insert</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> pos, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+  pair<iterator, bool> insert( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>insert()函数：   
+<UL>
+  <LI>插入val到pos的后面，然后返回一个指向这个元素的<A href="iterators.html">迭代器</A>。   
+  <LI>插入start到end的元素到multimap中。   
+  <LI>只有在val不存在时插入val。返回值是一个指向被插入元素的<A href="iterators.html">迭代器</A>和一个描述是否插入的bool值。</LI>
+</UL>
+<HR>
+<H2>
+   <A NAME="key_comp">key_comp</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  key_compare key_comp();
+</PRE></TD></TR></TABLE>
+<P>key_comp()函数返回一个比较key的函数。</P>
+<HR>
+<H2>
+   <A NAME="lower_bound">lower_bound</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> lower_bound( const key_type &key );
+</PRE></TD></TR></TABLE>
+<P>lower_bound()函数返回一个<A href="iterators.html">迭代器</A>，指向multimap中键值&gt;=key的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="max_size">max_size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type max_size();
+</PRE></TD></TR></TABLE>
+<P>max_size()函数返回multimap能够保存的最大元素个数。</P>
+<HR>
+<H2>
+   <A NAME="rbegin">rbegin</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE></TD></TR></TABLE>
+<P>rbegin()函数返回一个指向multimap尾部的逆向<A href="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="rend">rend</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE></TD></TR></TABLE>
+<P>rend()函数返回一个指向multimap头部的逆向<A href="iterators.html">迭代器</A>。</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>size()函数返回multimap中保存的元素个数。</P>
+<HR>
+<H2>
+   <A NAME="swap">swap</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void swap( multimap<Key,T,Comp,Allocator> &obj );
+</PRE></TD></TR></TABLE>
+<P>swap()交换obj和现mulitmap中的元素。</P>
+<HR>
+<H2>
+   <A NAME="upper_bound">upper_bound</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  <A HREF="iterators.html">iterator</A> upper_bound( const key_type &key );
+</PRE></TD></TR></TABLE>
+<P>upper_bound()函数返回一个<A href="iterators.html">迭代器</A>，指向multimap中键值&gt;key的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="value_comp">value_comp</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  value_compare value_comp();
+</PRE></TD></TR></TABLE>
+<P>value_comp()函数返回一个比较元素value的函数。</P>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+ bitmap
+</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+<link rel="stylesheet" href="vs.css"> <script src="highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<font color="#ff0000"><i>/*图片处理相关函数*/</i></font>
+<hr/>
+<pre><code class="c">
+/**
+ * 从文件中解码图片
+ * 如果解码失败返回NULL
+ * 返回值需要通过deleteBitmap释放
+ */
+jobject decodeBitmapFromFile(jstring path);
+
+/**
+ * 创建一个位图
+ * 返回值需要通过deleteBitmap释放
+ */
+jobject createBitmap(int width,int height);
+
+/**
+ * 释放位图
+ */
+void deleteBitmap(jobject bitmap);
+
+/**
+ * 获取位图的宽度高度等信息
+ */
+void getBitmapInfo(jobject bitmap,AndroidBitmapInfo *bitmapInfo);
+
+/**
+ * 画位图
+ * bitmap:需要画的位图
+ * fromLeft,fromTop,fromRight,fromBottom : 从位图的哪一部分开始画
+ * toLeft,toTop,toRight,toBottom : 画到屏幕的哪一部分
+ */
+void drawBitmap(jobject bitmap,int fromLeft,int fromTop,int fromRight,int fromBottom,float toLeft,float toTop,float toRight,float toBottom);
+
+
+
+
+////////开始画布变换接口，和所有绘图操作一样，只能在onDraw中调用//////////
+/**
+ * 保存当前画布操作，
+ * 以便使用canvasRestore来恢复当前状态。
+ * canvasSave与canvasRestore一定要配对使用！
+ */
+void canvasSave();
+
+/**
+ * 恢复之前保存的画布状态，
+ * 与canvasSave配对使用。
+ */
+void canvasRestore();
+
+/**
+ * 裁剪矩形，裁剪后所有的绘图操作只会在这个区域生效。
+ */
+void canvasClipRect(float left,float top,float right,float bottom);
+
+/**
+ * 旋转画布，
+ * 将画布绕着px,py旋转degress度
+ */
+void canvasRotate(float degrees,float px,float py);
+
+/**
+ * 平移画布，
+ * 将画布平移dx,dy。
+ */
+void canvasTranslate(float dx,float dy);
+//////////////////结束画布变换接口////////////////////////////////////////////////////////
+</code>
+</pre>
+
+
+
+
+
+</body>
+</html>

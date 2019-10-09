@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+  <TITLE>Escape Sequences</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 转义字符
+</TD></TR></TABLE>
+
+<H3>常量转义字符</H3>
+
+<P>
+以下的转义字符使普通字符表示不同的意义.
+</P>
+
+<TABLE BGCOLOR="EEEEFF" ALIGN="CENTER">
+  <TR><TD><strong>转义字符</strong></TD><TD><strong>描述</strong></TD></TR>
+  <TR><TD>\'</TD><TD>单引号</TD></TR>
+  <TR><TD>\"</TD><TD>双引号</TD></TR>
+  <TR><TD>\\</TD><TD>反斜杠</TD></TR>
+  <TR><TD>\0</TD><TD>空字符</TD></TR>
+  <TR><TD>\a</TD><TD>响铃</TD></TR>
+  <TR><TD>\b</TD><TD>后退</TD></TR>
+  <TR><TD>\f</TD><TD>走纸</TD></TR>
+  <TR><TD>\n</TD><TD>换行</TD></TR>
+  <TR><TD>\r</TD><TD>回车</TD></TR>
+  <TR><TD>\t</TD><TD>水平制表符</TD></TR>
+  <TR><TD>\v</TD><TD>垂直制表符</TD></TR>
+  <TR><TD>\xnnn</TD><TD>表示十六进制数(nnn)</TD></TR>
+</TABLE>
+
+<P>以下是使用转义字符的代码示例:</P>
+
+<PRE>
+printf( "This\nis\na\ntest\n\nShe said, \"How are you?\"\n" );
+</PRE>
+
+<P>输出：</P>
+
+<PRE>
+This
+is
+a
+test
+
+She said, "How are you?"
+</PRE>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+ media
+</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+<link rel="stylesheet" href="atom-one-light.css"> <script src="highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<font color="#ff0000"><i>/*媒体相关函数*/</i></font>
+<hr/>
+<pre><code class="c">
+/**
+ * 创建一个媒体播放器对象
+ */
+jobject createMediaPlayer();
+
+/**
+ * 删除一个媒体播放器对象
+ */
+jboolean deleteMediaPlayer(jobject mediaPlayer);
+
+/**
+ * 设置媒体播放器的数据源，（从Assert中获取）
+ */
+jboolean mediaPlayerSetSourceFromAssert(jobject mediaPlayer,const char *path);
+
+/**
+ * 设置媒体播放器的数据源，（从文件或网络中获取）
+ */
+jboolean mediaPlayerSetSourceFromPath(jobject mediaPlayer,const char *path);
+
+/**
+ * 准备播放媒体文件
+ */
+jboolean mediaPlayerPrepare(jobject mediaPlayer);
+
+/**
+ * 开始播放媒体文件
+ */
+jboolean mediaPlayerStart(jobject mediaPlayer);
+
+/**
+ * 停止播放媒体文件
+ */
+jboolean mediaPlayerStop(jobject mediaPlayer);
+
+/**
+ * 重置媒体播放器
+ */
+jboolean mediaPlayerReset(jobject mediaPlayer);
+
+/**
+ * 暂停播放器
+ */
+jboolean mediaPlayerPause(jobject mediaPlayer);
+
+/**
+ * 设置是否循环播放
+ */
+jboolean mediaPlayerSetLooping(jobject mediaPlayer,jboolean looping);
+
+/**
+ * 判断当前是否循环播放
+ */
+jboolean mediaPlayerIsLooping(jobject mediaPlayer);
+
+/**
+ * 判断当前是否正在播放
+ */
+jboolean mediaPlayerIsPlaying(jobject mediaPlayer);
+
+/**
+ * 设置音量
+ */
+jboolean mediaPlayerSetVolume(jobject mediaPlayer,float leftVolume,float rightVolume);
+
+/**
+ * 设置播放位置
+ */
+jboolean mediaPlayerSeekTo(jobject mediaPlayer,int ms);
+
+/**
+ * 获取持续时间
+ */
+int mediaPlayerGetDuration(jobject mediaPlayer);
+
+/**
+ * 获取当前播放的时间
+ */
+int mediaPlayerGetCurrentPosition(jobject mediaPlayer);
+
+</code>
+</pre>
+
+</body>
+</html>

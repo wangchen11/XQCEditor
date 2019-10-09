@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+  <TITLE>Questions?</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; FAQ
+</TD></TR></TABLE>
+
+<TABLE>
+<TR><TD>
+
+<H1>Frequently Asked Questions</H1>
+
+<H3>Who is this site meant for?</H3>
+There are no "Introduction to Programming" tutorials here.  
+This site is meant to be used by more-or-less experienced C++ programmers, who
+have a good idea of what they want to do and simply need to look up the syntax.
+If you're interested in learning C/C++, try one of these sites:
+<UL>
+  <LI><A HREF="http://www.howstuffworks.com/c.htm">How C Programming Works</A>
+  <LI><A HREF="http://www.strath.ac.uk/CC/Courses/NewCcourse/ccourse.html">C Programming</A>
+  <LI><A HREF="http://www.cprogramming.com/tutorial.html">C++ Made Easy</A>
+</UL>
+
+<H3>Does this site contain a complete and definitive list of C/C++ functions?</H3>
+Few things in life are absolute.
+If you don't find what you are looking for
+here, don't assume that it doesn't exist.  Do a search on 
+<A HREF="http://www.google.com">Google</A> for it.
+
+<H3>Is there an archived version of this site available?</H3>
+You can download an archived version of cppreference.com 
+<A HREF="cppreference-files.tar.gz">here</A>.  If you're interested
+in getting archived versions of websites in general, you might want to 
+check out utilities like 
+<A HREF="http://www.gnu.org/software/wget/wget.html">GNU's wget</A>
+(Windows version 
+<A HREF="http://www.interlog.com/~tcharron/wgetwin.html">here</A>).
+
+<H3>Some of the examples on this site don't work on my system.  What's going on?</H3>
+Most of the code on this site was compiled under 
+<A HREF="http://www.linux.com">Linux</A> 
+(<A HREF="http://www.redhat.com">Red Hat</A> or 
+<A HREF="http://www.debian.org">Debian</A>) with the
+<A HREF="http://www.gnu.org">GNU</A>
+<A HREF="http://www.gnu.org/software/gcc/gcc.html">Compiler Collection</A>.
+Since this site is merely a reference for the 
+<A HREF="http://webstore.ansi.org/ansidocstore/product.asp?sku=ISO%2FIEC+14882%3A2003">
+Standard C and C++ specification</A>, (check 
+<A HREF="http://www.ncits.org/cplusplus.htm">here</A>, too)
+not every compiler will support every function listed here.  For example,
+<UL>
+  <!-- <LI>I've never had much luck getting 
+      <A HREF="cppbitset.html">C++ Bitsets</A>
+      to work on my computer - but they're listed here.  not needed now -->
+  <LI>Header files change like mad.  To include the necessary support for 
+      <A HREF="cppvector.html">C++ Vectors</A>, 
+      you might have to use any of these: 
+      <PRE>
+#include &lt;vector&gt;
+#include &lt;Vector&gt;
+#include &lt;vector.h&gt;</PRE>
+      (according to the spec, the first of those should work, and the compiler should
+      know enough to use it to reference the real vector header file.)  
+  <LI>Another header file issue is that newer compilers can use a more 
+      platform-independent commands to include standard C libraries.  For example,
+      you might be able to use 
+      <PRE>
+#include &lt;cstdio&gt;</PRE>
+      instead of
+      <PRE>
+#include &lt;stdio.h&gt;</PRE>
+  <LI>All of the code on this site assumes that the correct namespace has been
+      designated.  If your compiler is a little old, then you might be able to get
+      away with using simple statements like:
+      <PRE>
+      cout << "hello world!";</PRE>
+      However, newer compilers require that you either use
+      <PRE>
+      std::cout << "hello world!";</PRE>
+      or declare what namespace to use with the "using namespace" command.
+  <LI>Certain popular compilers (like the one shipped with Microsoft's Visual C++)
+      have alternative or additions to the C++ Standard Template Library.
+      For example, the MFC in Visual C++ provides you with the string type "CString",
+      which has string functionality but is not part of the C++ STL.
+</UL>
+...The list goes on and on.  In other words, individual results may vary. 
+
+<H3>You've got an error in this site.</H3>
+If you find any errors in this reference, please feel free to 
+<A HREF="mailto:comments@cppreference.com">contact us</A>
+-- feedback and code examples are always welcome. 
+
+<H3>What's up with this site?</H3>
+Think of it as a community service, for geeks.
+
+</TD></TR>
+</TABLE>
+
+</BODY>
+
+</HTML>

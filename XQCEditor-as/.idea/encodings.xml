@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/editor/text/TextEditorView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/add/Game.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/add/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/add/SmashDrawable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/browser/Browser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/ccode/ArmAsmCodeParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/ccode/CCodeParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/ccode/ShellCodeParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/ccode/ShellCodeParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/codeanalysis/ccode/CCodeParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/codeanalysis/phpcode/PHPCodeParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/console/Terminal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/cproject/CProject.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/drawable/SmashDrawable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/codeedittext/CodeStyleAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/CodeInputFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/EditableWithLayout.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/MyEditText.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/MyInputConnection.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/RedoUndo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/SpanBody.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/editor/edittext/WarnAndError.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/filebrowser/FileWork.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/gnuccompiler/GNUCCompiler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/help/Help.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/hexeditor/HexEditor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/packageapk/DebugApk.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/phpconfig/PHPConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/questions/CompileTask.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/questions/QuestionDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/questions/SumMarksTask.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/questions/TestTask.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/tools/ThreadPool.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/util/ScreenCap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/waps/Key.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/window/ext/CEditor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/window/ext/CheckUpdate.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/window/ext/Setting.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/xqceditor/EditorActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/xqceditor/State.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/person/wangchen11/zipfile/ZipCompressing.java" charset="UTF-8" />
+  </component>
+</project>

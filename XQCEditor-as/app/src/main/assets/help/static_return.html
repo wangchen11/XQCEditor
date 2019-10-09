@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+  <TITLE>Static Returns!</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; Static Return
+</TD></TR></TABLE>
+
+<H3>Watch out.</H3>
+This function returns a variable that is statically located, and therefore overwritten
+each time this function is called.  If you want to save the return value of this function,
+you should manually save it elsewhere.
+<BR>
+Of course, when you save it elsewhere, you should make sure to actually copy the
+value(s) of this variable to another location.  If the return value is a struct, you
+should make a new struct, then copy over the members of the struct.
+
+</BODY>
+</HTML>

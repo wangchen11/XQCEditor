@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Priority Queues</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR>
+  <TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cpppriorityqueue.html">C++ Priority Queues(优先队列)</A> -&gt; 详细资料</TD>
+</TR></TABLE>
+
+<H1>C++ Priority Queues(优先队列)</H1>
+  
+<HR>
+<H2>
+   <A NAME="empty">empty</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  bool empty();
+</PRE></TD></TR></TABLE>
+<P>
+  empty()函数返回真(true)如果优先队列为空，否则返回假(false)。</P>
+<HR>
+<H2>
+   <A NAME="pop">pop</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void pop();
+</PRE></TD></TR></TABLE>
+<P>
+  pop()函数删除优先队列中的第一个元素。</P>
+<HR>
+<H2>
+   <A NAME="push">push</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  void push( const <A HREF="containers.html">TYPE</A> &val );
+</PRE></TD></TR></TABLE>
+<P>
+push()函数添加一个元素到优先队列中，值为val。</P>
+<HR>
+<H2>
+   <A NAME="size">size</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  size_type size();
+</PRE></TD></TR></TABLE>
+<P>
+size()函数返回优先队列中存储的元素个数。</P>
+<HR>
+<H2>
+   <A NAME="top">top</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+   <A HREF="containers.html">TYPE</A> &top();
+</PRE></TD></TR></TABLE>
+<P>
+  top()返回一个引用，指向优先队列中有最高优先级的元素。注意只有<A HREF="#pop">pop()</A>函数删除一个元素。</P>
+</BODY>
+</HTML>

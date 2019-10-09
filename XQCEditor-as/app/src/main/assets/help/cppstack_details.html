@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>cppreference</title>
+</head>
+
+<body>
+
+<table width="100%" bgColor="#eeeeff">
+  <tbody>
+    <tr>
+      <td><a href="http://64.4.48.250/cgi-bin/index.html">cppreference.com</a> 
+        -&gt; <a href="http://64.4.48.250/cgi-bin/cppstack.html">C++ Stacks</a>(堆栈) 
+        -&gt; 详述</td>
+    </tr>
+  </tbody>
+</table>
+<h1>C++ Stacks（堆栈）</h1>
+<hr>
+<h2><a name="Operators">操作</a></h2>
+<i>语法:</i>
+<table bgColor="#ccccff">
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+  ==
+  &lt;=
+  &gt;=
+  &lt;
+  &gt;
+  !=
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>所有的这些操作可以被用于堆栈. 
+相等指堆栈有相同的元素并有着相同的顺序。</p>
+<hr>
+<h2><a name="empty">empty</a></h2>
+<i>语法:</i>
+<table bgColor="#ccccff">
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+  bool empty();
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>如当前堆栈为空，empty() 函数 返回 <strong>true</strong> 
+否则返回<b>false</b>.</p>
+<hr>
+<h2><a name="pop">pop</a></h2>
+<i>语法:</i>
+<table bgColor="#ccccff">
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+  void pop();
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>pop() 函数移除堆栈中最顶层元素。</p>
+<i>相关主题:</i><br>
+<strong><a href="#top">top()</a>,</strong>
+<hr>
+<h2><a name="push">push</a></h2>
+<i>Syntax:</i>
+<table bgColor="#ccccff">
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+  void push( const <a href="http://64.4.48.250/cgi-bin/containers.html">TYPE</a> &amp;val );
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;push() 函数将 <i>val</i> 
+值压栈，使其成为栈顶的第一个元素。如:</p>
+<pre>    stack&lt;int&gt; s;
+    for( int i=0; i &lt; 10; i++ )
+      s.push(i);
+    
+</pre>
+<hr>
+<h2><a name="size">size</a></h2>
+<i>语法:</i>
+<table bgColor="#ccccff">
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+  size_type size();
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>size() 函数返当前堆栈中的元素数目。如:</p>
+<pre>    stack&lt;int&gt; s;
+    for( int i=0; i &lt; 10; i++ )
+      s.push(i);
+    cout &lt;&lt; &quot;This stack has a size of &quot; &lt;&lt; s.size() &lt;&lt; endl;
+    
+    
+</pre>
+<hr>
+<h2><a name="top">top</a></h2>
+<i>语法:</i>
+<table bgColor="#ccccff">
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+   <a href="http://64.4.48.250/cgi-bin/containers.html">TYPE</a> &amp;top();
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>top() 函数返回对栈顶元素的引用. 举例,如下代码显现和清空一个堆栈。</p>
+<pre>    while( !s.empty() ) {
+      cout &lt;&lt; s.top() &lt;&lt; &quot; &quot;;
+      s.pop();
+    }
+</pre>
+<i>相关主题:</i><br>
+<strong><a href="#pop">pop()</a>,</strong>
+
+</body>
+
+</html>

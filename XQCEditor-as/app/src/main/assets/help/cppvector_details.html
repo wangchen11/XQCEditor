@@ -1,0 +1,518 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+<HEAD>
+  <TITLE>C++ Vectors</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="cppvector.html">C++ Vectors</A> -&gt;
+    Details
+</TD></TR></TABLE>
+
+<H1>C++ Vectors</H1>
+  
+<HR>
+<H2>
+<A NAME="Constructors">构造函数</A></H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  vector();
+  vector( size_type num, const <A HREF="containers.html">TYPE</A> &val );
+  vector( const vector &from );
+  vector( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE></TD></TR></TABLE>
+<P>
+  C++ Vectors可以使用以下任意一种参数方式构造:
+<UL>
+  <LI>无参数 - 构造一个空的vector,
+  <LI>数量(num)和值(val) - 构造一个初始放入num个值为val的元素的Vector
+  <LI>vector(from) - 构造一个与vector from 相同的vector 
+  <LI>迭代器(start)和迭代器(end) - 构造一个初始值为[start,end)区间元素的Vector(注:半开区间).
+</UL>
+  <p>举例,下面这个实例构造了一个包含5个值为42的元素的Vector</p>
+  <PRE>
+vector&lt;int&gt; v1( 5, 42 );
+  </PRE>
+  
+<p></P>
+<hr>
+<H2>
+<A NAME="Operators">运算符</A></H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  v1 == v2
+  v1 != v2
+  v1 <= v2
+  v1 >= v2
+  v1 < v2
+  v1 > v2 
+  v[]
+</PRE></TD></TR></TABLE>
+<P>
+  C++ Vectors能够使用标准运算符: ==, !=, <=, >=, <, 和 >.  要访问vector中的某特定位置的元素可以使用 [] 操作符.  
+</P>
+<P>两个vectors被认为是相等的,如果:
+<OL>
+    <LI>它们具有相同的容量</LI>
+    <LI>所有相同位置的元素相等.</LI>
+</OL>
+vectors之间大小的比较是按照词典规则.
+</P>
+
+<I>相关内容:</I>
+  <STRONG> <A HREF="#at">at()</A>. </STRONG> 
+  <HR>
+  <H2> <A NAME="assign">assign函数</A> </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void assign( <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+  void assign( size_type num, const <A HREF="containers.html">TYPE</A> &val );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P> assign() 函数要么将区间[start, end)的元素赋到当前vector,或者赋num个值为val的元素到vector中.这个函数将会清除掉为vector赋值以前的内容.</P>
+  <P>&nbsp;</P>
+  <HR>
+  <H2> <A NAME="at">at</A>函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="containers.html">TYPE</A> at( size_type loc );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P> at() 函数 返回当前Vector指定位置<I>loc的元素的引用</I>.  at() 函数 比 [] 运算符更加安全, 因为它不会让你去访问到Vector内越界的元素.  例如,
+    考虑下面的代码:</P>
+  <PRE>
+vector&lt;int&gt; v( 5, 1 );
+
+for( int i = 0; i < 10; i++ ) {
+  cout << "Element " << i << " is " << v[i] << endl;
+}
+  
+</PRE>
+这段代码访问了vector末尾以后的元素,这将可能导致很危险的结果.以下的代码将更加安全:
+  <PRE>
+vector&lt;int&gt; v( 5, 1 );
+
+for( int i = 0; i < 10; i++ ) {
+  cout << "Element " << i << " is " << v.at(i) << endl;
+}
+  </PRE>
+  <P>取代试图访问内存里非法值的作法,at() 函数能够辨别出访问是否越界并在越界的时候抛出一个异常.</P>
+  <P><I>相关内容:</I>    <STRONG> <A HREF="#Operators"> [] 操作符</A> </STRONG>  </P>
+  <HR>
+
+  <H2> <A NAME="back">back</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="containers.html">TYPE</A> back();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>back() 函数返回当前vector最末一个元素的引用.例如: </P>
+  <PRE>
+vector&lt;int&gt; v;
+
+for( int i = 0; i < 5; i++ ) {
+  v.push_back(i);
+}
+
+cout << "The first element is " << v.front() 
+     << " and the last element is " << v.back() << endl;
+  </PRE>
+  <P>这段代码产生如下结果:</P>
+  <PRE>
+The first element is 0 and the last element is 4
+  </PRE>
+  <I>相关内容:</I>  <STRONG> <A HREF="#front">front().</A> </STRONG>
+  <HR>
+
+  <H2> <A NAME="begin">begin</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="iterators.html">iterator</A> begin();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>begin()函数返回一个指向当前vector起始元素的<A HREF="iterators.html">迭代器</A>.例如,下面这段使用了一个迭代器来显示出vector中的所有元素:</P>
+  <PRE>
+vector&lt;int&gt; v1( 5, 789 );
+vector&lt;int&gt;::iterator it;
+for( it = v1.begin(); it != v1.end(); it++ )
+  cout << *it << endl;
+</PRE>
+
+  <I>相关内容:</I>  <STRONG> <A HREF="#end">end().</A> </STRONG>
+  <HR>
+
+  <H2> <A NAME="capacity">capacity</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  size_type capacity();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>  capacity() 函数 返回当前vector在重新进行内存分配以前所能容纳的元素数量.</P>
+  <HR>
+  <H2> <A NAME="clear">clear</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void clear();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>clear()函数删除当前vector中的所有元素.</P>
+  <HR>
+  <H2> <A NAME="empty">empty</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  bool empty();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>如果当前vector没有容纳任何元素,则empty()函数返回true,否则返回false.例如,以下代码清空一个vector,并按照逆序显示所有的元素:</P>
+  <PRE>vector&lt;int&gt; v;
+  
+for( int i = 0; i < 5; i++ ) {
+    v.push_back(i);
+  }
+  
+while( !v.empty() ) {
+    cout << v.back() << endl;
+    v.pop_back();
+  }
+  </PRE>
+  <I>相关内容:</I>  <STRONG> <A HREF="#size">size()</A> </STRONG>
+  <HR>
+
+  <H2> <A NAME="end">end</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="iterators.html">iterator</A> end();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P> end() 函数返回一个指向当前vector末尾元素的<strong>下一位置</strong>的<A HREF="iterators.html">迭代器</A>.注意,如果你要访问末尾元素,需要先将此迭代器自减1.</P>
+  <P><I>相关内容:</I>    <STRONG> <A HREF="#begin">begin()</A> </STRONG>
+  </P>
+  <HR>
+
+  <H2> <A NAME="erase">erase</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> loc );
+  <A HREF="iterators.html">iterator</A> erase( <A HREF="iterators.html">iterator</A> start, <A HREF="iterators.html">iterator</A> end );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+<PRE>erase函数要么删作指定位置loc的元素,要么删除区间[start, end)的所有元素.返回值是指向删除的最后一个元素的下一位置的迭代器.例如:</P>
+// 创建一个vector,置入字母表的前十个字符
+vector&lt;char&gt; alphaVector;
+for( int i=0; i < 10; i++ )
+    alphaVector.push_back( i + 65 );
+int size = alphaVector.size();
+
+vector&lt;char&gt;::iterator startIterator;
+vector&lt;char&gt;::iterator tempIterator;
+
+for( int i=0; i < size; i++ )
+{
+    tartIterator = alphaVector.begin();
+    alphaVector.erase( startIterator );
+
+    // Display the vector
+    for( tempIterator = alphaVector.begin(); tempIterator != alphaVector.end(); tempIterator++ )
+    cout << *tempIterator;
+    cout << endl;
+} </PRE>
+  <P> 这段代码将会显示如下输出: </P>
+  <PRE>
+BCDEFGHIJ
+CDEFGHIJ
+DEFGHIJ
+EFGHIJ
+FGHIJ
+GHIJ
+HIJ
+IJ
+J
+</PRE>
+  <I>相关内容:</I>  <STRONG> <A HREF="#pop_back">pop_back()</A>. </STRONG> 
+  <HR>
+  <H2> <A NAME="front">front</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="containers.html">TYPE</A> front();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>front()函数返回当前vector起始元素的引用</P>
+  <P><I>相关内容:</I>    <STRONG> <A HREF="#back">back()</A>. </STRONG>  </P>
+  <HR>
+
+  <H2> <A NAME="get_allocator">get_allocator</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  allocator_type get_allocator();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P> get_allocator() 函数返回当前vector的内存分配器. </P>
+  <HR>
+  <H2> <A NAME="insert">insert</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="iterators.html">iterator</A> insert( <A HREF="iterators.html">iterator</A> loc, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">iterator</A> loc, size_type num, const <A HREF="containers.html">TYPE</A> &val );
+  void insert( <A HREF="iterators.html">iterator</A> loc, <A HREF="iterators.html">input_iterator</A> start, <A HREF="iterators.html">input_iterator</A> end );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P> insert() 函数有以下三种用法: 
+  <UL>
+    <LI>在指定位置loc前插入值为val的元素<em></em>,返回指向这个元素的<A HREF="iterators.html">迭代器</A>, 
+    <LI>在指定位置loc前插入num个值为val的元素
+    <LI>在指定位置loc前插入区间[start, end)的所有元素 <I></I>. 
+  </UL>
+  举例: 
+  <p></P>
+  <PRE>
+//创建一个vector,置入字母表的前十个字符
+vector&lt;char&gt; alphaVector;
+for( int i=0; i < 10; i++ )
+  alphaVector.push_back( i + 65 );
+
+//插入四个C到vector中
+vector&lt;char&gt;::iterator theIterator = alphaVector.begin();
+alphaVector.insert( theIterator, 4, 'C' );
+
+//显示vector的内容
+for( theIterator = alphaVector.begin(); theIterator != alphaVector.end(); theIterator++ )
+  cout << *theIterator;
+</PRE>
+  <P> 这段代码将显示: </P>
+  <PRE>
+CCCCABCDEFGHIJ
+</PRE>
+  <HR>
+  <H2> <A NAME="max_size">max_size</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  size_type max_size();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>  max_size() 函数返回当前vector所能容纳元素数量的最大值(译注:包括可重新分配内存). </P>
+  <HR>
+  <H2> <A NAME="pop_back">pop_back</A> </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void pop_back();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>pop_back()函数删除当前vector最末的一个元素,例如: </P>
+  <PRE>
+vector&lt;char&gt; alphaVector;
+for( int i=0; i < 10; i++ )
+    alphaVector.push_back( i + 65 );
+
+int size = alphaVector.size();
+vector&lt;char&gt;::iterator theIterator;
+for( int i=0; i < size; i++ ) {
+  alphaVector.pop_back();
+  for( theIterator = alphaVector.begin(); theIterator != alphaVector.end(); theIterator++ )
+      cout << *theIterator;
+  cout << endl;
+}
+</PRE>
+  <P> 这段代码将显示以下输出: </P>
+  <PRE>
+ABCDEFGHI
+ABCDEFGH
+ABCDEFG
+ABCDEF
+ABCDE
+ABCD
+ABC
+AB
+A
+</PRE>
+  <I>相关内容:</I>  <STRONG> <A HREF="#erase">erase()</A>. </STRONG> 
+  <HR>
+  <H2> <A NAME="push_back">push_back</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void push_back( const <A HREF="containers.html">TYPE</A> &val );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>push_back()添加值为val的元素到当前vector末尾</P>
+  <HR>
+  <H2> <A NAME="rbegin">rbegin</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rbegin();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>rbegin函数返回指向当前vector末尾的逆<A HREF="iterators.html">迭代器</A>.(译注:实际指向末尾的下一位置,而其内容为末尾元素的值,详见逆代器相关内容)</P>
+  <HR>
+  <H2> <A NAME="rend">rend</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  <A HREF="iterators.html">reverse_iterator</A> rend();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>rend()函数返回指向当前vector起始位置的逆<A HREF="iterators.html">迭代器</A>. </P>
+  <HR>
+  <H2> <A NAME="reserve">reserve</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void reserve( size_type size );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>reserve()函数为当前vector预留至少共容纳size个元素的空间.(译注:实际空间可能大于size)</P>
+  <HR>
+  <H2> <A NAME="resize">resize</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void resize( size_type size, <A HREF="containers.html">TYPE</A> val );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>resize() 函数改变当前vector的大小为size,且对新创建的元素赋值val</P>
+  <HR>
+  <H2> <A NAME="size">size</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  size_type size();
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>size() 函数返回当前vector所容纳元素的数目 </P>
+  <P><I>相关内容:</I>    <STRONG> <A HREF="#empty">empty()</A> </STRONG>
+  </P>
+  <HR>
+
+  <H2> <A NAME="swap">swap</A> 函数 </H2>
+  <I>语法:</I> 
+  <TABLE BGCOLOR="CCCCFF">
+    <TR>
+      <TD>
+        <PRE>
+
+  void swap( vector &from );
+</PRE>
+      </TD>
+    </TR>
+  </TABLE>
+  <P>swap()函数交换当前vector与vector from的元素</P>
+  </BODY>
+</HTML>

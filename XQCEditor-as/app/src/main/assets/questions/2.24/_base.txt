@@ -1,0 +1,5 @@
+mTitle:最小公倍数
+mPoint:1
+mDifficulty:1
+mTime:120
+mImages:

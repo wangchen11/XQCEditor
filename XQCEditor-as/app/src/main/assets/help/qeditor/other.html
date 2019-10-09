@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+ other
+</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+<link rel="stylesheet" href="vs.css"> <script src="highlight.pack.js"></script> <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<font color="#ff0000"><i>/*入口、其他函数*/</i></font>
+<hr/>
+<pre><code class="c">
+/** * 在程序启动时调用 
+入口函数*/ 
+void onCreate() 
+
+/** * 事件调用函数 
+action:<a href="base.html"><font color="#ff0000">事件类型</font></a> ;x,y是对应的X、Y轴值*/ 
+void onTouchEvent(int action,float x,float y,int index,int count,float pointersX[],float pointersY[],int pointersId[]) 
+
+/** * 所有绘图函数只能在此写*/ 
+void onDraw(int left,int top,int right,int bottom ) 
+
+/** * 屏幕大小发生变化时被调用 ，程序在启动后会调用一次 */ 
+void onSizeChange(int w,int h,int oldw,int oldh,float density) 
+
+/** * 系统每1毫秒就会调用这个方法1次 */ 
+void onLoopCall() 
+
+/** *返回键被按下事件，如果 返回0则退出程序 */ 
+int onBackPressed() 
+
+/** 
+ * 结束当前程序 
+*/ 
+void finish(); 
+
+/** * 应用被暂停时调用，例如被后台运行 */ void onPause() 
+
+/** * 应用被恢复时调用，例如从后台运行转为前台运行  */ 
+void onResume() 
+
+/** * 程序在被销毁时调用 */ 
+void onDestroy() 
+
+/** 
+ * 得到JString的拷贝，返回的内存需要使用free函数释放。 */ 
+char * getJStringChars(jstring string); 
+
+/** 
+ * 当前时间 
+ * 从1970年1月1号到现在的毫秒数 
+ */ 
+long long currentTimeMillis(); 
+
+/** 
+ * 获取系统启动时间,单位纳秒 
+ */ 
+long long nanoTime(); 
+
+/** 
+ * 从Assets中读取文件的全部内容。 
+ * 通过outLength输出长度，如果outLength返回-1那么读取失败。 
+ * 返回的内存需要使用free释放，如果返回NULL那么读取失败。 
+ */ 
+void *readAllFromAssets(const char *name,int *outLength); 
+
+</code>
+</pre>
+
+</body>
+</html>

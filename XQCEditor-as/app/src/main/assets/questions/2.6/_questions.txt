@@ -1,0 +1,33 @@
+问题描述
+　　自己实现一个比较字符串大小的函数，也即实现strcmp函数。
+	函数：int myStrcmp(char *s1,char *s2) 按照ASCII顺序比较字符串s1与s2。
+		若s1与s2相等返回0，s1>s2返回1，s1<s2返回-1。
+		具体来说，两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇'\0'为止（注意'\0'值为0，小于任意ASCII字符）。
+
+样例输入：
+	A
+	B
+样例输出	
+　　A<B
+
+样例输入:
+	a
+	A
+样例输出
+　　a>A
+
+样例输入：
+　　computer
+　　compare
+样例输出
+　　computer>compare
+
+样例输入：
+　　hello
+　　helloworld
+样例输出
+　　hello<helloworld
+
+
+数据规模和约定
+　　字符串长度<100。

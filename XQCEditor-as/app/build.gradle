@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        wangchen11 {
+            storeFile file('C:\\android_wangchen_key.key')
+            storePassword '1012371864'
+            keyAlias = 'wangchen11'
+            keyPassword '1012371864'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "person.wangchen11.xqceditor"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 40
+        versionName "2.2.7"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.wangchen11
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:+'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

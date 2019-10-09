@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GUIRunner</string>
+    <string name="hello_world">此程序为快写代码GUI插件，不可直接打开！请在快写代码中使用运行功能打开！</string>
+
+</resources>

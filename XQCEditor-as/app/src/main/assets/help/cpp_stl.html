@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ Standard Template Library</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; C++ 标准模板库(STL)
+</TD></TR></TABLE>
+
+<H3>C++ 标准模板库(STL)</H3>
+
+<P>C++ STL (Standard Template Library标准模板库) 是通用类模板和算法的集合，它提供给程序员一些标准的数据结构的实现如
+<A HREF="cppqueue.html">queues</A>(队列), 
+<A HREF="cpplist.html">lists</A>(链表), 和 
+<A HREF="cppstack.html">stacks</A>(栈)等.</P>
+
+<P>C++ STL 提供给程序员以下三类数据结构的实现:</P>
+
+<UL>
+  <LI>顺序结构 
+    <UL>
+      <LI><A HREF="cppvector.html">C++ Vectors</A>
+      <LI><A HREF="cpplist.html">C++ Lists
+      <LI><A HREF="cppdeque.html">C++ Double-Ended Queues</A>
+    </UL>
+
+  <LI>容器适配器 
+    <UL>
+      <LI><A HREF="cppstack.html">C++ Stacks</A>
+      <LI><A HREF="cppqueue.html">C++ Queues</A>
+      <LI><A HREF="cpppriorityqueue.html">C++ Priority Queues</A>
+    </UL>
+
+  <LI>联合容器 
+    <UL>
+      <LI><A HREF="cppbitset.html">C++ Bitsets</A>
+      <LI><A HREF="cppmap.html">C++ Maps</A>
+      <LI><A HREF="cppmultimap.html">C++ Multimaps</A>
+      <LI><A HREF="cppset.html">C++ Sets</A>
+      <LI><A HREF="cppmultiset.html">C++ Multisets</A>
+    </UL>
+
+</UL>
+
+<P>程序员使用复杂数据结构的最困难的部分已经由STL完成.  如果程序员想使用包含int数据的stack, 他只要写出如下的代码:</P>
+
+<PRE>
+stack&lt;int&gt; myStack;
+</PRE>
+
+<P>接下来, 他只要简单的调用 
+<A HREF="cppstack_details.html#push">push()</A> 和 
+<A HREF="cppstack_details.html#pop">pop()</A> 函数来操作栈.
+借助 C++ 模板的威力, 他可以指定任何的数据类型，不仅仅是int类型.&nbsp; STL stack实现了栈的功能，而不管容纳的是什么数据类型.</P>
+
+</BODY>
+</HTML>

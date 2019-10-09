@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <string name="app_name">快写代码</string>
+    <string name="app_name_test">快写代码-测试版</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="decode">反编译</string>
+    <string name="build">回编译</string>
+    <string name="signer">签名</string>
+    
+    <string name="undo">撤销</string>
+    <string name="redo">重做</string>
+    <string name="run">运行</string>
+    <string name="console">控制台</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+    <string name="close_other">关闭其它</string>
+    <string name="close_all">关闭全部</string>
+    <string name="setting">设置</string>
+    <string name="about">关于</string>
+    <string name="exit">退出</string>
+    
+    <string name="move_to_left">向左移动</string>
+    <string name="move_to_right">向右移动</string>
+    
+    <string name="build_and_run">编译运行</string>
+    <string name="build_so">编译为so</string>
+    
+        
+    <string name="new_file">新建文件</string>
+    <string name="new_dir">新建文件夹</string>
+    <string name="new_project">新建工程</string>
+    <string name="refresh">刷新</string>
+    <string name="info">属性</string>
+    <string name="by_wangchen11">望尘11作品\n----------------------\n特别鸣谢：\n复制哥\nSummer(qq978915687)\nトぅソクス\nandroids7\n琉球王国复国军\n破心\n李凤强\nAnonymous\n风的影子\n小丑先生\n枫·羽(QQ1322707289)\n----------------------\n捐赠列表\n+20 2882(1421023950)\nLML★MJL\n火焰🔥女孩\n从此\n\n\n----------------------\n欢迎加入望尘11开发者群讨论\n群号136898517\n大神群:\n钱总的群:317210444\n官方网站:http://www.kxdmwc.com\n备用网址:http://xiazai.aaiaa.top</string>
+    <string name="editor_set">编辑器设置：</string>
+    <string name="background_color">背景颜色</string>
+    <string name="font_color">字体颜色</string>
+    <string name="font_scale">字体比例</string>
+    <string name="bei">倍</string>
+    <string name="high_light_set">高亮设置：</string>
+    <string name="key_word_color">关键字颜色</string>
+    <string name="pre_key_word_color">预处理关键字颜色</string>
+    <string name="const_color">常量颜色</string>
+    <string name="identifier_color">标识符颜色</string>
+    <string name="comments_color">注释颜色</string>
+    <string name="other_set">其它设置：</string>
+    <string name="quick_input">快速输入</string>
+    <string name="title_background_color">标题背景颜色</string>
+    <string name="select_title_color">选中标题颜色</string>
+    <string name="restore_defaults">恢复默认</string>
+    <string name="ok">确定</string>
+    <string name="file_browser">文件浏览</string>
+    <string name="no_title">无标题</string>
+    <string name="find">查找</string>
+    <string name="replace">替换</string>
+    <string name="find_replace">替换/查找</string>
+    <string name="replace_all">替换全部</string>
+    
+    <string name="failed_find">查找失败!</string>
+    <string name="failed_replace">替换失败!</string>
+    <string name="failed_find_replace">替换/查找失败!</string>
+    <string name="failed_replace_all">替换全部失败!</string>
+    
+    
+    <string name="compiling">编译中...</string>
+    <string name="compilation_fails">编译失败!</string>
+    <string name="successfully_compiled">编译成功!</string>
+    <string name="no_elf_file">没有可执行文件!</string>
+    
+    <string name="rename_has_succeed">重命名成功!</string>
+    <string name="rename_has_failed">重命名失败!</string>
+    
+    <string name="successfully">成功：</string>
+    <string name="failed">失败：</string>
+    <string name="jni_runner">JNIRunner</string>
+    <string name="create_workspace_failed">创建工作目录失败!</string>
+    <string name="press_back_more_to_exit">再按一次返回键退出!</string>
+    <string name="file_not_save">文件未保存</string>
+    <string name="file">文件</string>
+    <string name="unsaved">未保存!</string>
+    <string name="cancel">取消</string>
+    <string name="save_and_quit">保存并关闭</string>
+    <string name="force_close">强行关闭</string>
+    <string name="c_file_not_found">在工程中没有找到c语言文件!</string>
+    <string name="save_fail">保存失败，您可以尝试强行关闭。</string>
+    <string name="lunch_fail">启动失败!</string>
+    <string name="craete_file_fail">创建文件失败!</string>
+    <string name="create_dir_fail">创建文件夹失败!</string>
+    <string name="fail">失败:</string>
+    <string name="save_failed">保存失败!</string>
+    <string name="file_name">文件名称:</string>
+    <string name="file_path">文件位置:</string>
+    <string name="project_name">项目名称:</string>
+    <string name="src_path">源码位置:</string>
+    <string name="bin_path">生成位置:</string>
+    <string name="project_path">项目位置:</string>
+    <string name="not_project">该文件不属于任何项目!</string>
+    <string name="program_end">程序结束!</string>
+    <string name="loading">加载中...</string>
+    <string name="dirs">目录:</string>
+    <string name="files">文件:</string>
+    <string name="unkonw">未知:</string>
+    <string name="size">大小:</string>
+    <string name="i_know">朕知道了</string>
+    <string name="confirm_delete">确认删除?</string>
+    <string name="delete">删除</string>
+    <string name="success">成功:</string>
+    <string name="file_unreadable">文件或文件夹不可读,尝试获取超级用户权限</string>
+    <string name="exist">已存在:</string>
+    <string name="share">分享</string>
+    <string name="pack_and_run">打包运行</string>
+    <string name="package_and_run">打包运行</string>
+    <string name="failed_to_free_resource">释放资源失败!需要内存卡!</string>
+    <string name="compile_has_error">编译时出现错误，停止打包!</string>
+    <string name="run_shell">运行脚本</string>
+    <string name="run_shell_as_root">运行脚本(root)</string>
+    <string name="zip">zip压缩</string>
+    <string name="package_fail">打包失败!</string>
+    <string name="deal_res_fail">解析资源失败，停止打包!</string>
+    <string name="signed_apk_done">签名成功!</string>
+    <string name="signed_apk_fail">签名失败!</string>
+    <string name="deal_res">解析资源中...</string>
+    <string name="deal_res_done">解析资源完成!</string>
+    <string name="add_files">添加文件...</string>
+    <string name="tip">提示：</string>
+    <string name="file_not_exist">文件不存在!</string>
+    <string name="help">帮助</string>
+    <string name="line_scale">行距比例</string>
+    <string name="show_ad">获取积分</string>
+    <string name="close_ad">关闭广告</string>
+    <string name="debug_run">启动运行...</string>
+    <string name="php_config">配置PHP</string>
+    <string name="remote_browsing">远程浏览</string>
+    <string name="local_browsing">本地浏览</string>
+    <string name="open_with_browser">用浏览器打开</string>
+    <string name="use_nice_font">"使用圆润字体 "</string>
+    <string name="use_high_light">使用高亮</string>
+    <string name="complie_to_s">编译为汇编代码</string>
+    <string name="charset">字符集:</string>
+    <string name="clean_objs">清除中间文件</string>
+    <string name="this_file_can_not_run">该文件不可运行</string>
+    <string name="input_param">请输入参数</string>
+    <string name="run_lua">运行Lua</string>
+    <string name="code_format">代码格式化</string>
+    <string name="ip_addr">IP地址</string>
+    <string name="port">端口</string>
+    <string name="connect">连接</string>
+    <string name="send">发送</string>
+    <string name="disconnect">断开</string>
+    <string name="show_as_hex">十六进制显示</string>
+    <string name="show_sender">显示发送者</string>
+    <string name="clear">清空</string>
+    <string name="net_assist">网络调试助手</string>
+    <string name="unsupport_udp">暂不支持UDP</string>
+    <string name="server_isnot_started">服务已关闭!</string>
+    <string name="not_connected">尚未连接!</string>
+    <string-array name="procotol_names">
+        <item >TCP客户端</item>
+        <item >TCP服务器</item>
+        <item >UDP</item>
+    </string-array>
+    <string name="close_button_color">关闭按钮颜色</string>
+    <string name="use_quickly_close">使用快速关闭</string>
+    <string name="use_new_ver_console">使用新版控制台</string>
+    <string name="_goal">目标：</string>
+    <string name="_score">分数：</string>
+    <string name="_help">支持</string>
+    <string name="_newGame">重新开始</string>
+    <string name="_undo">撤销</string>
+    <string name="_level">关卡：</string>
+    <string name="_high">最高：</string>
+
+    <string name="_gameover">游戏结束</string>
+    <string name="_noenoughscore">未能达到指定的分数\n</string>
+    <string name="_nonext">没有下一步可做\n</string>
+    <string name="_wait">再看看</string>
+    <string name="_back">返回</string>
+    <string name="_updatemsg">更新说明</string>
+    <string name="_updateinfo">
+2.2.6:\n
+修复7.0以上系统无法获取积分关闭广告的问题。\n
+增加在线支付关闭广告的功能。\n
+\n
+2.2.5:\n
+(1)修复新版编辑框闪退的问题。\n
+\n
+2.2.4:\n
+(1)适配安卓8.0。\n
+(2)适配全面屏。\n
+\n
+2.2.3：\n
+(1)彻底修复bad system call问题。\n
+(2)更新gcc版本至8.2.0。\n
+\n
+2.2.2：\n
+(1)修复答题模式编译失败的问题。\n
+(2)答题模式增加查看详细测试信息功能。\n
+\n
+2.2.1:\n
+(1)修复8.0系统控制台程序编译失败的问题(GUI仍有问题)。\n
+(2)修复新版编辑框在末尾输入\&quot;\\时闪退的问题。\n
+\n
+2.2.0:\n
+(1)优化运行速度，提升编辑体验。\n
+\n
+2.1.9:\n
+(1)增加答题模式。\n
+\n
+2.1.8:\n
+(1)解决部分设备编译成功后提示:overwrite ------T user:user for \'*.tmp\'。\n
+(2)增加.nomedia文件，让相册不再扫描快写代码的目录。\n
+\n
+2.1.7:\n
+(1)解决4.4以及以下设备，关闭控制台时卡顿的问题。\n
+(2)更新文件列表自动刷新。\n
+(3)增大快速输入栏的大小。\n
+\n
+2.1.6:\n
+(1)新增编译为静态库功能。\n
+(2)新增多线程编译功能。\n
+(3)大幅度缩小安装包体积。\n
+\n
+2.1.5:\n
+(1)加入新版编辑框(在设置中打开，新版编辑框编辑大文件速度较慢，但是对所有输入法兼容性)。\n
+(2)旧版编辑框兼容谷歌键盘等输入法。\n
+(3)键盘上下可以控制提示框。\n
+\n
+2.1.4:\n
+(1)新增主题功能。\n
+(2)捕获崩溃日志。\n
+(3)提升编辑框速度。\n
+\n
+2.1.3:\n
+(1)增加自动更新。\n
+(2)修复stdbool.h中缺少分号导致的c++编译失败。\n
+(3)新版控制台加入快捷按钮。\n
+(4)控制台体验优化。\n
+(5)修复printf出现的异常。\n
+\n
+2.1.2:\n
+(1)加入控件。\n
+(2)修复前一版本中的不稳定因素。\n
+(3)新建项目使用新版控制台。\n
+\n
+2.1.1:\n
+(1)优化include处理逻辑。\n
+(2)修改GUI的绘图API。\n
+(3)增加状态保存恢复功能。\n
+(4)增加切换动画功能。\n
+\n
+2.1.0:\n
+(1)增加实时查错功能。\n
+(2)优化提示功能。\n
+\n
+2.0.9:\n
+(1)修复makefile部分问题。\n
+(2)添加物理键盘支持。\n
+(3)可以从其它应用中通过快写代码打开代码。\n
+(4)增加PHP代码提示功能。\n</string>
+    <string name="warn">警告</string>
+    <string name="error">错误</string>
+    
+    <string name="installing">正在安装...</string>
+    <string name="uninstalling">正在卸载...</string>
+    <string name="free_example">释放例程</string>
+    <string name="install_gcc">安装gcc</string>
+    <string name="free_gcc_res">释放gcc资源</string>
+    <string name="free_gpp_res">释放g++资源</string>
+    <string name="install_done">安装完成</string>
+    <string name="install_failed">安装失败</string>
+    <string name="unziping">正在解压...</string>
+    <string name="title_at_head">标题栏在上方</string>
+    <string name="ctrl_at_head">控制栏在上方</string>
+    <string name="animation">切换动画</string>
+    
+    
+    <string name="check_for_update">检查更新</string>
+    <string name="cur_version">当前版本:</string>
+    <string name="default_version">v1.0.0</string>
+    
+    <string name="is_the_latest_version">已是最新版本</string>
+    <string name="is_the_latest_version_thanku">当前版本已是最新版本，感谢您的支持！</string>
+    <string name="find_new_version">发现新版本</string>
+    <string name="update_now">立即更新</string>
+    <string name="checking">已经在检查了，不要重复点击哟！</string>
+    <string name="can_not_get_version_info">无法获取最新版本信息！</string>
+    <string name="version_update">版本更新</string>
+    <string name="auto_update">自动检测更新</string>
+    <string name="selected_and_copy">选择复制</string>
+    <string name="into_copy_mode">已进入复制模式</string>
+    <string name="close_others">关闭其它</string>
+    <string name="free_res">正在释放资源</string>
+    <string name="save_theme">保存当前主题</string>
+    <string name="save_cur_teme">保存当前主题</string>
+    <string name="saved_theme">保存的主题</string>
+    <string name="theme_exits">主题已存在!</string>
+    <string name="save_success">保存成功</string>
+    <string name="edit">编辑</string>
+    <string name="theme">打开主题</string>
+    <string name="change_theme_success">切换主题成功</string>
+    <string name="use_new_ver_edittext">使用新版编辑框</string>
+    <string name="build_so_exclude_cur">编译为so(排除当前文件)</string>
+    <string name="build_a_exclude_cur">编译为静态库a(排除当前文件)</string>
+    <string name="threads">线程</string>
+    <string name="mut_thread_compile">多线程编译:</string>
+    <string name="build_static_lib_a">编译为静态库a</string>
+    
+    <string name="restore_default">恢复默认</string>
+    <string name="browser">浏览网站</string>
+    <string name="db_path">数据库路径:</string>
+    <string name="www_path">网页路径:</string>
+    <string name="mysql_port">MYSQL端口:</string>
+    <string name="http_port">HTTP端口号:</string>
+    <string name="state">状态</string>
+    <string name="stop_service">关闭服务</string>
+    <string name="start_service">启动服务</string>
+    <string name="php_service_not_found">您的机器尚未安装PHP插件！你可以通过下述链接下载或向作者索要。\\n下载链接:https://pan.baidu.com/s/1kV4ThjT</string>
+    
+    <string name="console_application">控制台应用程序</string>
+    <string name="gui_application">窗体应用程序</string>
+    <string name="sdl_application">SDL应用程序</string>
+    <string name="notification_error_ssl_cert_invalid">SSL证书验证失败！是否继续加载页面？</string>
+    <string name="answer_and_question">答题模式</string>
+    <string name="commit_cur_code">提交当前代码</string>
+    <string name="quit_question_mode">退出答题模式</string>
+    <string name="wait">再看看</string>
+    <string name="waiting_for_test">等待测试</string>
+    <string name="try_angin_later">请在测试任务完成后重试！</string>
+    <string name="no_more_questions">没有更多的题目了！</string>
+    <string name="share_screencap">截图分享后方可查看详细测试信息</string>
+    <string name="share_to_qq">分享至QQ</string>
+    <string name="my_marks">我的得分:</string>
+    <string name="ask_for_update">催更</string>
+    <string name="hex">十六进制</string>
+    <string name="edit_with_hex">十六进制编辑</string>
+    <string name="can_not_read_sdcard">您已禁止程序写入外部存储，程序将无法导入导出数据。
+\n</string>
+    <string name="please_authorize">请尝试在->设置->权限管理 中打开.</string>
+    <string name="can_not_read_imei">您已禁止程序读取手机识别码，将无法获取积分用以关闭广告。
+\n</string>
+    <string name="s_to_utf_8">已将字符集从%s转换为UTF-8，保存后生效。</string>
+    <string name="my_id">我的ID</string>
+    <string name="my_points">我的积分</string>
+    <string name="points">积分:</string>
+    <string name="colse_ad_by_points">通过积分关闭广告</string>
+    <string name="ol_pay">在线支付:</string>
+    <string name="app_price">支付8.8元，可关闭广告。刷机后可通过找回秘钥找回，找回功能仅支持通过支付方式关闭的广告。如有疑问请联系QQ:978915687 (Summer).</string>
+    <string name="pay">支付</string>
+    <string name="get_back">找回密钥</string>
+    <string name="device_info">本机信息:</string>
+    <string name="already_closed_ad">您已经关闭广告无需再次关闭。
+\n关闭广告后重启应用生效！</string>
+    <string name="need_200_points">需要达到200积分才能关闭广告！
+\n请先获取积分！</string>
+    <string name="close_ad_success">关闭广告成功！
+\n重启应用生效！</string>
+    <string name="close_ad_failed">关闭广告失败！</string>
+    <string name="pay_success">支付成功！</string>
+    <string name="pay_failed">支付失败！</string>
+    <string name="get_back_success">找回成功！</string>
+    <string name="get_back_failed">找回失败！您可能尚未支付成功，如确认支付成功请联系客服帮你激活。</string>
+    <string name="ad_suggest_info">您正在使用免费版本，将为您展示广告。仅需8.8元即可去除广告。详见:设置->关闭广告。</string>
+    <string name="qc_group_0">入门训练</string>
+    <string name="qc_group_1">基础练习</string>
+    <string name="qc_group_2">算法训练</string>
+    <string name="qc_group_3">算法提高</string>
+</resources>

@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+  <TITLE>预处理命令</TITLE>
+</HEAD>
+<BODY BGCOLOR="FFFFFF">
+
+<TABLE WIDTH="100%" BGCOLOR="EEEEFF"><TR><TD>
+  <A HREF="index.html">cppreference.com</A> -&gt; 
+  <A HREF="preproc.html">预处理命令</A> -&gt;
+    详细说明
+</TD></TR></TABLE>
+
+<H1>预处理命令</H1>
+  
+<HR>
+<H2>
+   <A NAME="">#,## </A>
+</H2>
+<P>
+  # 和 ## 操作符是和<A HREF="#define">#define</A>宏使用的.  使用#
+  使在#后的首个参数返回为一个带引号的字符串.  例如,
+  命令
+</P>
+<PRE>
+    #define to_string( s ) # s
+</PRE>
+<P>
+  将会使编译器把以下命令
+</P>
+<PRE>
+    cout << to_string( Hello World! ) << endl;
+</PRE>
+<P>
+  理解为
+</P>
+<PRE>
+    cout << "Hello World!" << endl;
+</PRE>
+<P>
+  使用##连结##前后的内容.  例如, 命令
+</P>
+<PRE>
+    #define concatenate( x, y ) x ## y
+    ...
+    int xy = 10;
+    ...
+</PRE>
+<P>
+  将会使编译器把
+</P>
+<PRE>
+    cout << concatenate( x, y ) << endl;
+</PRE>
+<P>
+  解释为
+</P>
+<PRE>
+    cout << xy << endl;
+</PRE>
+<P>
+  理所当然,将会在标准输出处显示'10'.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="define">#define</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #define macro-name replacement-string
+</PRE></TD></TR></TABLE>
+<P>
+  #define命令用于把指定的字符串替换文件中的宏名称
+  .  也就是说, #define使编译器把文件中每一个<I>macro-name</I>替换为<I>replacement-string</I>.  替换的字符串结束于行末.  这里是一个经典的#define应用 (至少是在C中):
+</P>
+<PRE>
+    #define TRUE 1
+    #define FALSE 0
+    ...
+    int done = 0;
+    while( done != TRUE ) {
+       ...
+    }
+</PRE>
+<P>
+  #define命令的另外一个功能就是替换参数,使它
+  假冒创建函数一样使用.  如下的代码:
+</P>
+<PRE>
+    #define absolute_value( x ) ( ((x) < 0) ? -(x) : (x) )
+    ...
+    int x = -1;
+    while( absolute_value( x ) ) {
+       ...
+    }
+</PRE>
+<P>
+  当使用复杂的宏时,最好使用额外的圆括号.  
+  注意在以上的例子中, 变量"x"总是出现在它自己的括号中.
+  这样, 它就可以在和0比较,或变成负值(乘以-1)前计算值.
+  同样的, 整个宏也被括号围绕, 以防止和其它代码混淆.
+  如果你不注意的话, 你可能会被编译器曲解你的代码.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="error">#error</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #error message
+</PRE></TD></TR></TABLE>
+<P>
+  #error命令可以简单的使编译器在发生错误时停止. 
+  当遇到一个#error时,编译器会自动输出行号而无论<I>message</I>的内容.
+  本命令大多是用于调试.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="if">#if, #ifdef, #ifndef, #else, #elif, #endif</A>
+</H2>
+<P>
+  这些命令让编译器进行简单的逻辑控制.
+  当一个文件被编译时, 你可以使用这些命令使某些行保留或者是去处.
+</P>
+<PRE>
+    #if expression
+</PRE>
+<P>
+  如果表达式(expression)的值是"真"(true),那么紧随该命令的代码将会被编译.
+</P>
+<PRE>
+    #ifdef macro
+</PRE>
+<P>
+  如果"macro"已经在一个#define声明中定义了, 那么紧随该命令的代码将会被编译.
+</P>
+<PRE>
+    #ifndef macro
+</PRE>
+<P>
+  如果"macro"未在一个#define声明中定义, 那么紧随命令的代码将会被编译.
+</P>
+<P>
+  一些小边注: 命令#elif是"elseif"的一种缩写,并且他可以想你所意愿的一样工作.  你也可以在一个#if后插入一个"defined"或者"!defined"以获得更多的功能.
+</P>
+<P>
+  这里是一部分例子:
+</P>
+<PRE>
+    #ifdef DEBUG
+      cout << "This is the test version, i=" << i << endl;
+    #else
+      cout << "This is the production version!" << endl;
+    #endif
+</PRE>
+<P>
+  你应该注意到第二个例子比在你的代码中插入多个"cout"进行调试的方法更简单.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="include">#include</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #include &lt;filename&gt;
+  #include "filename"
+</PRE></TD></TR></TABLE>
+<P>
+  本命令包含一个文件并在当前位置插入.
+  两种语法的主要不同之处是在于,如果<I>filename</I>括在尖括号中,那么编译器不知道如何搜索它.  如果它括在引号中, 那么编译器可以简单的搜索到文件.
+  两种搜索的方式是由编译器决定的,一般尖括号意味着在标准库目录中搜索, 引号就表示在当前目录中搜索.  The spiffy new
+  整洁的新C++ #include目录不需要直接映射到filenames, 至少对于标准库是这样.
+  这就是你有时能够成功编译以下命令的原因
+</P>
+<PRE>
+    #include &lt;iostream&gt;
+</PRE>
+
+<HR>
+<H2>
+   <A NAME="line">#line</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  #line line_number "filename"
+</PRE></TD></TR></TABLE>
+<P>
+  #line命令是用于更改__LINE__ 和 __FILE__变量的值.
+  文件名是可选的. __LINE__ 和 __FILE__ 变量描述被读取的当前文件和行.
+  命令
+</P>
+<PRE>
+    #line 10 "main.cpp"
+</PRE>
+<P>
+  更改行号为10,当前文件改为"main.cpp".
+  
+</P>
+<HR>
+<H2>
+   <A NAME="pragma">#pragma</A>
+</H2>
+<P>
+  #pragma命令可以让编程者让编译器执行某些事.
+  因为#pragma命令的执行很特殊,不同的编译器使用有所不同.
+  一个选项可以跟踪程序的执行.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="undef">#undef</A>
+</H2>
+<P>
+  #undef命令取消一个先前已定义的宏变量, 譬如一个用#define定义的变量.
+  
+</P>
+<HR>
+<H2>
+   <A NAME="predefined">预定义变量</A>
+</H2>
+<I>语法:</I>
+<TABLE BGCOLOR="CCCCFF"><TR><TD><PRE>
+
+  __LINE__
+  __FILE__
+  __DATE__
+  __TIME__
+  _cplusplus
+  __STDC__
+</PRE></TD></TR></TABLE>
+<P>
+  下列参数在不同的编译器可能会有所不同, 但是一般是可用的:
+  <UL>
+  <LI>__LINE__ 和 __FILE__ 变量表示正在处理的当前行和当前文件.  
+  <LI>__DATE__ 变量表示当前日期,格式为<I>month/day/year</I>(月/日/年).  
+  <LI>__TIME__ 变量描述当前的时间,格式为<I>hour:minute:second</I>(时:分:秒).  
+  <LI>_cplusplus 变量只在编译一个C++程序时定义.  
+  <LI>__STDC__ 变量在编译一个C程序时定义,编译C++时也有可能定义. 
+  </UL>
+</P>
+</BODY>
+</HTML>

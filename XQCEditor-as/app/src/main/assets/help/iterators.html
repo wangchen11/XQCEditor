@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>cppreference</title>
+</head>
+
+<body>
+
+<table width="100%" bgColor="#eeeeff">
+  <tbody>
+    <tr>
+      <td><a href="http://64.4.48.250/cgi-bin/index.html">cppreference.com</a> 
+        -&gt; C++ Iterators(迭代器)</td>
+    </tr>
+  </tbody>
+</table>
+<h3>C++ Iterators(迭代器)</h3>
+<p>迭代器可被用来访问一个容器类的所包函的全部元素，其行为像一个指针。举一个例子，你可用一个迭代器来实现对vector容器中所含元素的遍历。有这么几种迭代器如下：</p>
+<table width="75%" align="center">
+  <tbody>
+    <tr>
+      <th>迭代器</th>
+      <th>描述</th>
+    </tr>
+    <tr bgColor="#eeeeff">
+      <td>input_iterator</td>
+      <td>提供读功能的向前移动迭代器，它们可被进行增加(++)，比较与解引用（*）。</td>
+    </tr>
+    <tr>
+      <td>output_iterator</td>
+      <td>提供写功能的向前移动迭代器，它们可被进行增加(++)，比较与解引用（*）。</td>
+    </tr>
+    <tr bgColor="#eeeeff">
+      <td>forward_iterator</td>
+      <td>可向前移动的，同时具有读写功能的迭代器。同时具有input和output迭代器的功能，并可对迭代器的值进行储存。</td>
+    </tr>
+    <tr>
+      <td>bidirectional_iterator</td>
+      <td>双向迭代器，同时提供读写功能，同forward迭代器，但可用来进行增加(++)或减少(--)操作。 
+        </TD< TR>
+    <tr bgColor="#eeeeff">
+      <td>random_iterator</td>
+      <td>随机迭代器，提供随机读写功能.是功能最强大的迭代器， 
+        具有双向迭代器的全部功能，同时实现指针般的算术与比较运算。</td>
+    </tr>
+    <tr>
+      <td>reverse_iterator</td>
+      <td>如同随机迭代器或双向迭代器，但其移动是反向的。（Either 
+        a random iterator or a bidirectional iterator that moves in reverse 
+        direction.）（我不太理解它的行为）</td>
+    </tr>
+  </tbody>
+</table>
+<p>第种容器类都联系于一种类型的迭代器。第个STL算法的实现使用某一类型的迭代器。举个例子，vector容器类就有一个<b>random-access</b>随机迭代器，这也意味着其可以使用随机读写的算法。既然随机迭代器具有全部其它迭代器的特性，这也就是说为其它迭代器设计的算法也可被用在vector容器上。</p>
+<p>如下代码对vector容器对象生成和使用了迭代器：</p>
+<pre>  vector&lt;int&gt; the_vector;
+  vector&lt;int&gt;::iterator the_iterator;
+
+  for( int i=0; i &lt; 10; i++ )
+    the_vector.push_back(i);
+
+  int total = 0;
+  the_iterator = the_vector.begin();
+  while( the_iterator != the_vector.end() ) {
+    total += *the_iterator;
+    the_iterator++;
+  }
+  cout &lt;&lt; &quot;Total=&quot; &lt;&lt; total &lt;&lt; endl;
+</pre>
+提示：通过对一个迭代器的解引用操作（*），可以访问到容器所包含的元素。
+
+</body>
+
+</html>
