@@ -167,10 +167,10 @@
     <string name="close_button_color">Close button color</string>
     <string name="use_quickly_close">Use quickly close</string>
     <string name="use_new_ver_console">Use new version console</string>
-    <string name="make_j8">make -j8</string>
-    <string name="make_b_j8">make -B -j8</string>
-    <string name="make_clean">make clean</string>
-    <string name="make_option">make option</string>
+    <string translatable="false" name="make_j8">make -j8</string>
+    <string translatable="false" name="make_b_j8">make -B -j8</string>
+    <string translatable="false" name="make_clean">make clean</string>
+    <string translatable="false" name="make_option">make option</string>
     <string name="_goal">Goal：</string>
     <string name="_score">Point：</string>
     <string name="_help">Help</string>
