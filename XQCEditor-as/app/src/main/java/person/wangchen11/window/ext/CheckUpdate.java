@@ -26,7 +26,7 @@ import person.wangchen11.xqceditor.State;
 
 public class CheckUpdate {
 	private static final String TAG = CheckUpdate.class.getSimpleName();
-	private final String mCheckUpdateUrl = "https://dev.tencent.com/u/wangchen11/p/appupdate/git/raw/master/xqceditor/update.json";
+	private final String mCheckUpdateUrl = "http://wangchen11.coding.me/appupdate/xqceditor/update.json";
 	private final String mCheckUpdateBkUrl = "http://update.wangchen11.top/api.php";
 	private Context mContext = null;
 	private boolean mChecking = false;
