@@ -48,7 +48,12 @@ public class Key {
 	}
 	
 	public static String getIMEI(Context context) {
-		return ((TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
+		try {
+			return ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
+		} catch (SecurityException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	private static String getKey(Context context)

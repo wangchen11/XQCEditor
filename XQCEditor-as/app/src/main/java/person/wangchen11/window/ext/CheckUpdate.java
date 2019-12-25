@@ -25,7 +25,9 @@ import person.wangchen11.xqceditor.R;
 import person.wangchen11.xqceditor.State;
 
 public class CheckUpdate {
-	private final String mCheckUpdateUrl = "http://update.wangchen11.top/api.php";
+	private static final String TAG = CheckUpdate.class.getSimpleName();
+	private final String mCheckUpdateUrl = "https://dev.tencent.com/u/wangchen11/p/appupdate/git/raw/master/xqceditor/update.json";
+	private final String mCheckUpdateBkUrl = "http://update.wangchen11.top/api.php";
 	private Context mContext = null;
 	private boolean mChecking = false;
 	private Handler mHandler = null;
@@ -38,7 +40,7 @@ public class CheckUpdate {
 		mContext = context;
 		mHandler = new Handler();
 		mShowNewVersionOnly = showNewVersionOnly;
-		//State.VersionNameNow = "2.1.1";
+		State.VersionNameNow = "2.1.1";
 	}
 	public void checkForUpdate(){
 		if(Waps.isGoogle())
@@ -51,24 +53,37 @@ public class CheckUpdate {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+				Version version = null;
 				try {
-					String msg = getNewVersionMsg();
-					final Version version = parseUpdateInfoJson(msg);
-					mHandler.post(new Runnable() {
-						@Override
-						public void run() {
-							onReceivedVersion(version);
-						}
-					});
+					String msg = getNewVersionMsg(mCheckUpdateUrl);
+					Log.i(TAG,mCheckUpdateUrl+":"+msg);
+					version = parseUpdateInfoJson(msg);
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}
+				if(version==null){
+					try {
+						String msg = getNewVersionMsg(mCheckUpdateBkUrl);
+						Log.i(TAG,mCheckUpdateBkUrl+":"+msg);
+						version = parseUpdateInfoJson(msg);
+					} catch (Throwable e) {
+						e.printStackTrace();
+					}
+				}
+
 				mChecking = false;
+				final Version finalVersion = version;
+				mHandler.post(new Runnable() {
+					@Override
+					public void run() {
+						onReceivedVersion(finalVersion);
+					}
+				});
 			}
 
 		}).start();
 	}
-	
+
 	private Version   parseUpdateInfoJson(String string){
 		try {
 			JSONObject jsonObject = new JSONObject(string);
@@ -79,9 +94,9 @@ public class CheckUpdate {
 		return null;
 	}
 	
-	private String getNewVersionMsg(){
+	private String getNewVersionMsg(String strUrl){
 		try {
-			URL url = new URL(mCheckUpdateUrl);
+			URL url = new URL(strUrl);
 			try {
 				URLConnection connection = url.openConnection();
 				connection.setConnectTimeout(2000);

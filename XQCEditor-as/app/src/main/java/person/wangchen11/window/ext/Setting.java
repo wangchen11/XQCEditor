@@ -387,28 +387,14 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 		case R.id.button_close_ad:
 			if(Key.hasRealKey(mRelativeLayout.getContext()))
 			{
-				showToast( "您已经关闭广告无需再次关闭。\n关闭广告后重启应用生效！");
+				showToast( getContext().getString(R.string.already_closed_ad));
 			}
-			else
+			else if (Key.getIMEI(getContext())==null){
+				showToast( getContext().getString(R.string.can_not_close_ad_no_imei));
+			} else
 			{
 				Intent intent = new Intent(mRelativeLayout.getContext(),CloseAdActivity.class);
 				startActivity(intent);
-				/*
-				if(mPoints<200)
-				{
-					showToast("需要达到200积分才能关闭广告！\n请先获取积分！");
-				}
-				else
-				{
-					if(Key.createKey(mRelativeLayout.getContext()))
-					{
-						showToast("关闭广告成功！\n重启应用生效！");
-					}
-					else
-					{
-						showToast("关闭广告失败！");
-					}
-				}*/
 			}
 			Waps.updatePoints(mRelativeLayout.getContext(), null);
 			break;
@@ -420,7 +406,7 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 			applyChangeDefault(mConfig);
 			save(getActivity());
 			mWindowsManager.sendConfigChanged();
-			showToast("保存成功！\n部分设置需要重启软件才能生效！");
+			showToast(getContext().getString(R.string.setting_save_success));
 			break;
 		case R.id.button_to_default:
 			mConfig=Config.load(getActivity().getSharedPreferences("default", Context.MODE_PRIVATE));

@@ -179,6 +179,9 @@
     <string name="_back">返回</string>
     <string name="_updatemsg">更新说明</string>
     <string name="_updateinfo">
+2.2.8:\n
+(1)修复无IMEI权限时闪退的问题。\n
+\n
 2.2.7:\n
 (1)修复部分机器打包运行失败的问题。\n
 \n
@@ -369,4 +372,6 @@
     <string name="qc_group_1">基础练习</string>
     <string name="qc_group_2">算法训练</string>
     <string name="qc_group_3">算法提高</string>
+    <string name="can_not_close_ad_no_imei">无法获取手机识别码(IMEI)，因此无法使用此功能。</string>
+    <string name="setting_save_success">保存成功！ 部分设置需要重启软件才能生效！</string>
 </resources>
