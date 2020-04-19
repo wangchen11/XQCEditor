@@ -124,7 +124,7 @@ public class TextEditorView extends EditText {
 		mTextScale = textScale;
 		float textSize = dip2px(getContext(),12)*mTextScale;
 		mTextPaint.setTextSize(textSize);
-		mSpaceWidth = mTextPaint.measureText(" ");
+		mSpaceWidth = mTextPaint.measureText("0");
 		getPaint().setTextSize(textSize);
 		setPadding(getBoundOfLeft(), 0, 0, 0);
 	}
