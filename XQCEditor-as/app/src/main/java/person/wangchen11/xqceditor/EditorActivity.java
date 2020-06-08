@@ -163,7 +163,27 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 			}
 		},300);
 	}
-	
+
+	private String[] spiltRootPath(String path){
+		String[] result = new String[2];
+		if(path==null || path.length()<=0){
+			return null;
+		}
+
+		if(path.charAt(0)!=File.separatorChar){
+			return null;
+		}
+
+		int nextSeparatorIndex = path.indexOf(File.separatorChar,1);
+		if(nextSeparatorIndex<=0){
+			return null;
+		}
+		result[0] = path.substring(0,nextSeparatorIndex);
+		result[1] = path.substring(nextSeparatorIndex+1);
+
+		return result;
+	}
+
 	private void openNewIntent(Intent intent){
 		Log.i(TAG, "openNewIntent:"+intent);
 		String action = intent.getAction();
@@ -172,9 +192,9 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 			String file = uri.getPath();
 			if(ContentResolver.SCHEME_CONTENT.equals(uri.getScheme())){
 				if(!new File(file).exists()){
-					String externalFilesKey = "/external_files/";
-					if(file.startsWith(externalFilesKey)){
-						file = "/"+file.substring(externalFilesKey.length());
+					String[] spiltPath = spiltRootPath(file);
+					if(spiltPath!=null&&spiltPath.length==2&&spiltPath[1]!=null){
+						file = "/"+spiltPath[1];
 						if(!new File(file).exists()){
 							file = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+file;
 						}
