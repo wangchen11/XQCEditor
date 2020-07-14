@@ -26,7 +26,7 @@ import person.wangchen11.xqceditor.State;
 
 public class CheckUpdate {
 	private static final String TAG = CheckUpdate.class.getSimpleName();
-	private final String mCheckUpdateUrl = "https://dev.tencent.com/u/wangchen11/p/appupdate/git/raw/master/xqceditor/update.json";
+	private final String mCheckUpdateUrl = "http://c0q3f9.coding-pages.com/xqceditor/update.json";
 	private final String mCheckUpdateBkUrl = "http://update.wangchen11.top/api.php";
 	private Context mContext = null;
 	private boolean mChecking = false;
@@ -222,10 +222,10 @@ public class CheckUpdate {
 		AlertDialog.Builder builder=new Builder(context);
 		builder.setTitle(R.string.find_new_version);
 		String msg = "";
-		msg += "版本:"+version.version+"\n";
-		msg += "时间:"+version.time+"\n";
-		msg += "大小:"+version.size+"\n";
-		msg += "说明:"+version.text+"\n";
+		msg += context.getString(R.string.version)+version.version+"\n";
+		msg += context.getString(R.string.time)+version.time+"\n";
+		msg += context.getString(R.string.file_size)+version.size+"\n";
+		msg += context.getString(R.string.update_message)+version.text+"\n";
 		builder.setMessage(msg);
 		builder.setCancelable(false);
 		builder.setNegativeButton(android.R.string.cancel, null);

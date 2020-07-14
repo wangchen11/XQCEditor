@@ -82,6 +82,9 @@ public class Waps {
 	
 	public static boolean isTimeToShow()
 	{
+		// never show advertisement
+		if(true)
+			return false;
 		if(!mInited)
 			return false;
 		

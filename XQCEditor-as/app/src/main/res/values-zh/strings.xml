@@ -179,6 +179,11 @@
     <string name="_back">返回</string>
     <string name="_updatemsg">更新说明</string>
     <string name="_updateinfo">
+2.2.9:\n
+(1)自2020年7月13日起（版本号2.2.9）本应用将完全免费、不再展示任何广告。\n
+(2)修复部分软件选择用快写代码打开时文件路径错误。\n
+(3)修复因系统等宽字体不等宽，导致的新版编辑框行号显示越界的问题。\n
+\n
 2.2.8:\n
 (1)修复无IMEI权限时闪退的问题。\n
 \n
@@ -374,4 +379,9 @@
     <string name="qc_group_3">算法提高</string>
     <string name="can_not_close_ad_no_imei">无法获取手机识别码(IMEI)，因此无法使用此功能。</string>
     <string name="setting_save_success">保存成功！ 部分设置需要重启软件才能生效！</string>
+    <string name="version">版本:</string>
+    <string name="time">时间:</string>
+    <string name="file_size">大小:</string>
+    <string name="update_message">说明:</string>
+    <string name="beg">本软件完全免费，无广告。您可以捐赠作者以支持本软件更新。10块钱不嫌多，100块不嫌少。\n</string>
 </resources>

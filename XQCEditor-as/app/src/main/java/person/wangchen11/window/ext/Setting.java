@@ -113,6 +113,7 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 		((EditText)(mRelativeLayout.findViewById(R.id.et_close_col))).addTextChangedListener(this);
 
 		((Button)(mRelativeLayout.findViewById(R.id.button_close_ad))).setOnClickListener(this);
+		(mRelativeLayout.findViewById(R.id.button_close_ad)).setVisibility(Waps.isTimeToShow() ? View.VISIBLE : View.GONE);
 		((Button)(mRelativeLayout.findViewById(R.id.button_show_ad))).setOnClickListener(this);
 		((Button)(mRelativeLayout.findViewById(R.id.button_ok))).setOnClickListener(this);
 		((Button)(mRelativeLayout.findViewById(R.id.button_to_default))).setOnClickListener(this);

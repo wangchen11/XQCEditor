@@ -284,4 +284,9 @@
     <string name="qc_group_3">Group3</string>
     <string name="can_not_close_ad_no_imei">Unable to get the mobile ID (IMEI), so this feature is not available.</string>
     <string name="setting_save_success">Saved successfully! Some settings need to restart the software to take effect!</string>
+    <string name="version">Version:</string>
+    <string name="time">Update Time:</string>
+    <string name="file_size">File Size:</string>
+    <string name="update_message">Update Message:</string>
+    <string name="beg">Thank you for your donation.</string>
 </resources>
