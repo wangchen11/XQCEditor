@@ -33,7 +33,6 @@ import person.wangchen11.drawable.CircleDrawable;
 public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private TermSession mTermSession = null;
-    private String mInitCmd="cd;clear;\n";
     private EmulatorView mEmulatorView = null;
     private Handler mHandler = null;
     private String mChangePS1Cmd = new File("/system/bin/basename").canExecute() ? "export PS1='$USER:`basename \"$PWD\"`\\$';" : "";
@@ -396,7 +395,8 @@ public class MainActivity extends Activity {
         TermSettings settings = new TermSettings(getResources(), getPreferences(0));
         mTermSettings = settings;
         mTermSettings.setHomePath(getFilesDir().getPath());
-        TermSession session = createTermSession(this, settings, getInitCmdEx(mInitCmd) );
+        String initCmd = "cd;clear;chmod 777 assets/elf.elf;./assets/elf.elf;echo;\n";
+        TermSession session = createTermSession(this, settings, getInitCmdEx(initCmd) );
         return session;
     }
 

@@ -142,7 +142,7 @@ public class FileUtil {
 
 				File entryFile = new File(pathTo + strEntry);
 				File entryDir = new File(entryFile.getParent());
-				if(filter!=null && filter.needFree(strEntry,entryFile)){
+				if(filter!=null && !filter.needFree(strEntry,entryFile)){
 					continue;
 				}
 
