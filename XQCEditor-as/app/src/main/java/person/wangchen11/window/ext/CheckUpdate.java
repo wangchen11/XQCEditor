@@ -40,7 +40,7 @@ public class CheckUpdate {
 		mContext = context;
 		mHandler = new Handler();
 		mShowNewVersionOnly = showNewVersionOnly;
-		// State.VersionNameNow = "2.1.1"; 
+		// State.VersionNameNow = "2.1.1";
 	}
 	public void checkForUpdate(){
 		if(Waps.isGoogle())
