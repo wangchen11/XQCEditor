@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="person.wangchen11.guirunner" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:name="person.wangchen11.guirunner.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"  >
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:name="org.libsdl.app.SDLActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"  >
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:name="person.wangchen11.guirunner.LogoActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+    </application>
+
+</manifest>
