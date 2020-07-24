@@ -168,8 +168,12 @@ public class GNUCCompiler {
 	public static String getRunCmd(Context context,File executeFile){
 		return getRunCmd(context,executeFile,null);
 	}
-	
+
 	public static String getRunCmd(Context context,File executeFile,String otherOption){
+		return getRunCmd(context,executeFile,null,null);
+	}
+
+	public static String getRunCmd(Context context,File executeFile,String otherOption,String home){
 		try {
 			//让rm不报警告 
 			new File(getRunablePath(context)+"asddsatemp.tmp").createNewFile();
@@ -179,12 +183,14 @@ public class GNUCCompiler {
 		String cmd="";
 		//cmd+=Busybox.getCmd(context);
 		executeFile=new File(executeFile.getPath());
+		if(home==null)
+			home = executeFile.getParent();
 		cmd+="if [ ! -f \""+executeFile.getPath()+"\" ]; then \n";
 		cmd+="echo \""+context.getText(R.string.no_elf_file)+"\"\n";
 		cmd+="else\n";
 		cmd+="cd \""+getRunablePath(context)+"\"\n";
 		cmd+="myrm *.tmp\n";
-		cmd+="cd \""+executeFile.getParent()+"\"\n";
+		cmd+="cd \""+home+"\"\n";
 		String tempPath=getTempFilePath(context);
 		cmd+="mycp \""+executeFile.getPath()+"\" \""+tempPath+"\"\n";
 		cmd+="chmod 777 \""+tempPath+"\"\n";

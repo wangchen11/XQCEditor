@@ -390,7 +390,7 @@ public class CEditor implements Window, ChangeFlagChanged, OnClickListener ,Wind
 						{
 
 							cmd+=GNUCCompiler2.getCompilerCmd( mWindowsManager.getContext(),cProject,false,null);
-							cmd+=GNUCCompiler.getRunCmd(mWindowsManager.getContext(), new File(cProject.getBinFilePath()));
+							cmd+=GNUCCompiler.getRunCmd(mWindowsManager.getContext(), new File(cProject.getBinFilePath()),null,cProject.getPath());
 							//cmd=GNUCCompiler.getProjectCompilerAndRunCmd(mWindowsManager.getContext(), files, new File(cProject.getBinFilePath()),  cProject.getOtherOption() );
 							processName=GNUCCompiler.getRunCmdProcessName();
 						}
