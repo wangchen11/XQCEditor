@@ -38,7 +38,7 @@ public class PackageApk implements OnClickListener{
 	private static ExecutorService mExecutorService;
 	private Handler mHandler=null;
 	@SuppressLint("InflateParams")
-	public PackageApk(@NonNull Context context,@NonNull CProject cProject) {
+	public PackageApk(@NonNull Context context,CProject cProject) {
 		mHandler=new Handler();
 		mContext=context;
 		mProject=cProject;

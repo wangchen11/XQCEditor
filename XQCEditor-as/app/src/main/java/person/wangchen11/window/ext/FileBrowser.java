@@ -19,9 +19,12 @@ import android.widget.Toast;
 import person.wangchen11.cproject.CProject;
 import person.wangchen11.filebrowser.FileBowserFragment;
 import person.wangchen11.filebrowser.OnOpenListener;
+import person.wangchen11.filebrowser.Open;
 import person.wangchen11.gnuccompiler.GNUCCompiler;
 import person.wangchen11.hexeditor.HexEditor;
+import person.wangchen11.packageapk.PackageApk;
 import person.wangchen11.plugins.PluginsManager;
+import person.wangchen11.signapk.SignApk;
 import person.wangchen11.util.FileUtil;
 import person.wangchen11.util.ToastUtil;
 import person.wangchen11.window.MenuTag;
@@ -214,6 +217,11 @@ public class FileBrowser implements Window,OnOpenListener, OnClickListener{
 			menuTags.add(new MenuTag(R.string.edit_with_hex, mWindowsManager.getContext().getResources().getText(R.string.edit_with_hex)));
 			menuTags.add(new MenuTag(R.string.zip, mWindowsManager.getContext().getResources().getText(R.string.zip)));
 		}
+
+		if(files!=null && files.length==1 && files[0].getName().toLowerCase().endsWith(".apk") ){
+			menuTags.add(new MenuTag(R.string.sign_apk, mWindowsManager.getContext().getResources().getText(R.string.sign_apk)));
+		}
+
 		menuTags.add(new MenuTag(R.string.new_file, mWindowsManager.getContext().getResources().getText(R.string.new_file)));
 		menuTags.add(new MenuTag(R.string.new_dir, mWindowsManager.getContext().getResources().getText(R.string.new_dir)));
 		menuTags.add(new MenuTag(R.string.new_project, mWindowsManager.getContext().getResources().getText(R.string.new_project)));
@@ -311,10 +319,31 @@ public class FileBrowser implements Window,OnOpenListener, OnClickListener{
 				}
 			}
 			break;
+		case R.string.sign_apk:
+			if(files!=null && files.length==1)
+			{
+				File file = files[0];
+				signApk(file.getAbsolutePath(),file.getAbsolutePath()+"_sign.apk");
+			}
+			break;
 		default:
 			break;
 		}
 		return true;
+	}
+
+	private boolean signApk(String apk,String singedApk)
+	{
+		PackageApk packageApk = new PackageApk(getFragment().getContext(),null);
+		packageApk.freeResourceIfNeed();
+		String []args={
+				packageApk.getPemPath(),//"platform.x509.pem",
+				packageApk.getPk8Path(),//"platform.pk8",
+				apk,
+				singedApk
+		};
+		person.wangchen11.signapk.SignApk.mymain(args);
+		return new File(singedApk).isFile();
 	}
 
 	@Override

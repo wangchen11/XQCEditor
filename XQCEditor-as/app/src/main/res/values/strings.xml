@@ -289,4 +289,5 @@
     <string name="file_size">File Size:</string>
     <string name="update_message">Update Message:</string>
     <string name="beg">Thank you for your donation.</string>
+    <string name="sign_apk">Sign APK</string>
 </resources>
