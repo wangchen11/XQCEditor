@@ -248,6 +248,7 @@ public class MainActivity extends Activity {
 
         {
             Button buttonMore = new Button(context);
+            buttonMore.setAlpha(0.5f);
             buttonMore.setId(R_id_termButton_more);
             buttonMore.setBackgroundDrawable(new CircleDrawable(Color.rgb(0x99, 0x99, 0x99)));
             int iconSize = getResources().getDimensionPixelSize(android.R.dimen.app_icon_size);
