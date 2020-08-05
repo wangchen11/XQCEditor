@@ -28,7 +28,9 @@ public class State {
 	//31 : 2.1.8 
 	//32 : 2.1.9 
 	//33 : 2.2.0 
-	//34 : 2.2.1 
+	//34 : 2.2.1
+	//43 : 2.2.9
+	//44 : 2.3.0
 	
 	public static final UpdateInfo[] mAllUpdates= {
 		new UpdateInfo(31,RES_KEY_WORKSPACE),//
@@ -40,7 +42,8 @@ public class State {
 
 		new UpdateInfo(34,RES_KEY_WORKSPACE),//
 		new UpdateInfo(34,RES_KEY_GCC),//
-		new UpdateInfo(34,RES_KEY_GCC),//
+
+		new UpdateInfo(44,RES_KEY_WORKSPACE),//
 	};
 	
 	public static void init(Context context)
