@@ -14,10 +14,7 @@ import person.wangchen11.filebrowser.FileWork;
 import person.wangchen11.gnuccompiler.GNUCCompiler;
 import person.wangchen11.qeditor.EditorFregment;
 import person.wangchen11.util.ToastUtil;
-import person.wangchen11.waps.ColseAdDialog;
-import person.wangchen11.waps.Key;
 import person.wangchen11.waps.Waps;
-import person.wangchen11.waps.pay.CloseAdActivity;
 import person.wangchen11.window.MenuTag;
 import person.wangchen11.window.TitleView;
 import person.wangchen11.window.Window;
@@ -58,7 +55,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Setting extends Fragment implements Window, TextWatcher, OnClickListener, OnCheckedChangeListener,Waps.AdListener{
+@SuppressLint("ValidFragment")
+public class Setting extends Fragment implements Window, TextWatcher, OnClickListener, OnCheckedChangeListener {
 	public static final String ConfigName="ceditor_config";
 	RelativeLayout mRelativeLayout;
 	public static Config mConfig = new Config();
@@ -89,7 +87,6 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 		if(!Waps.isTimeToShow()){
 			mRelativeLayout.findViewById(R.id.layout_ad).setVisibility(View.GONE);
 		}
-		Waps.updatePoints(mRelativeLayout.getContext(), this);
 		mConfig=loadConfig(getActivity());
 		refEditView();
 		refColorView();
@@ -130,7 +127,7 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 
 		((Button)(mRelativeLayout.findViewById(R.id.button_check_update))).setOnClickListener(this);
 		((TextView)(mRelativeLayout.findViewById(R.id.text_cur_version))).setText("v"+State.VersionNameNow);
-		((TextView)(mRelativeLayout.findViewById(R.id.text_my_id))).setText(Key.getIMEI(getActivity()));
+		((TextView)(mRelativeLayout.findViewById(R.id.text_my_id))).setVisibility(View.GONE);
 		return mRelativeLayout;
 	}
 	
@@ -386,22 +383,8 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 			new CheckUpdate(mWindowsManager.getContext()).checkForUpdate();
 			break;
 		case R.id.button_close_ad:
-			if(Key.hasRealKey(mRelativeLayout.getContext()))
-			{
-				showToast( getContext().getString(R.string.already_closed_ad));
-			}
-			else if (Key.getIMEI(getContext())==null){
-				showToast( getContext().getString(R.string.can_not_close_ad_no_imei));
-			} else
-			{
-				Intent intent = new Intent(mRelativeLayout.getContext(),CloseAdActivity.class);
-				startActivity(intent);
-			}
-			Waps.updatePoints(mRelativeLayout.getContext(), null);
 			break;
 		case R.id.button_show_ad:
-			Waps.showOffers(mRelativeLayout.getContext());
-			Waps.updatePoints(mRelativeLayout.getContext(), null);
 			break;
 		case R.id.button_ok:
 			applyChangeDefault(mConfig);
@@ -463,21 +446,6 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 	}
 	
 	private static int mPoints=0;
-	
-	@Override
-	public void getUpdatePoints(String arg0, int arg1) {
-		mPoints=arg1;
-		mRelativeLayout.post(new Runnable() {
-			@Override
-			public void run() {
-				((TextView)(mRelativeLayout.findViewById(R.id.points))).setText("积分:"+mPoints);
-			}
-		});
-	}
-
-	@Override
-	public void getUpdatePointsFailed(String arg0) {
-	}
 	
 	private Toast mToast=null; 
 	private void showToast(String str)

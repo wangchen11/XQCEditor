@@ -90,7 +90,6 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 		}
 		mBaseActivity = this;
 		ToastUtil.init(this);
-		Waps.init(this);
 		TencentApi.init(this);
 		State.init(this);
 		PluginsManager.init(this);
@@ -418,9 +417,6 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
 			List<String > needPremissions = new LinkedList<String>();
 			needPremissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-			if(!Waps.isGoogle()){
-				needPremissions.add(Manifest.permission.READ_PHONE_STATE);
-			}
 			
 			ArrayList<String> permissions=new ArrayList<String>();
 			for(String premission:needPremissions){

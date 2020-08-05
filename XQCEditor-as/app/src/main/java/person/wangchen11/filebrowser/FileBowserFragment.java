@@ -160,7 +160,6 @@ public class FileBowserFragment extends Fragment implements OnItemClickListener,
 				}
 			}
 		},1000);
-		Waps.showBanner(view.getContext(), (LinearLayout)view.findViewById(R.id.banner));
 		return view;
 	}
 	
