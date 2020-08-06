@@ -69,7 +69,7 @@ import android.widget.Toast;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class EditorActivity extends FragmentActivity implements OnClickListener,WindowsManager.WindowsManagerLintener{
 	protected static final String TAG="MainActivity"; 
-	private WindowsManager mWindowsManager;
+	public WindowsManager mWindowsManager;
 	private LinearLayout mWindowTitleList;
 	private PopupMenu mPopupMenu;
 	private EmptyFragment mEmptyFragment=new EmptyFragment();
@@ -359,7 +359,6 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 				if(mWindowsManager.closeAllWindow())
 				{
 					super.onBackPressed();
-					android.os.Process.killProcess(android.os.Process.myPid());
 				}
 			}
 			mPreBackTime=time;

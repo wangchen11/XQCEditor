@@ -185,7 +185,7 @@
     <string name="_wait">Wait</string>
     <string name="_back">Back</string>
     <string name="_updatemsg">Update message</string>
-    <string name="_updateinfo">Fix bad system call.\nUpdate gcc to 8.2.0.\n</string>
+    <string name="_updateinfo"></string>
     <string name="warn">Warning</string>
     <string name="error">Error</string>
     <string name="installing">Installing...</string>
@@ -290,4 +290,7 @@
     <string name="update_message">Update Message:</string>
     <string name="beg">Thank you for your donation.</string>
     <string name="sign_apk">Sign APK</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="agree">Agree</string>
+    <string name="disagree">Disagree</string>
 </resources>

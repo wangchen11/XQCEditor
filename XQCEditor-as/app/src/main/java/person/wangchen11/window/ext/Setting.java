@@ -19,6 +19,7 @@ import person.wangchen11.window.MenuTag;
 import person.wangchen11.window.TitleView;
 import person.wangchen11.window.Window;
 import person.wangchen11.window.WindowsManager;
+import person.wangchen11.xqceditor.PrivacyPolicy;
 import person.wangchen11.xqceditor.R;
 import person.wangchen11.xqceditor.State;
 import android.annotation.SuppressLint;
@@ -61,6 +62,7 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 	RelativeLayout mRelativeLayout;
 	public static Config mConfig = new Config();
 	private WindowsManager mWindowsManager;
+	private PrivacyPolicy mPrivacyPolicy;
 	public Setting(WindowsManager windowsManager)
 	{
 		mWindowsManager = windowsManager;
@@ -88,6 +90,7 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 			mRelativeLayout.findViewById(R.id.layout_ad).setVisibility(View.GONE);
 		}
 		mConfig=loadConfig(getActivity());
+		mPrivacyPolicy = new PrivacyPolicy(getActivity());
 		refEditView();
 		refColorView();
 		refSwitchView();
@@ -128,6 +131,11 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 		((Button)(mRelativeLayout.findViewById(R.id.button_check_update))).setOnClickListener(this);
 		((TextView)(mRelativeLayout.findViewById(R.id.text_cur_version))).setText("v"+State.VersionNameNow);
 		((TextView)(mRelativeLayout.findViewById(R.id.text_my_id))).setVisibility(View.GONE);
+		((TextView)(mRelativeLayout.findViewById(R.id.button_privacy_policy))).setOnClickListener(this);
+
+		if(!mPrivacyPolicy.isRequested()){
+			((TextView)(mRelativeLayout.findViewById(R.id.button_privacy_policy))).setVisibility(View.GONE);
+		}
 		return mRelativeLayout;
 	}
 	
@@ -401,6 +409,9 @@ public class Setting extends Fragment implements Window, TextWatcher, OnClickLis
 			break;
 		case R.id.button_save_theme:
 			showSaveThemeDialog(getActivity());
+			break;
+		case R.id.button_privacy_policy:
+			mPrivacyPolicy.showDialog(getActivity());
 			break;
 		default:
 			break;

@@ -420,4 +420,7 @@
     <string name="update_message">说明:</string>
     <string name="beg">本软件完全免费，无广告。您可以捐赠作者以支持本软件更新。10块钱不嫌多，100块不嫌少。\n</string>
     <string name="sign_apk">APK签名</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="agree">同意</string>
+    <string name="disagree">不同意</string>
 </resources>

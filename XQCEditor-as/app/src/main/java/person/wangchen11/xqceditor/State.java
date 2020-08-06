@@ -52,6 +52,7 @@ public class State {
 		VersionCodePro=sharedPreferences.getInt("VersionCodePro", 0);
 		VersionNamePro=sharedPreferences.getString("VersionNamePro", null);
 		PackageManager packageManager=context.getPackageManager();
+		PrivacyPolicy privacyPolicy = new PrivacyPolicy(context);
 		try {
 			PackageInfo packageInfo=packageManager.getPackageInfo(context.getPackageName(), 0);
 			VersionCodeNow=packageInfo.versionCode;
@@ -59,10 +60,14 @@ public class State {
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		if(isUpdated())
-		{
-			showUpdateMsg(context);
+
+		if(!privacyPolicy.isAgree()){
+			privacyPolicy.showDialog(context);
+		} else {
+			if(isUpdated())
+			{
+				showUpdateMsg(context);
+			}
 		}
 		
 		Log.i(TAG, "VersionCodePro:"+VersionCodePro);

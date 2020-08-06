@@ -346,7 +346,6 @@ public class WindowsManager implements View.OnClickListener, android.support.v7.
 				if(mPopupMenu!=null)
 					mPopupMenu.dismiss();
 				mContext.finish();
-				android.os.Process.killProcess(android.os.Process.myPid());
 			}
 			break;
 		case R.string.move_to_left:
