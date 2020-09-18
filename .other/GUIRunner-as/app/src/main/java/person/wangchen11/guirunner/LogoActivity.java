@@ -96,6 +96,7 @@ public class LogoActivity extends Activity {
 	private boolean requestNeedPermissions() {
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
 			List<String > needPremissions = new LinkedList<String>();
+			needPremissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
 			needPremissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
 			ArrayList<String> permissions=new ArrayList<String>();

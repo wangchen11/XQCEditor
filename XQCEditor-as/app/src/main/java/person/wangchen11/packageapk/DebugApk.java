@@ -44,7 +44,7 @@ public class DebugApk implements OnClickListener {
 	private static ExecutorService mExecutorService;
 	private Handler mHandler=null;
 	private static String mGUIRunnerPackage="person.wangchen11.guirunner";
-	private static String mRequestVersion="1.0.7";
+	private static String mRequestVersion="1.0.8";
 
 	@SuppressLint("InflateParams")
 	public DebugApk(@NonNull Context context,@NonNull CProject cProject) {

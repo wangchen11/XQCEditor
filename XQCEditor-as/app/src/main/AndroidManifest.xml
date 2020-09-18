@@ -21,6 +21,7 @@
         android:theme="@style/AppBaseTheme"
         android:usesCleartextTraffic="true"
         >
+        <!-- android:requestLegacyExternalStorage="true"-->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

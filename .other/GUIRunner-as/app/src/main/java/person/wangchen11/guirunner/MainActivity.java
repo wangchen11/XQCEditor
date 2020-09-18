@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		overridePendingTransition(0,0);
 		State.init(this);
-		
+
 		Intent intent = getIntent();
 		if(intent!=null){
 			Bundle bundle = intent.getExtras();
@@ -46,7 +46,10 @@ public class MainActivity extends Activity {
 			try {
 				String localSo=getFilesDir().getAbsolutePath()+"/temp.so";
 				new File(localSo).delete();
+				Log.i(TAG,"localSo:"+new File(localSo).exists());
 				FileWork.CopyFile(new File(DebugInfo.mSoPath), new File(localSo), new byte[4096]);
+				Log.i(TAG,"mSoPath:"+new File(DebugInfo.mSoPath).length());
+				Log.i(TAG,"localSo:"+new File(localSo).length());
 				System.load(localSo);
 				mInited=true;
 			} catch (Throwable e) {
