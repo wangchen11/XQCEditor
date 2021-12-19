@@ -767,9 +767,8 @@ public class MyEditText extends View implements OnGestureListener,TextWatcher, O
 		}
 		return this;
 	}
-	
-	public void showMenu()
-	{
+
+	public PopupMenu createMenu() {
 		PopupMenu popupMenu=new PopupMenu(this.getContext(), chooseViewToPopMenu(this) );
 		Menu menu=popupMenu.getMenu();
 		menu.add(0, android.R.id.copy, 0, android.R.string.copy);
@@ -785,9 +784,14 @@ public class MyEditText extends View implements OnGestureListener,TextWatcher, O
 				return performContextMenuAction(id);
 			}
 		});
-		popupMenu.show();
+		return popupMenu;
 	}
-	
+
+	public void showMenu()
+	{
+		createMenu().show();
+	}
+
 	@Override
 	public void onLongPress(MotionEvent e) {
 		//Log.i(TAG, "onLongPress");

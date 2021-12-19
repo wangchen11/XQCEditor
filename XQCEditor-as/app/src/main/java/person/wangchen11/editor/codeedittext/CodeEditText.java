@@ -12,14 +12,19 @@ import person.wangchen11.editor.edittext.AfterTextChangeListener;
 import person.wangchen11.editor.edittext.CodeInputFilter;
 import person.wangchen11.editor.edittext.EditableWithLayout;
 import person.wangchen11.editor.edittext.MyEditText;
+import person.wangchen11.editor.edittext.MyLayout;
 import person.wangchen11.editor.edittext.SpanBody;
 import person.wangchen11.gnuccompiler.GNUCCompiler;
+import person.wangchen11.xqceditor.R;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.v7.widget.PopupMenu;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MotionEvent;
 
 public class CodeEditText extends MyEditText implements CodeStypeAdapterListener{
@@ -188,6 +193,74 @@ public class CodeEditText extends MyEditText implements CodeStypeAdapterListener
 	private OnNeedChangeWants mOnNeedChangeWants=null;
 	public void setOnNeedChangeWants(OnNeedChangeWants onNeedChangeWants){
 		mOnNeedChangeWants=onNeedChangeWants;
+	}
+
+	@Override
+	public PopupMenu createMenu() {
+		PopupMenu popupMenu = super.createMenu();
+		Menu menu=popupMenu.getMenu();
+		menu.add(0, R.string.comment_uncomment, 0, R.string.comment_uncomment);
+		return popupMenu;
+	}
+
+	@Override
+	public boolean performContextMenuAction(int id) {
+		switch (id) {
+			case R.string.comment_uncomment: {
+				commentOrUncomment();
+			}
+		}
+		return super.performContextMenuAction(id);
+	}
+
+	public void commentOrUncomment() {
+		final String commentStart = "//";
+		Editable editable = getText();
+		int selectStart = getSelectionStart();
+		int selectEnd = getSelectionEnd();
+
+		MyLayout layout = getLayout();
+		int start = layout.getLineStart(layout.getLineForOffset(selectStart));
+		int end   = layout.getLineEnd(layout.getLineForOffset(selectEnd)) - 1;
+		Log.i(TAG, "commentOrUncomment start:"+start+" end:"+end);
+		if (start<0||end<start||end>editable.length()) {
+			return;
+		}
+
+		String[] lines = editable.subSequence(start,end).toString().split("\n");
+		boolean alreadyComment = false;
+		for (String line : lines) {
+			if (line.startsWith(commentStart)) {
+				alreadyComment = true;
+				break;
+			}
+		}
+
+		final boolean doComment = !alreadyComment;
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i=0;i<lines.length;i++) {
+			final String line = lines[i];
+			if (i!=0) {
+				stringBuilder.append("\n");
+			}
+			if (doComment) {
+				if (line.startsWith(commentStart)) {
+					stringBuilder.append(line);
+				} else {
+					stringBuilder.append(commentStart).append(line);
+				}
+			} else { // uncomment
+				if (line.startsWith(commentStart)) {
+					stringBuilder.append(line.substring(commentStart.length()));
+				} else {
+					stringBuilder.append(line);
+				}
+			}
+		}
+		String repaceStr = stringBuilder.toString();
+		editable.replace(start,end,repaceStr);
+		int afterSelectEnd = start + repaceStr.length();
+		setSelection(start,afterSelectEnd);
 	}
 }
 

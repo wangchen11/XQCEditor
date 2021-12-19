@@ -141,7 +141,7 @@ public class ConsoleInputConnection extends MyInputConnection implements Console
     public void checkLine(){
     	int lineCount=getLayout().getLineCount();
     	if(lineCount>mMaxLine){
-    		int deleteLen=getLayout().getLineOffset(lineCount-mMaxLine+1);
+    		int deleteLen=getLayout().getLineStart(lineCount-mMaxLine+1);
     		mEditable.replace(0, deleteLen, "",0,0);
         	mStartPosition=getEditable().length();
         	mProEndPosition=mStartPosition;

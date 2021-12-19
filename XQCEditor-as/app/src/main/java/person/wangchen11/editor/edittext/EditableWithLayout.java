@@ -1011,8 +1011,13 @@ public class EditableWithLayout implements Editable,MyLayout {
 			mSpanBodies.add(spanBody);
 	}
 	@Override
-	public int getLineOffset(int line) {
+	public int getLineStart(int line) {
 		return mLineBodies.get(line).mStart;
+	}
+
+	@Override
+	public int getLineEnd(int line) {
+		return mLineBodies.get(line).mEnd;
 	}
 	
 	public void setMaxSaveHistory(int maxSaveHistory){

@@ -14,7 +14,9 @@ public interface MyLayout {
 
 	public int getLineForOffset(int start);
 	
-	public int getLineOffset(int line);
+	public int getLineStart(int line);
+
+	public int getLineEnd(int line);
 
 	public float getPrimaryHorizontal(int start);
 
