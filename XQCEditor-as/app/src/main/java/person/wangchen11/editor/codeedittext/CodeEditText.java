@@ -227,7 +227,9 @@ public class CodeEditText extends MyEditText implements CodeStypeAdapterListener
 			return;
 		}
 
-		String[] lines = editable.subSequence(start,end).toString().split("\n");
+		String content = editable.subSequence(start,end).toString();
+
+		String[] lines = splitStringKeepSplitter(content,"\n");
 		boolean alreadyComment = false;
 		for (String line : lines) {
 			if (line.startsWith(commentStart)) {
@@ -240,9 +242,6 @@ public class CodeEditText extends MyEditText implements CodeStypeAdapterListener
 		StringBuilder stringBuilder = new StringBuilder();
 		for (int i=0;i<lines.length;i++) {
 			final String line = lines[i];
-			if (i!=0) {
-				stringBuilder.append("\n");
-			}
 			if (doComment) {
 				if (line.startsWith(commentStart)) {
 					stringBuilder.append(line);
@@ -257,10 +256,29 @@ public class CodeEditText extends MyEditText implements CodeStypeAdapterListener
 				}
 			}
 		}
-		String repaceStr = stringBuilder.toString();
-		editable.replace(start,end,repaceStr);
-		int afterSelectEnd = start + repaceStr.length();
+		String replaceStr = stringBuilder.toString();
+		editable.replace(start,end,replaceStr);
+		int afterSelectEnd = start + replaceStr.length();
 		setSelection(start,afterSelectEnd);
+	}
+
+	public String[] splitStringKeepSplitter(String content,String splitter) {
+		List<String> list = new ArrayList();
+		int currentStart = 0;
+		int index = 0;
+		while( (index = content.indexOf(splitter,currentStart))>=currentStart ) {
+			int end = index+splitter.length();
+			String line = content.substring(currentStart,end);
+			list.add(line);
+			currentStart=end;
+		}
+		String line = content.substring(currentStart);
+		if (line.length()>0) {
+			list.add(line);
+		}
+
+		String[] array = new String[list.size()];
+		return list.toArray(array);
 	}
 }
 
