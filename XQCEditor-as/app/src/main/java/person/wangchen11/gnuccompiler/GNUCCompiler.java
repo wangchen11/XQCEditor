@@ -170,7 +170,7 @@ public class GNUCCompiler {
 	}
 
 	public static String getRunCmd(Context context,File executeFile,String otherOption){
-		return getRunCmd(context,executeFile,null,null);
+		return getRunCmd(context,executeFile,otherOption,null);
 	}
 
 	public static String getRunCmd(Context context,File executeFile,String otherOption,String home){
