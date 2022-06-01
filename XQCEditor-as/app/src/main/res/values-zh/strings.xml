@@ -208,6 +208,9 @@
     <string name="_back">返回</string>
     <string name="_updatemsg">更新说明</string>
     <string name="_updateinfo">
+        2.3.1:\n
+        (1)新增注释/解注释功能。\n
+        \n
         2.3.0:\n
         (1)更新控制台应用程序打包资源，优化控制台程序功能。控制台程序打包后可以访问assets目录下的资源了。\n
         (2)增加简单的apk签名功能，仅做测试签名用。\n
@@ -423,4 +426,5 @@
     <string name="privacy_policy">隐私政策</string>
     <string name="agree">同意</string>
     <string name="disagree">不同意</string>
+    <string name="comment_uncomment">注释/解注释</string>
 </resources>
