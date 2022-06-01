@@ -18,6 +18,9 @@ android {
         versionName "2.3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.wangchen11
+        ndk {
+            abiFilters 'armeabi','mips','x86'
+        }
     }
     buildTypes {
         release {
