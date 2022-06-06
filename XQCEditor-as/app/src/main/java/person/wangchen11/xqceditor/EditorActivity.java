@@ -37,7 +37,9 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -47,6 +49,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.provider.Settings;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -68,7 +72,8 @@ import android.widget.Toast;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class EditorActivity extends FragmentActivity implements OnClickListener,WindowsManager.WindowsManagerLintener{
-	protected static final String TAG="MainActivity"; 
+	protected static final String TAG="MainActivity";
+	private static final int START_ACTIVITY_REQUEST_ACCESS_ALL_FILE = 100;
 	public WindowsManager mWindowsManager;
 	private LinearLayout mWindowTitleList;
 	private PopupMenu mPopupMenu;
@@ -428,10 +433,30 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 				permissions.toArray(strs);
 				this.requestPermissions(strs, 0);
 				Log.i(TAG, "requestPermissions:"+strs.length);
+			} else {
+				requestStorageManager();
 			}
 		}
 	}
-	
+
+	private void requestStorageManager() {
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R) {
+			if (!Environment.isExternalStorageManager()) {
+				new AlertDialog.Builder(this)
+						.setMessage(R.string.request_storage_manager_permission)
+						.setNegativeButton(android.R.string.cancel, null)
+						.setPositiveButton(R.string.go_to_authorization, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								startActivityForResult(new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION), START_ACTIVITY_REQUEST_ACCESS_ALL_FILE);
+							}
+						})
+						.create()
+						.show();
+			}
+		}
+	}
+
 	@SuppressLint("NewApi")
 	@Override
 	public void onRequestPermissionsResult(int requestCode,
@@ -442,7 +467,9 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 			Log.i(TAG,""+i+":"+grantResults[i]+":"+permissions[i]);
 			if(grantResults[i]==android.content.pm.PackageManager.PERMISSION_GRANTED) {
 				if(permissions[i].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-					GNUCCompiler.freeResourceIfNeed(this);
+					if(Build.VERSION.SDK_INT<Build.VERSION_CODES.R) {
+						GNUCCompiler.freeResourceIfNeed(this);
+					}
 				}
 			} else {
 				if(permissions[i].equals(Manifest.permission.READ_PHONE_STATE)) {
@@ -457,5 +484,20 @@ public class EditorActivity extends FragmentActivity implements OnClickListener,
 			msg+=getString(R.string.please_authorize);
 			Toast.makeText(this,msg ,Toast.LENGTH_LONG).show() ;
 		}
+		requestStorageManager();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		if (requestCode == START_ACTIVITY_REQUEST_ACCESS_ALL_FILE) {
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R) {
+				if (Environment.isExternalStorageManager()) {
+					GNUCCompiler.freeResourceIfNeed(this);
+				} else {
+					Toast.makeText(this, R.string.request_storage_manager_permission,Toast.LENGTH_LONG).show() ;
+				}
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 }

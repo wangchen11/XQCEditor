@@ -294,4 +294,6 @@
     <string name="agree">Agree</string>
     <string name="disagree">Disagree</string>
     <string name="comment_uncomment">Comment/Uncomment</string>
+    <string name="request_storage_manager_permission">Your authorization is required to access files on the device</string>
+    <string name="go_to_authorization">Go to authorization</string>
 </resources>

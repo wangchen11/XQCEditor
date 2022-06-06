@@ -427,4 +427,6 @@
     <string name="agree">同意</string>
     <string name="disagree">不同意</string>
     <string name="comment_uncomment">注释/解注释</string>
+    <string name="request_storage_manager_permission">需要您的授权才能访问设备上的文件</string>
+    <string name="go_to_authorization">去授权</string>
 </resources>
