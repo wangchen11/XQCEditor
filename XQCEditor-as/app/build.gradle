@@ -9,13 +9,13 @@ android {
             keyPassword '1012371864'
         }
     }
-    compileSdkVersion 28
+    compileSdkVersion 31
     defaultConfig {
         applicationId "person.wangchen11.xqceditor"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 44
-        versionName "2.3.1"
+        versionCode 45
+        versionName "2.3.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.wangchen11
         ndk {

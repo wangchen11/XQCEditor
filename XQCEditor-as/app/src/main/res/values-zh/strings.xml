@@ -208,6 +208,8 @@
     <string name="_back">返回</string>
     <string name="_updatemsg">更新说明</string>
     <string name="_updateinfo">
+        2.3.2:\n
+        (1)修复运行elf文件时参数未能传递到可执行文件\n
         2.3.1:\n
         (1)新增注释/解注释功能。\n
         \n
