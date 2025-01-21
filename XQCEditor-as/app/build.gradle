@@ -9,6 +9,7 @@ android {
             keyPassword '1012371864'
         }
     }
+	ndkVersion '21.0.6113669'
     compileSdkVersion 31
     defaultConfig {
         applicationId "person.wangchen11.xqceditor"
@@ -19,7 +20,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.wangchen11
         ndk {
-            abiFilters 'armeabi','mips','x86'
+            abiFilters 'armeabi','mips','x86',"arm64-v8a","armeabi-v7a","mips64","x86_64"
         }
     }
     buildTypes {
