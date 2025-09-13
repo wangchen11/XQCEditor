@@ -4,8 +4,11 @@ ext {
 
 buildscript {
     repositories {
-        google()
+        maven {
+            setUrl("https://maven.aliyun.com/repository/public")
+        }
         jcenter()
+        google()
         
     }
     dependencies {
@@ -18,8 +21,11 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+        maven {
+            setUrl("https://maven.aliyun.com/repository/public")
+        }
         jcenter()
+        google()
         
     }
 }
