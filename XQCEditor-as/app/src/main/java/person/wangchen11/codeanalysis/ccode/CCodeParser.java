@@ -432,7 +432,9 @@ public class CCodeParser implements Runnable{
 						}
 					}
 					else{
-						index++;
+						tempIndex=index+1;
+						mCodeSpans.add(new CCodeSpan(CCodeSpan.TYPE_NONE, index, tempIndex,code));
+						index=tempIndex;
 					}
 					break;
 				default:

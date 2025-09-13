@@ -81,6 +81,7 @@ public class CPPCodeKeyWords {
 		"endif",
 		"error",
 		"program",
+		"pragma",
 	};
 
 	public static char [][]mKeyWord_Char=null;

@@ -48,5 +48,6 @@ public class CCodeKeywords {
 		"endif",
 		"error",
 		"program",
+		"pragma",
 	};
 }

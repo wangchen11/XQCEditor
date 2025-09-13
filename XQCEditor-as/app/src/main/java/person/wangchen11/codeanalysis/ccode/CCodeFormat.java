@@ -28,8 +28,9 @@ public class CCodeFormat {
 		int level = 0;
 		boolean isIfWhileORFor = false;
 		int inNumber = 0;
-		boolean thisLineHasExtern = false;;
-		
+		boolean thisLineHasExtern = false;
+		boolean thisLineIsDefine = false;
+
 		for(int i=0;i<codeSpans.size();i++)
 		{
 			CCodeSpan codeSpan = codeSpans.get(i);
@@ -132,7 +133,7 @@ public class CCodeFormat {
 				else
 				{
 					level++;
-					if( nextSpan!=null && (!nextSpan.mContent.equals("\n")) )
+					if(!nextSpan.mContent.equals("\n") && !nextSpan.mContent.equals("\\"))
 					{
 						stringBuilder.append("\n");
 						stringBuilder.append(makeSameChars(level,'\t'));
@@ -184,6 +185,11 @@ public class CCodeFormat {
 			if(codeSpan.mContent.equals("extern"))
 			{
 				thisLineHasExtern = true;
+			}
+			else
+			if(codeSpan.mContent.equals("define"))
+			{
+				thisLineIsDefine = true;
 			}
 			else
 			if(codeSpan.mContent.equals("("))
@@ -244,8 +250,18 @@ public class CCodeFormat {
 							}
 						}
 					}
+				} else {
+					if (nextSpan.mContent.equals("(")) {
+						stringBuilder.append(" ");
+					} else if (nextSpan.mType != CCodeSpan.TYPE_NONE) {
+						stringBuilder.append(" ");
+					}
 				}
-				
+
+			}else
+			if(codeSpan.mContent.equals(","))
+			{
+				stringBuilder.append(" ");
 			}else
 			if(codeSpan.mContent.equals(";"))
 			{
@@ -275,6 +291,7 @@ public class CCodeFormat {
 			if(codeSpan.mContent.equals("\n"))
 			{
 				thisLineHasExtern = false;
+				thisLineIsDefine = false;
 				if( nextSpan!=null && (nextSpan.mContent.equals(")")) )
 				{
 					stringBuilder.append(makeSameChars(level,'\t'));

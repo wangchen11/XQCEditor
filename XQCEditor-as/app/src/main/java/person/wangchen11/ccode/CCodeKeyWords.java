@@ -48,6 +48,7 @@ public class CCodeKeyWords {
 		"endif",
 		"error",
 		"program",
+		"pragma",
 	};
 
 	public static char [][]mKeyWord_Char=null;
