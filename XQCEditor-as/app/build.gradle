@@ -15,8 +15,8 @@ android {
         applicationId "person.wangchen11.xqceditor"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 45
-        versionName "2.3.2"
+        versionCode 46
+        versionName "2.3.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.wangchen11
         ndk {
